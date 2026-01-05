@@ -1,20 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  output: 'export',
+  trailingSlash: true,
   images: {
-    formats: ['image/avif', 'image/webp'],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '**',
-      },
-    ],
+    unoptimized: true,
   },
-  // experimental: {
-  //   optimizeCss: true, // Requires 'critters' package
-  // },
+  basePath: process.env.NODE_ENV === 'production' ? '/third-fuse-energy' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/third-fuse-energy/' : '',
 };
 
 module.exports = nextConfig;
