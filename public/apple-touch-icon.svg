@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
+  <defs>
+    <linearGradient id="apple-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0B63D6"/>
+      <stop offset="100%" style="stop-color:#4DA8FF"/>
+    </linearGradient>
+  </defs>
+  <rect width="180" height="180" rx="40" fill="url(#apple-gradient)"/>
+  <circle cx="90" cy="90" r="45" fill="#ffffff"/>
+  <g stroke="#D6222A" stroke-width="6" stroke-linecap="round">
+    <line x1="90" y1="30" x2="90" y2="18"/>
+    <line x1="90" y1="162" x2="90" y2="150"/>
+    <line x1="30" y1="90" x2="18" y2="90"/>
+    <line x1="162" y1="90" x2="150" y2="90"/>
+    <line x1="47" y1="47" x2="39" y2="39"/>
+    <line x1="141" y1="141" x2="133" y2="133"/>
+    <line x1="47" y1="133" x2="39" y2="141"/>
+    <line x1="141" y1="39" x2="133" y2="47"/>
+  </g>
+</svg>

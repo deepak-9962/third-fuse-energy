@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="og-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0B63D6"/>
+      <stop offset="100%" style="stop-color:#1a365d"/>
+    </linearGradient>
+    <linearGradient id="og-accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4DA8FF"/>
+      <stop offset="100%" style="stop-color:#ffffff"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#og-bg)"/>
+  
+  <!-- Decorative Elements -->
+  <circle cx="1100" cy="100" r="200" fill="#4DA8FF" opacity="0.1"/>
+  <circle cx="100" cy="530" r="150" fill="#D6222A" opacity="0.1"/>
+  
+  <!-- Sun Symbol -->
+  <g transform="translate(900, 200)">
+    <circle cx="100" cy="100" r="60" fill="url(#og-accent)"/>
+    <g stroke="#ffffff" stroke-width="6" stroke-linecap="round" opacity="0.8">
+      <line x1="100" y1="20" x2="100" y2="0"/>
+      <line x1="100" y1="200" x2="100" y2="180"/>
+      <line x1="20" y1="100" x2="0" y2="100"/>
+      <line x1="200" y1="100" x2="180" y2="100"/>
+      <line x1="43" y1="43" x2="29" y2="29"/>
+      <line x1="171" y1="171" x2="157" y2="157"/>
+      <line x1="43" y1="157" x2="29" y2="171"/>
+      <line x1="171" y1="29" x2="157" y2="43"/>
+    </g>
+  </g>
+  
+  <!-- Company Name -->
+  <text x="100" y="260" font-family="Montserrat, Arial, sans-serif" font-weight="800" font-size="72" fill="#ffffff">THIRD FUSE</text>
+  <text x="100" y="340" font-family="Montserrat, Arial, sans-serif" font-weight="800" font-size="72" fill="#4DA8FF">ENERGY</text>
+  
+  <!-- Tagline -->
+  <text x="100" y="420" font-family="Inter, Arial, sans-serif" font-weight="400" font-size="28" fill="#ffffff" opacity="0.9">Powering Tomorrow with Clean Energy Today</text>
+  
+  <!-- Bottom Accent Line -->
+  <rect x="100" y="480" width="200" height="6" fill="#D6222A" rx="3"/>
+  
+  <!-- Website URL -->
+  <text x="100" y="560" font-family="Inter, Arial, sans-serif" font-weight="500" font-size="24" fill="#ffffff" opacity="0.7">www.thirdfuseenergy.com</text>
+</svg>

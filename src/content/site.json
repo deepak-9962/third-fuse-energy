@@ -1,0 +1,48 @@
+{
+  "company": {
+    "name": "Third Fuse Energy Corp",
+    "tagline": "Powering the Future with Solar Energy",
+    "description": "Leading residential & commercial solar installations across the nation.",
+    "founded": 2010,
+    "email": "info@thirdfuseenergy.com",
+    "phone": "+1 (555) 123-4567",
+    "address": {
+      "street": "123 Solar Way, Suite 100",
+      "city": "Austin",
+      "state": "TX",
+      "zip": "78701",
+      "country": "USA"
+    }
+  },
+  "navigation": {
+    "main": [
+      { "title": "Home", "href": "/" },
+      { "title": "About", "href": "/about" },
+      { "title": "Services", "href": "/services" },
+      { "title": "Projects", "href": "/projects" },
+      { "title": "Contact", "href": "/contact" }
+    ],
+    "footer": [
+      { "title": "Privacy Policy", "href": "/privacy" },
+      { "title": "Terms of Service", "href": "/terms" }
+    ]
+  },
+  "social": [
+    { "name": "Facebook", "href": "https://facebook.com/thirdfuseenergy", "icon": "facebook" },
+    { "name": "Twitter", "href": "https://twitter.com/thirdfuseenergy", "icon": "twitter" },
+    { "name": "LinkedIn", "href": "https://linkedin.com/company/thirdfuseenergy", "icon": "linkedin" },
+    { "name": "Instagram", "href": "https://instagram.com/thirdfuseenergy", "icon": "instagram" }
+  ],
+  "seo": {
+    "defaultTitle": "Third Fuse Energy Corp | Solar Installation Experts",
+    "titleTemplate": "%s | Third Fuse Energy Corp",
+    "defaultDescription": "Third Fuse Energy provides premium residential and commercial solar installations. Get a free quote today and start saving with clean solar energy.",
+    "siteUrl": "https://thirdfuseenergy.com",
+    "ogImage": "/images/og-default.jpg"
+  },
+  "footer": {
+    "description": "Third Fuse Energy is a leading solar installation company providing residential and commercial solar solutions across the nation.",
+    "copyright": "© 2024 Third Fuse Energy Corp. All rights reserved.",
+    "certifications": ["NABCEP Certified", "BBB A+ Rating", "Licensed & Insured"]
+  }
+}

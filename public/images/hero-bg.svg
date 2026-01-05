@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#87CEEB"/>
+      <stop offset="100%" style="stop-color:#1E90FF"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a3e"/>
+      <stop offset="100%" style="stop-color:#0B63D6"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Sky Background -->
+  <rect width="1920" height="1080" fill="url(#sky)"/>
+  
+  <!-- Sun -->
+  <circle cx="1600" cy="200" r="80" fill="#FFD700"/>
+  <g stroke="#FFD700" stroke-width="4" stroke-linecap="round" opacity="0.7">
+    <line x1="1600" y1="80" x2="1600" y2="60"/>
+    <line x1="1600" y1="340" x2="1600" y2="320"/>
+    <line x1="1480" y1="200" x2="1460" y2="200"/>
+    <line x1="1740" y1="200" x2="1720" y2="200"/>
+    <line x1="1515" y1="115" x2="1500" y2="100"/>
+    <line x1="1685" y1="285" x2="1700" y2="300"/>
+    <line x1="1515" y1="285" x2="1500" y2="300"/>
+    <line x1="1685" y1="115" x2="1700" y2="100"/>
+  </g>
+  
+  <!-- Ground/Hills -->
+  <ellipse cx="960" cy="1200" rx="1200" ry="300" fill="#228B22"/>
+  <ellipse cx="300" cy="1150" rx="400" ry="200" fill="#2E8B57"/>
+  <ellipse cx="1600" cy="1150" rx="500" ry="180" fill="#2E8B57"/>
+  
+  <!-- Solar Panel Array - Row 1 -->
+  <g transform="translate(200, 600)">
+    <rect x="0" y="0" width="200" height="120" fill="url(#panel)" stroke="#333" stroke-width="2" transform="skewY(-15)"/>
+    <line x1="50" y1="-7" x2="50" y2="108" stroke="#4DA8FF" stroke-width="1" transform="skewY(-15)"/>
+    <line x1="100" y1="-15" x2="100" y2="100" stroke="#4DA8FF" stroke-width="1" transform="skewY(-15)"/>
+    <line x1="150" y1="-22" x2="150" y2="93" stroke="#4DA8FF" stroke-width="1" transform="skewY(-15)"/>
+    <line x1="0" y1="30" x2="200" y2="0" stroke="#4DA8FF" stroke-width="1"/>
+    <line x1="0" y1="60" x2="200" y2="30" stroke="#4DA8FF" stroke-width="1"/>
+    <line x1="0" y1="90" x2="200" y2="60" stroke="#4DA8FF" stroke-width="1"/>
+  </g>
+  
+  <g transform="translate(450, 600)">
+    <rect x="0" y="0" width="200" height="120" fill="url(#panel)" stroke="#333" stroke-width="2" transform="skewY(-15)"/>
+    <line x1="50" y1="-7" x2="50" y2="108" stroke="#4DA8FF" stroke-width="1" transform="skewY(-15)"/>
+    <line x1="100" y1="-15" x2="100" y2="100" stroke="#4DA8FF" stroke-width="1" transform="skewY(-15)"/>
+    <line x1="150" y1="-22" x2="150" y2="93" stroke="#4DA8FF" stroke-width="1" transform="skewY(-15)"/>
+    <line x1="0" y1="30" x2="200" y2="0" stroke="#4DA8FF" stroke-width="1"/>
+    <line x1="0" y1="60" x2="200" y2="30" stroke="#4DA8FF" stroke-width="1"/>
+    <line x1="0" y1="90" x2="200" y2="60" stroke="#4DA8FF" stroke-width="1"/>
+  </g>
+  
+  <g transform="translate(700, 600)">
+    <rect x="0" y="0" width="200" height="120" fill="url(#panel)" stroke="#333" stroke-width="2" transform="skewY(-15)"/>
+    <line x1="50" y1="-7" x2="50" y2="108" stroke="#4DA8FF" stroke-width="1" transform="skewY(-15)"/>
+    <line x1="100" y1="-15" x2="100" y2="100" stroke="#4DA8FF" stroke-width="1" transform="skewY(-15)"/>
+    <line x1="150" y1="-22" x2="150" y2="93" stroke="#4DA8FF" stroke-width="1" transform="skewY(-15)"/>
+    <line x1="0" y1="30" x2="200" y2="0" stroke="#4DA8FF" stroke-width="1"/>
+    <line x1="0" y1="60" x2="200" y2="30" stroke="#4DA8FF" stroke-width="1"/>
+    <line x1="0" y1="90" x2="200" y2="60" stroke="#4DA8FF" stroke-width="1"/>
+  </g>
+  
+  <!-- Solar Panel Array - Row 2 -->
+  <g transform="translate(300, 750)">
+    <rect x="0" y="0" width="200" height="120" fill="url(#panel)" stroke="#333" stroke-width="2" transform="skewY(-15)"/>
+    <line x1="50" y1="-7" x2="50" y2="108" stroke="#4DA8FF" stroke-width="1" transform="skewY(-15)"/>
+    <line x1="100" y1="-15" x2="100" y2="100" stroke="#4DA8FF" stroke-width="1" transform="skewY(-15)"/>
+    <line x1="150" y1="-22" x2="150" y2="93" stroke="#4DA8FF" stroke-width="1" transform="skewY(-15)"/>
+    <line x1="0" y1="30" x2="200" y2="0" stroke="#4DA8FF" stroke-width="1"/>
+    <line x1="0" y1="60" x2="200" y2="30" stroke="#4DA8FF" stroke-width="1"/>
+    <line x1="0" y1="90" x2="200" y2="60" stroke="#4DA8FF" stroke-width="1"/>
+  </g>
+  
+  <g transform="translate(550, 750)">
+    <rect x="0" y="0" width="200" height="120" fill="url(#panel)" stroke="#333" stroke-width="2" transform="skewY(-15)"/>
+    <line x1="50" y1="-7" x2="50" y2="108" stroke="#4DA8FF" stroke-width="1" transform="skewY(-15)"/>
+    <line x1="100" y1="-15" x2="100" y2="100" stroke="#4DA8FF" stroke-width="1" transform="skewY(-15)"/>
+    <line x1="150" y1="-22" x2="150" y2="93" stroke="#4DA8FF" stroke-width="1" transform="skewY(-15)"/>
+    <line x1="0" y1="30" x2="200" y2="0" stroke="#4DA8FF" stroke-width="1"/>
+    <line x1="0" y1="60" x2="200" y2="30" stroke="#4DA8FF" stroke-width="1"/>
+    <line x1="0" y1="90" x2="200" y2="60" stroke="#4DA8FF" stroke-width="1"/>
+  </g>
+  
+  <g transform="translate(800, 750)">
+    <rect x="0" y="0" width="200" height="120" fill="url(#panel)" stroke="#333" stroke-width="2" transform="skewY(-15)"/>
+    <line x1="50" y1="-7" x2="50" y2="108" stroke="#4DA8FF" stroke-width="1" transform="skewY(-15)"/>
+    <line x1="100" y1="-15" x2="100" y2="100" stroke="#4DA8FF" stroke-width="1" transform="skewY(-15)"/>
+    <line x1="150" y1="-22" x2="150" y2="93" stroke="#4DA8FF" stroke-width="1" transform="skewY(-15)"/>
+    <line x1="0" y1="30" x2="200" y2="0" stroke="#4DA8FF" stroke-width="1"/>
+    <line x1="0" y1="60" x2="200" y2="30" stroke="#4DA8FF" stroke-width="1"/>
+    <line x1="0" y1="90" x2="200" y2="60" stroke="#4DA8FF" stroke-width="1"/>
+  </g>
+  
+  <!-- House with Solar -->
+  <g transform="translate(1200, 550)">
+    <!-- House Body -->
+    <rect x="0" y="100" width="300" height="200" fill="#8B4513"/>
+    <!-- Roof -->
+    <polygon points="0,100 150,0 300,100" fill="#654321"/>
+    <!-- Roof Solar Panels -->
+    <rect x="50" y="30" width="80" height="50" fill="#1a1a3e" stroke="#4DA8FF" stroke-width="1" transform="rotate(-25, 90, 55)"/>
+    <rect x="150" y="30" width="80" height="50" fill="#1a1a3e" stroke="#4DA8FF" stroke-width="1" transform="rotate(-25, 190, 55)"/>
+    <!-- Door -->
+    <rect x="120" y="180" width="60" height="120" fill="#4a3728"/>
+    <!-- Windows -->
+    <rect x="30" y="140" width="60" height="60" fill="#87CEEB" stroke="#fff" stroke-width="2"/>
+    <rect x="210" y="140" width="60" height="60" fill="#87CEEB" stroke="#fff" stroke-width="2"/>
+  </g>
+  
+  <!-- Clouds -->
+  <g fill="#fff" opacity="0.8">
+    <ellipse cx="300" cy="150" rx="100" ry="40"/>
+    <ellipse cx="250" cy="130" rx="60" ry="30"/>
+    <ellipse cx="350" cy="130" rx="70" ry="35"/>
+    
+    <ellipse cx="800" cy="100" rx="120" ry="45"/>
+    <ellipse cx="740" cy="80" rx="70" ry="35"/>
+    <ellipse cx="860" cy="80" rx="80" ry="40"/>
+    
+    <ellipse cx="1200" cy="180" rx="90" ry="35"/>
+    <ellipse cx="1150" cy="160" rx="50" ry="25"/>
+    <ellipse cx="1250" cy="160" rx="60" ry="30"/>
+  </g>
+  
+  <!-- Brand Overlay -->
+  <rect x="0" y="0" width="1920" height="1080" fill="#0B63D6" opacity="0.1"/>
+</svg>

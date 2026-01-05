@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   CSS Custom Properties (Design Tokens)
+   From PRD Section 4 - Color palette
+   ============================================ */
+:root {
+  /* Brand Colors */
+  --brand-blue: #0B63D6;
+  --brand-red: #D6222A;
+  --accent-blue: #4DA8FF;
+
+  /* Neutral Colors */
+  --text: #1F2937;
+  --text-light: #6B7280;
+  --bg: #FFFFFF;
+  --muted: #F5F7FA;
+  --surface: #F8FAFC;
+  --border: #E5E7EB;
+
+  /* Typography */
+  --font-heading: 'Montserrat', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Spacing */
+  --section-padding: 5rem;
+  --content-max-width: 1200px;
+  --gutter: 1.5rem;
+
+  /* Transitions */
+  --transition-fast: 180ms;
+  --transition-default: 350ms;
+  --ease-custom: cubic-bezier(0.2, 0.9, 0.2, 1);
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================
+   Base Styles
+   ============================================ */
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--text);
+    background-color: var(--bg);
+    line-height: 1.5;
+    font-size: 1rem;
+  }
+
+  /* Typography - PRD Section 5 */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--text);
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 2.625rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    letter-spacing: -0.01em;
+  }
+
+  h3 {
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+    font-weight: 600;
+  }
+
+  p {
+    line-height: 1.6;
+    color: var(--text-light);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Focus states - Accessibility */
+  :focus-visible {
+    outline: 2px solid var(--brand-blue);
+    outline-offset: 2px;
+  }
+
+  /* Remove default focus outline, rely on focus-visible */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+}
+
+/* ============================================
+   Component Utilities
+   ============================================ */
+@layer components {
+  /* Container */
+  .container-content {
+    @apply mx-auto w-full max-w-content px-gutter;
+  }
+
+  /* Section spacing */
+  .section-padding {
+    @apply py-section-mobile md:py-section;
+  }
+
+  /* Card base */
+  .card {
+    @apply bg-white rounded-xl shadow-card transition-all duration-default ease-custom;
+  }
+
+  .card-hover {
+    @apply hover:shadow-card-hover hover:-translate-y-1;
+  }
+
+  /* Button base styles */
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold text-base transition-all duration-fast ease-custom focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply btn bg-brand text-white hover:brightness-110 focus-visible:ring-brand;
+  }
+
+  .btn-secondary {
+    @apply btn bg-white text-brand border-2 border-brand hover:bg-brand hover:text-white focus-visible:ring-brand;
+  }
+
+  .btn-accent {
+    @apply btn bg-brand-red text-white hover:brightness-110 focus-visible:ring-brand-red;
+  }
+
+  /* Link styles */
+  .link {
+    @apply text-brand hover:text-brand-accent underline-offset-4 hover:underline transition-colors duration-fast;
+  }
+
+  /* Form inputs */
+  .input {
+    @apply block w-full rounded-lg border border-border bg-white px-4 py-3 text-text placeholder:text-muted focus:border-brand focus:ring-2 focus:ring-brand-accent transition-all duration-fast;
+  }
+
+  .input-error {
+    @apply border-brand-red focus:border-brand-red focus:ring-brand-red;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-text mb-2;
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  .badge-primary {
+    @apply badge bg-brand/10 text-brand;
+  }
+
+  .badge-red {
+    @apply badge bg-brand-red/10 text-brand-red;
+  }
+
+  /* Heading underline accent */
+  .heading-accent {
+    @apply relative inline-block;
+  }
+
+  .heading-accent::after {
+    @apply content-[''] absolute -bottom-2 left-0 w-16 h-1 bg-brand-red rounded-full;
+  }
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+@layer utilities {
+  /* Text utilities */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Gradient text */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand to-brand-accent;
+  }
+
+  /* Background patterns */
+  .bg-grid-pattern {
+    background-image: 
+      linear-gradient(to right, var(--border) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .bg-gradient-hero {
+    @apply bg-gradient-to-br from-muted via-white to-surface;
+  }
+
+  /* Animation delays for staggered animations */
+  .animation-delay-100 { animation-delay: 100ms; }
+  .animation-delay-200 { animation-delay: 200ms; }
+  .animation-delay-300 { animation-delay: 300ms; }
+  .animation-delay-400 { animation-delay: 400ms; }
+  .animation-delay-500 { animation-delay: 500ms; }
+
+  /* Hide scrollbar */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Aspect ratios */
+  .aspect-card {
+    aspect-ratio: 4/3;
+  }
+
+  .aspect-hero {
+    aspect-ratio: 16/9;
+  }
+
+  /* Safe area padding for mobile */
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* ============================================
+   Custom Scrollbar (optional)
+   ============================================ */
+@media (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--muted);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--text-light);
+  }
+}
+
+/* ============================================
+   Print Styles
+   ============================================ */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: var(--text-light);
+  }
+}

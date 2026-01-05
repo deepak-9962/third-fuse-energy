@@ -1,0 +1,31 @@
+{
+  "id": "office-complex-200kw",
+  "title": "Corporate Office Complex — 200 kW",
+  "slug": "office-complex-200kw",
+  "categories": ["commercial", "rooftop"],
+  "year": 2024,
+  "location": "Austin, TX",
+  "capacity": "200 kW",
+  "client": "TechHub Campus",
+  "duration": "6 weeks",
+  "images": [
+    "/images/projects/commercial-1.svg",
+    "/images/projects/commercial-1.svg",
+    "/images/projects/commercial-1.svg"
+  ],
+  "thumbnail": "/images/projects/commercial-1.svg",
+  "summary": "A modern office complex installation featuring sleek bifacial panels and integrated building management.",
+  "description": "TechHub Campus chose Third Fuse Energy to install a 200 kW solar system across their three-building office complex. The installation uses premium bifacial panels that capture reflected light, maximizing energy production throughout the day.",
+  "highlights": [
+    "Bifacial panel technology for 15% extra output",
+    "Integration with building management system",
+    "Real-time energy dashboard in lobby",
+    "LEED Platinum certification achieved",
+    "60% reduction in common area energy costs"
+  ],
+  "testimonial": {
+    "quote": "The solar installation has become a centerpiece of our sustainability story. Third Fuse Energy understood our vision and delivered beyond expectations.",
+    "author": "Amanda Foster",
+    "role": "Sustainability Director, TechHub Campus"
+  }
+}

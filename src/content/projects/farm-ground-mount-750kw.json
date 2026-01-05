@@ -1,0 +1,31 @@
+{
+  "id": "farm-ground-mount-750kw",
+  "title": "Agricultural Solar Farm — 750 kW",
+  "slug": "farm-ground-mount-750kw",
+  "categories": ["commercial", "ground-mount", "agricultural"],
+  "year": 2023,
+  "location": "Central Valley, CA",
+  "capacity": "750 kW",
+  "client": "Valley Vineyards",
+  "duration": "10 weeks",
+  "images": [
+    "/images/projects/farm-1.svg",
+    "/images/projects/farm-1.svg",
+    "/images/projects/farm-1.svg"
+  ],
+  "thumbnail": "/images/projects/farm-1.svg",
+  "summary": "A ground-mounted solar installation powering irrigation and winery operations for a premier California vineyard.",
+  "description": "Valley Vineyards partnered with Third Fuse Energy to install a 750 kW ground-mounted solar array on unused agricultural land. The system powers their entire irrigation network, winery equipment, and tasting room facilities.",
+  "highlights": [
+    "Ground-mount system on 5 acres of land",
+    "Powers 100% of irrigation pumps",
+    "Winery operations fully solar-powered",
+    "Agrivoltaics integration with sheep grazing",
+    "Featured in Sustainable Farming Magazine"
+  ],
+  "testimonial": {
+    "quote": "Third Fuse Energy helped us become one of the first fully solar-powered wineries in California. Our customers love knowing their wine is produced with clean energy.",
+    "author": "Marco Bellini",
+    "role": "Owner, Valley Vineyards"
+  }
+}
