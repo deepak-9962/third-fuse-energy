@@ -8,6 +8,7 @@
 
 import { useState, FormEvent, ChangeEvent } from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { fadeUp } from '@/lib/motion';
 import { cn } from '@/lib/utils';
 
@@ -321,7 +322,7 @@ export default function ContactForm() {
 
       <p className="text-sm text-text-light">
         By submitting this form, you agree to our{' '}
-        <a href="/privacy" className="link">Privacy Policy</a>.
+        <Link href="/privacy" className="link">Privacy Policy</Link>.
       </p>
     </motion.form>
   );
