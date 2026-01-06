@@ -112,7 +112,7 @@ export default function HomePage({ home, projects }: HomePageProps) {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="section-padding bg-muted">
+      <section className="section-padding bg-bg">
         <div className="container-content">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

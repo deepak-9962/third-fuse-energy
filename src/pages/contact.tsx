@@ -143,7 +143,7 @@ export default function ContactPage() {
                         href={social.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center text-text-light hover:bg-brand hover:text-white transition-all"
+                        className="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center text-text-light hover:bg-brand hover:text-white transition-all"
                         aria-label={`Follow us on ${social.name}`}
                       >
                         <SocialIcon name={social.icon} />

@@ -83,10 +83,10 @@ export default function ProjectsPage({ projects, categories }: ProjectsPageProps
             <button
               onClick={() => setActiveFilter('all')}
               className={cn(
-                'px-4 py-2 rounded-full text-sm font-medium transition-all',
+                'px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300',
                 activeFilter === 'all'
-                  ? 'bg-brand text-white'
-                  : 'bg-muted text-text hover:bg-brand/10'
+                  ? 'bg-brand text-white shadow-lg shadow-brand/25 ring-2 ring-brand/20 ring-offset-2'
+                  : 'bg-white text-gray-600 border border-gray-200 hover:border-brand/50 hover:text-brand hover:bg-gray-50'
               )}
             >
               All Projects
@@ -96,10 +96,10 @@ export default function ProjectsPage({ projects, categories }: ProjectsPageProps
                 key={category}
                 onClick={() => setActiveFilter(category)}
                 className={cn(
-                  'px-4 py-2 rounded-full text-sm font-medium transition-all capitalize',
+                  'px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 capitalize',
                   activeFilter === category
-                    ? 'bg-brand text-white'
-                    : 'bg-muted text-text hover:bg-brand/10'
+                    ? 'bg-brand text-white shadow-lg shadow-brand/25 ring-2 ring-brand/20 ring-offset-2'
+                    : 'bg-white text-gray-600 border border-gray-200 hover:border-brand/50 hover:text-brand hover:bg-gray-50'
                 )}
               >
                 {category}

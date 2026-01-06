@@ -9,15 +9,16 @@ import { Variants, Transition } from 'framer-motion';
 // Timing & Easing
 // ============================================
 
-export const customEase = [0.2, 0.9, 0.2, 1] as const;
+// Smoother ease curve (Material Design Standard)
+export const customEase = [0.4, 0.0, 0.2, 1] as const;
 
 export const defaultTransition: Transition = {
-  duration: 0.45,
+  duration: 0.6,
   ease: customEase,
 };
 
 export const fastTransition: Transition = {
-  duration: 0.18,
+  duration: 0.3,
   ease: customEase,
 };
 
@@ -38,7 +39,7 @@ export const fadeUp: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: customEase },
+    transition: { duration: 0.7, ease: customEase },
   },
 };
 
@@ -122,7 +123,7 @@ export const staggerItem: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.4, ease: customEase },
+    transition: { duration: 0.6, ease: customEase },
   },
 };
 
@@ -169,12 +170,12 @@ export const pageTransition: Variants = {
   enter: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.4, ease: customEase },
+    transition: { duration: 0.6, ease: customEase },
   },
   exit: {
     opacity: 0,
     y: -10,
-    transition: { duration: 0.3, ease: customEase },
+    transition: { duration: 0.4, ease: customEase },
   },
 };
 
@@ -258,11 +259,11 @@ export const slideUp: Variants = {
   hidden: { y: '100%' },
   visible: {
     y: 0,
-    transition: { duration: 0.5, ease: customEase },
+    transition: { duration: 0.7, ease: customEase },
   },
   exit: {
     y: '100%',
-    transition: { duration: 0.3, ease: customEase },
+    transition: { duration: 0.5, ease: customEase },
   },
 };
 
@@ -270,7 +271,7 @@ export const slideDown: Variants = {
   hidden: { y: '-100%' },
   visible: {
     y: 0,
-    transition: { duration: 0.5, ease: customEase },
+    transition: { duration: 0.7, ease: customEase },
   },
 };
 
