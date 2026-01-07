@@ -10,16 +10,10 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { SEO, Hero, ServiceCard, ProjectCard } from '@/components';
 import { fadeUp, staggerContainer, staggerItem, viewportOnce } from '@/lib/motion';
-import homeData from '@/content/home.json';
-
-// Import project data
-import mallProject from '@/content/projects/mall-rooftop-500kw.json';
-import residentialProject from '@/content/projects/residential-estate-50kw.json';
-import warehouseProject from '@/content/projects/warehouse-district-1mw.json';
 
 interface HomePageProps {
-  home: typeof homeData;
-  projects: Array<typeof mallProject>;
+  home: any; // We'll type this properly later or infer
+  projects: any[];
 }
 
 export default function HomePage({ home, projects }: HomePageProps) {
@@ -27,7 +21,7 @@ export default function HomePage({ home, projects }: HomePageProps) {
     <>
       <SEO
         title="Home"
-        description="Third Fuse Energy provides premium residential and commercial solar installations. Get a free quote today and start saving with clean solar energy."
+        description={home.hero.subtitle}
       />
 
       {/* Hero Section */}
@@ -43,7 +37,7 @@ export default function HomePage({ home, projects }: HomePageProps) {
       <section className="py-12 bg-brand">
         <div className="container-content">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {home.stats.map((stat, index) => (
+            {home.stats && home.stats.map((stat: any, index: number) => (
               <motion.div
                 key={stat.label}
                 initial={{ opacity: 0, y: 20 }}
@@ -63,6 +57,46 @@ export default function HomePage({ home, projects }: HomePageProps) {
           </div>
         </div>
       </section>
+
+      {/* Subsidy Highlights Section */}
+      {home.subsidyHighlights && (
+        <section className="py-12 bg-gray-50 border-b border-gray-100">
+          <div className="container-content">
+            <motion.div 
+               initial={{ opacity: 0, y: 10 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={viewportOnce}
+               className="flex flex-col md:flex-row items-center justify-between gap-8 mb-8"
+            >
+              <div>
+                <span className="inline-block px-3 py-1 bg-brand/10 text-brand text-xs font-bold uppercase tracking-wider rounded-full mb-2">Government Incentives</span>
+                <h2 className="text-2xl md:text-3xl font-heading font-bold text-gray-900 leading-tight">
+                  {home.subsidyHighlights.title}
+                </h2>
+              </div>
+              <Link href={home.subsidyHighlights.ctaLink} className="btn-secondary whitespace-nowrap">
+                {home.subsidyHighlights.cta}
+              </Link>
+            </motion.div>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              {home.subsidyHighlights.cards.map((card: any, index: number) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={viewportOnce}
+                  transition={{ delay: index * 0.1 }}
+                  className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
+                >
+                  <div className="text-3xl font-bold text-brand mb-2">{card.title}</div>
+                  <p className="text-gray-600 font-medium">{card.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Services Section */}
       <section className="section-padding bg-white">
@@ -86,7 +120,7 @@ export default function HomePage({ home, projects }: HomePageProps) {
             viewport={viewportOnce}
             className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
           >
-            {home.services.map((service) => (
+            {home.services.map((service: any) => (
               <motion.div key={service.id} variants={staggerItem}>
                 <ServiceCard
                   icon={service.icon}
@@ -133,7 +167,7 @@ export default function HomePage({ home, projects }: HomePageProps) {
             viewport={viewportOnce}
             className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
-            {home.whyChooseUs.items.map((item) => (
+            {home.whyChooseUs.items.map((item: any) => (
               <motion.div
                 key={item.title}
                 variants={staggerItem}
@@ -224,7 +258,7 @@ export default function HomePage({ home, projects }: HomePageProps) {
             viewport={viewportOnce}
             className="grid md:grid-cols-3 gap-6"
           >
-            {home.testimonials.map((testimonial) => (
+            {home.testimonials.map((testimonial: any) => (
               <motion.div
                 key={testimonial.id}
                 variants={staggerItem}
@@ -244,7 +278,7 @@ export default function HomePage({ home, projects }: HomePageProps) {
                 <div className="mt-6 flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-muted overflow-hidden">
                     <div className="w-full h-full bg-brand/10 flex items-center justify-center text-brand font-semibold">
-                      {testimonial.author.split(' ').map(n => n[0]).join('')}
+                      {testimonial.author.split(' ').map((n: string) => n[0]).join('')}
                     </div>
                   </div>
                   <div>
@@ -327,7 +361,24 @@ const IconComponent = ({ name, className }: { name: string; className?: string }
   return icons[name] || icons.shield;
 };
 
-export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
+
+export const getStaticProps: GetStaticProps<HomePageProps> = async ({ locale }) => {
+  const currentLocale = locale || 'en';
+  
+  // Import basic project mock data for now - in production this would also be localized or fetched
+  const mallProject = (await import(`@/content/projects/mall-rooftop-500kw.json`)).default;
+  const residentialProject = (await import(`@/content/projects/residential-estate-50kw.json`)).default;
+  const warehouseProject = (await import(`@/content/projects/warehouse-district-1mw.json`)).default;
+
+  // Dynamically import content JSON based on locale
+  // Fallback to 'en' if specific locale file is missing (though we created them all)
+  let homeData;
+  try {
+    homeData = (await import(`@/content/locales/${currentLocale}/home.json`)).default;
+  } catch (err) {
+    homeData = (await import(`@/content/locales/en/home.json`)).default;
+  }
+
   return {
     props: {
       home: homeData,
@@ -335,3 +386,4 @@ export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
     },
   };
 };
+

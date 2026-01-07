@@ -1,0 +1,124 @@
+{
+  "hero": {
+    "title": "Powering the Future with Solar Energy",
+    "subtitle": "Leading residential & commercial solar installations across the nation. Save money, reduce your carbon footprint, and embrace clean energy.",
+    "cta": "Get a Free Quote",
+    "ctaSecondary": "Our Services",
+    "image": "/images/hero-bg.svg"
+  },
+  "subsidyHighlights": {
+    "title": "Government Subsidy Available for Rooftop Solar",
+    "cta": "Check Your Eligibility",
+    "ctaLink": "/subsidy",
+    "cards": [
+      { "title": "₹30,000", "description": "subsidy per kW (up to 2 kW)" },
+      { "title": "₹18,000", "description": "per kW for additional capacity (up to 3 kW)" },
+      { "title": "₹78,000", "description": "Maximum subsidy capped amount" }
+    ]
+  },
+  "services": [
+    {
+      "id": "residential",
+      "title": "Residential Solar",
+      "summary": "Transform your home with custom solar solutions. Reduce your energy bills by up to 70% and increase your property value.",
+      "icon": "home",
+      "href": "/services#residential"
+    },
+    {
+      "id": "commercial",
+      "title": "Commercial Solar",
+      "summary": "Power your business with clean energy. Custom-designed systems for warehouses, offices, and retail spaces.",
+      "icon": "building",
+      "href": "/services#commercial"
+    },
+    {
+      "id": "maintenance",
+      "title": "Maintenance & Support",
+      "summary": "Keep your solar investment performing at its peak with our comprehensive maintenance and monitoring services.",
+      "icon": "wrench",
+      "href": "/services#maintenance"
+    },
+    {
+      "id": "consulting",
+      "title": "Energy Consulting",
+      "summary": "Expert guidance on energy efficiency, incentives, and the best solar solutions for your unique needs.",
+      "icon": "chart",
+      "href": "/services#consulting"
+    }
+  ],
+  "whyChooseUs": {
+    "title": "Why Choose Third Fuse Energy",
+    "subtitle": "We're committed to delivering excellence in every solar installation",
+    "items": [
+      {
+        "icon": "shield",
+        "title": "25-Year Warranty",
+        "description": "Industry-leading warranty coverage on all installations and equipment"
+      },
+      {
+        "icon": "users",
+        "title": "Expert Team",
+        "description": "Certified professionals with over 500+ successful installations"
+      },
+      {
+        "icon": "zap",
+        "title": "Fast Installation",
+        "description": "From consultation to power-on in as little as 2-4 weeks"
+      },
+      {
+        "icon": "dollar",
+        "title": "Best Price Guarantee",
+        "description": "Competitive pricing with flexible financing options available"
+      },
+      {
+        "icon": "leaf",
+        "title": "Eco-Friendly",
+        "description": "Help reduce carbon emissions by switching to clean solar energy"
+      },
+      {
+        "icon": "headphones",
+        "title": "24/7 Support",
+        "description": "Round-the-clock monitoring and customer support for peace of mind"
+      }
+    ]
+  },
+  "projectsPreview": ["mall-rooftop-500kw", "residential-estate-50kw", "warehouse-district-1mw"],
+  "testimonials": [
+    {
+      "id": 1,
+      "quote": "Third Fuse Energy transformed our home with a beautiful solar installation. Our electricity bills dropped by 65% in the first month!",
+      "author": "Sarah Johnson",
+      "role": "Homeowner",
+      "location": "Austin, TX",
+      "image": "/images/testimonials/sarah.jpg"
+    },
+    {
+      "id": 2,
+      "quote": "Professional team, excellent communication, and outstanding results. They made going solar for our business incredibly easy.",
+      "author": "Michael Chen",
+      "role": "CEO, TechStart Inc.",
+      "location": "San Francisco, CA",
+      "image": "/images/testimonials/michael.jpg"
+    },
+    {
+      "id": 3,
+      "quote": "From the initial consultation to the final installation, the experience was seamless. Highly recommend their services!",
+      "author": "Emily Rodriguez",
+      "role": "Property Manager",
+      "location": "Phoenix, AZ",
+      "image": "/images/testimonials/emily.jpg"
+    }
+  ],
+  "stats": [
+    { "value": "100+", "label": "Happy Customers" },
+    { "value": "100+", "label": "Projects Done" },
+    { "value": "50MW", "label": "Total Capacity Installed" },
+    { "value": "15+", "label": "Years Experience" }
+  ],
+  "cta": {
+    "title": "Ready to Go Solar?",
+    "subtitle": "Get a free consultation and custom quote for your property today.",
+    "buttonText": "Get Your Free Quote",
+    "buttonHref": "/contact"
+  }
+}

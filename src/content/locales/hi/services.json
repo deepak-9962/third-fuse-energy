@@ -1,0 +1,146 @@
+{
+  "hero": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive solar solutions for homes and businesses"
+  },
+  "services": [
+    {
+      "id": "residential",
+      "title": "Residential Solar Installation",
+      "summary": "Transform your home into a clean energy powerhouse with our custom residential solar solutions.",
+      "description": "Our residential solar systems are designed to maximize energy production while complementing your home's aesthetics. We handle everything from initial assessment to final installation, including permits and utility connections.",
+      "icon": "home",
+      "features": [
+        "Custom system design for your roof",
+        "Premium tier-1 solar panels",
+        "Smart inverter technology",
+        "Battery storage options",
+        "Net metering setup",
+        "25-year performance warranty"
+      ],
+      "image": "/images/services/residential.jpg"
+    },
+    {
+      "id": "commercial",
+      "title": "Commercial Solar Solutions",
+      "summary": "Reduce operating costs and demonstrate environmental leadership with commercial-scale solar installations.",
+      "description": "From small businesses to large industrial facilities, we design and install solar systems that meet your energy demands and budget requirements. Take advantage of tax incentives and dramatically reduce your electricity costs.",
+      "icon": "building",
+      "features": [
+        "Rooftop and ground-mount options",
+        "Carport solar structures",
+        "Energy storage systems",
+        "Power purchase agreements (PPA)",
+        "LEED certification support",
+        "Ongoing performance monitoring"
+      ],
+      "image": "/images/services/commercial.jpg"
+    },
+    {
+      "id": "maintenance",
+      "title": "Maintenance & Monitoring",
+      "summary": "Keep your solar investment performing at peak efficiency with our comprehensive service plans.",
+      "description": "Our maintenance programs include regular inspections, cleaning, and 24/7 remote monitoring to ensure your system produces maximum energy year after year.",
+      "icon": "wrench",
+      "features": [
+        "Annual system inspections",
+        "Panel cleaning services",
+        "Inverter health checks",
+        "Real-time monitoring",
+        "Performance reporting",
+        "Priority repair service"
+      ],
+      "image": "/images/services/maintenance.jpg"
+    },
+    {
+      "id": "consulting",
+      "title": "Energy Consulting",
+      "summary": "Expert guidance to help you navigate the solar journey and maximize your return on investment.",
+      "description": "Our energy consultants provide comprehensive assessments, financial analysis, and strategic planning to help you make informed decisions about your energy future.",
+      "icon": "chart",
+      "features": [
+        "Site feasibility studies",
+        "Financial ROI analysis",
+        "Incentive identification",
+        "Utility rate optimization",
+        "Carbon footprint assessment",
+        "Long-term energy planning"
+      ],
+      "image": "/images/services/consulting.jpg"
+    },
+    {
+      "id": "battery",
+      "title": "Battery Storage",
+      "summary": "Store excess solar energy for use during peak hours or power outages with advanced battery systems.",
+      "description": "Achieve true energy independence with our battery storage solutions. Store solar energy during the day and use it at night, during outages, or when utility rates are highest.",
+      "icon": "battery",
+      "features": [
+        "Leading battery brands",
+        "Backup power capability",
+        "Time-of-use optimization",
+        "Seamless integration",
+        "Smart energy management",
+        "Expandable capacity"
+      ],
+      "image": "/images/services/battery.jpg"
+    },
+    {
+      "id": "ev-charging",
+      "title": "EV Charging Stations",
+      "summary": "Power your electric vehicle with clean solar energy through our integrated EV charging solutions.",
+      "description": "Complete your sustainable energy ecosystem with solar-powered EV charging. We install residential and commercial charging stations that integrate seamlessly with your solar system.",
+      "icon": "car",
+      "features": [
+        "Level 2 home chargers",
+        "Commercial charging stations",
+        "Solar integration",
+        "Smart scheduling",
+        "Usage tracking",
+        "Network connectivity"
+      ],
+      "image": "/images/services/ev-charging.jpg"
+    }
+  ],
+  "process": {
+    "title": "Our Installation Process",
+    "subtitle": "From consultation to power-on, we make going solar simple",
+    "steps": [
+      {
+        "step": 1,
+        "title": "Free Consultation",
+        "description": "We assess your energy needs, review your property, and discuss your goals."
+      },
+      {
+        "step": 2,
+        "title": "Custom Design",
+        "description": "Our engineers design a system optimized for your specific requirements."
+      },
+      {
+        "step": 3,
+        "title": "Permitting",
+        "description": "We handle all permits, utility paperwork, and HOA approvals."
+      },
+      {
+        "step": 4,
+        "title": "Installation",
+        "description": "Our certified technicians install your system with minimal disruption."
+      },
+      {
+        "step": 5,
+        "title": "Inspection",
+        "description": "Final inspection and utility approval to connect to the grid."
+      },
+      {
+        "step": 6,
+        "title": "Power On",
+        "description": "Your system goes live and starts generating clean energy!"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready to Get Started?",
+    "subtitle": "Contact us for a free consultation and customized quote.",
+    "buttonText": "Request a Quote",
+    "buttonHref": "/contact"
+  }
+}

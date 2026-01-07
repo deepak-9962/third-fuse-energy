@@ -7,9 +7,10 @@
 import { motion } from 'framer-motion';
 import { SEO, ContactForm } from '@/components';
 import { fadeUp, viewportOnce } from '@/lib/motion';
-import siteData from '@/content/site.json';
+import { useSiteData } from '@/context/SiteContext';
 
 export default function ContactPage() {
+  const siteData = useSiteData();
   const { company } = siteData;
 
   return (

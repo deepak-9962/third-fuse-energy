@@ -33,7 +33,9 @@ type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 const projectTypes = [
   { value: '', label: 'Select project type' },
   { value: 'residential', label: 'Residential Solar' },
+  { value: 'apartment', label: 'Apartment / RWA (Subsidy Eligible)' },
   { value: 'commercial', label: 'Commercial Solar' },
+  { value: 'industrial', label: 'Industrial Solar' },
   { value: 'battery', label: 'Battery Storage' },
   { value: 'maintenance', label: 'Maintenance & Service' },
   { value: 'consulting', label: 'Energy Consulting' },

@@ -10,18 +10,17 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { SEO, ServiceCard } from '@/components';
 import { fadeUp, staggerContainer, staggerItem, viewportOnce } from '@/lib/motion';
-import servicesData from '@/content/services.json';
 
 interface ServicesPageProps {
-  services: typeof servicesData;
+  services: any;
 }
 
 export default function ServicesPage({ services }: ServicesPageProps) {
   return (
     <>
       <SEO
-        title="Services"
-        description="Explore our comprehensive solar solutions including residential and commercial installations, battery storage, maintenance, and energy consulting."
+        title={services.hero.title}
+        description={services.hero.subtitle}
       />
 
       {/* Hero Section */}
@@ -48,13 +47,14 @@ export default function ServicesPage({ services }: ServicesPageProps) {
             viewport={viewportOnce}
             className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
-            {services.services.map((service) => (
+            {services.services.map((service: any) => (
               <motion.div key={service.id} variants={staggerItem}>
                 <ServiceCard
                   icon={service.icon}
                   title={service.title}
                   summary={service.summary}
                   href={`#${service.id}`}
+                  subsidyEligible={service.id === 'residential' || service.id === 'commercial'}
                 />
               </motion.div>
             ))}
@@ -63,7 +63,7 @@ export default function ServicesPage({ services }: ServicesPageProps) {
       </section>
 
       {/* Detailed Service Sections */}
-      {services.services.map((service, index) => (
+      {services.services.map((service: any, index: number) => (
         <section
           key={service.id}
           id={service.id}
@@ -88,7 +88,7 @@ export default function ServicesPage({ services }: ServicesPageProps) {
 
                 {/* Features list */}
                 <ul className="mt-6 space-y-3">
-                  {service.features.map((feature, idx) => (
+                  {service.features.map((feature: string, idx: number) => (
                     <li key={idx} className="flex items-start gap-3">
                       <svg
                         className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"
@@ -156,7 +156,7 @@ export default function ServicesPage({ services }: ServicesPageProps) {
             viewport={viewportOnce}
             className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
-            {services.process.steps.map((step) => (
+            {services.process.steps.map((step: any) => (
               <motion.div
                 key={step.step}
                 variants={staggerItem}
@@ -241,7 +241,16 @@ const ServiceIcon = ({ name, className }: { name: string; className?: string }) 
   return icons[name] || icons.home;
 };
 
-export const getStaticProps: GetStaticProps<ServicesPageProps> = async () => {
+
+export const getStaticProps: GetStaticProps<ServicesPageProps> = async ({ locale }) => {
+  const currentLocale = locale || 'en';
+  let servicesData;
+  try {
+    servicesData = (await import(`@/content/locales/${currentLocale}/services.json`)).default;
+  } catch (err) {
+    servicesData = (await import(`@/content/locales/en/services.json`)).default;
+  }
+
   return {
     props: {
       services: servicesData,

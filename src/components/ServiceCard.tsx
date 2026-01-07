@@ -17,6 +17,7 @@ interface ServiceCardProps {
   summary: string;
   href: string;
   variant?: 'default' | 'compact';
+  subsidyEligible?: boolean;
 }
 
 // Icon mapping
@@ -65,7 +66,9 @@ export default function ServiceCard({
   summary,
   href,
   variant = 'default',
+  subsidyEligible
 }: ServiceCardProps) {
+  const props = { icon, title, summary, href, variant, subsidyEligible }; // Ensure props usage
   return (
     <motion.div {...hoverLift}>
       <Link
@@ -103,6 +106,14 @@ export default function ServiceCard({
         >
           {summary}
         </p>
+        
+        {/* Subsidy Badge */}
+        {props.subsidyEligible && (
+          <div className="mt-4 flex items-center gap-1.5 text-xs font-semibold text-brand-dark bg-brand/10 w-fit px-2.5 py-1 rounded-md">
+             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>
+             Eligible for Subsidy
+          </div>
+        )}
 
         {/* Arrow */}
         <div className="mt-4 flex items-center text-brand font-medium text-sm group-hover:gap-2 transition-all duration-300">

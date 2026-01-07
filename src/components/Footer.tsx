@@ -6,7 +6,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import siteData from '@/content/site.json';
+import { useSiteData } from '@/context/SiteContext';
 
 // Icon components for social media
 const SocialIcon = ({ name }: { name: string }) => {
@@ -37,6 +37,7 @@ const SocialIcon = ({ name }: { name: string }) => {
 };
 
 export default function Footer() {
+  const siteData = useSiteData();
   const { company, navigation, social, footer } = siteData;
   const currentYear = new Date().getFullYear();
 
@@ -63,6 +64,11 @@ export default function Footer() {
             <p className="text-white/70 text-sm leading-relaxed max-w-sm">
               {footer.description}
             </p>
+            {footer.trust && (
+              <p className="text-brand-light text-sm font-medium">
+                {footer.trust}
+              </p>
+            )}
             {/* Social Links */}
             <div className="flex items-center gap-4">
               {social.map((item) => (

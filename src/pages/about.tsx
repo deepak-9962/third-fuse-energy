@@ -10,10 +10,9 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { SEO } from '@/components';
 import { fadeUp, staggerContainer, staggerItem, viewportOnce } from '@/lib/motion';
-import aboutData from '@/content/about.json';
 
 interface AboutPageProps {
-  about: typeof aboutData;
+  about: any; // We'll type this properly later or infer
 }
 
 export default function AboutPage({ about }: AboutPageProps) {
@@ -21,7 +20,7 @@ export default function AboutPage({ about }: AboutPageProps) {
     <>
       <SEO
         title="About Us"
-        description="Learn about Third Fuse Energy's mission, team, and commitment to delivering exceptional solar solutions since 2010."
+        description={about.story.content[0]}
       />
 
       {/* Hero Section */}
@@ -42,7 +41,7 @@ export default function AboutPage({ about }: AboutPageProps) {
       <section className="py-10 bg-brand">
         <div className="container-content">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {about.stats.map((stat, index) => (
+            {about.stats && about.stats.map((stat: any, index: number) => (
               <motion.div
                 key={stat.label}
                 initial={{ opacity: 0, y: 20 }}
@@ -73,7 +72,7 @@ export default function AboutPage({ about }: AboutPageProps) {
             >
               <h2 className="heading-accent">{about.story.title}</h2>
               <div className="mt-6 space-y-4">
-                {about.story.content.map((paragraph, index) => (
+                {about.story.content.map((paragraph: string, index: number) => (
                   <p key={index} className="text-text-light">
                     {paragraph}
                   </p>
@@ -127,7 +126,7 @@ export default function AboutPage({ about }: AboutPageProps) {
             >
               <h3 className="font-heading font-semibold text-xl mb-6">Our Core Values</h3>
               <div className="grid sm:grid-cols-2 gap-4">
-                {about.mission.values.map((value) => (
+                {about.mission.values.map((value: any) => (
                   <motion.div
                     key={value.title}
                     variants={staggerItem}
@@ -167,7 +166,7 @@ export default function AboutPage({ about }: AboutPageProps) {
             viewport={viewportOnce}
             className="grid grid-cols-2 md:grid-cols-4 gap-6"
           >
-            {about.certifications.map((cert) => (
+            {about.certifications.map((cert: any) => (
               <motion.div
                 key={cert.name}
                 variants={staggerItem}
@@ -212,7 +211,7 @@ export default function AboutPage({ about }: AboutPageProps) {
             viewport={viewportOnce}
             className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
-            {about.team.map((member) => (
+            {about.team.map((member: any) => (
               <motion.div
                 key={member.name}
                 variants={staggerItem}
@@ -269,7 +268,16 @@ export default function AboutPage({ about }: AboutPageProps) {
   );
 }
 
-export const getStaticProps: GetStaticProps<AboutPageProps> = async () => {
+
+export const getStaticProps: GetStaticProps<AboutPageProps> = async ({ locale }) => {
+  const currentLocale = locale || 'en';
+  let aboutData;
+  try {
+    aboutData = (await import(`@/content/locales/${currentLocale}/about.json`)).default;
+  } catch (err) {
+    aboutData = (await import(`@/content/locales/en/about.json`)).default;
+  }
+
   return {
     props: {
       about: aboutData,

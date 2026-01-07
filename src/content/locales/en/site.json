@@ -20,6 +20,7 @@
       { "title": "About", "href": "/about" },
       { "title": "Services", "href": "/services" },
       { "title": "Projects", "href": "/projects" },
+      { "title": "Subsidy", "href": "/subsidy" },
       { "title": "Contact", "href": "/contact" }
     ],
     "footer": [
@@ -42,6 +43,7 @@
   },
   "footer": {
     "description": "Third Fuse Energy is a leading solar installation company providing residential and commercial solar solutions across the nation.",
+    "trust": "We assist customers with applicable government solar subsidy schemes.",
     "copyright": "© 2024 Third Fuse Energy Corp. All rights reserved.",
     "certifications": ["NABCEP Certified", "BBB A+ Rating", "Licensed & Insured"]
   }

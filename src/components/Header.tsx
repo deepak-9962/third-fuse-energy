@@ -12,7 +12,8 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
-import siteData from '@/content/site.json';
+import { useSiteData } from '@/context/SiteContext';
+import LanguageSwitcher from './LanguageSwitcher';
 
 interface NavItem {
   title: string;
@@ -23,10 +24,13 @@ interface HeaderProps {
   navItems?: NavItem[];
 }
 
-export default function Header({ navItems = siteData.navigation.main }: HeaderProps) {
+export default function Header({ navItems }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const router = useRouter();
+  const siteData = useSiteData();
+  
+  const items = navItems || siteData.navigation.main;
 
   // Handle scroll for shrink effect
   useEffect(() => {
@@ -107,7 +111,7 @@ export default function Header({ navItems = siteData.navigation.main }: HeaderPr
 
         {/* Desktop Navigation */}
         <ul className="hidden md:flex items-center gap-1">
-          {navItems.map((item) => (
+          {items.map((item) => (
             <li key={item.href}>
               <Link
                 href={item.href}
@@ -122,7 +126,10 @@ export default function Header({ navItems = siteData.navigation.main }: HeaderPr
               </Link>
             </li>
           ))}
-          <li className="ml-4">
+          <li>
+            <LanguageSwitcher />
+          </li>
+          <li className="ml-2">
             <Link href="/contact" className="btn-primary text-sm py-2 px-5">
               Get a Quote
             </Link>
@@ -130,9 +137,11 @@ export default function Header({ navItems = siteData.navigation.main }: HeaderPr
         </ul>
 
         {/* Mobile Menu Button */}
+        <div className="flex items-center gap-2 md:hidden">
+          <LanguageSwitcher />
         <button
           type="button"
-          className="md:hidden relative z-10 p-2 -mr-2"
+          className="relative z-10 p-2 -mr-2"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-expanded={isMobileMenuOpen}
           aria-controls="mobile-menu"
@@ -159,6 +168,7 @@ export default function Header({ navItems = siteData.navigation.main }: HeaderPr
             />
           </div>
         </button>
+        </div>
       </nav>
 
       {/* Mobile Menu */}
@@ -174,7 +184,7 @@ export default function Header({ navItems = siteData.navigation.main }: HeaderPr
           >
             <nav className="container-content py-6">
               <ul className="space-y-1">
-                {navItems.map((item, index) => (
+                {items.map((item, index) => (
                   <motion.li
                     key={item.href}
                     initial={{ opacity: 0, x: -20 }}

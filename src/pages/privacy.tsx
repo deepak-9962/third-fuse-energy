@@ -6,9 +6,10 @@
 import { motion } from 'framer-motion';
 import { SEO } from '@/components';
 import { fadeUp } from '@/lib/motion';
-import siteData from '@/content/site.json';
+import { useSiteData } from '@/context/SiteContext';
 
 export default function PrivacyPage() {
+  const siteData = useSiteData();
   const { company } = siteData;
   const lastUpdated = 'January 1, 2024';
 

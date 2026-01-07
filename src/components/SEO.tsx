@@ -6,7 +6,7 @@
 
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import siteData from '@/content/site.json';
+import { useSiteData } from '@/context/SiteContext';
 
 interface SEOProps {
   title?: string;
@@ -24,6 +24,7 @@ export default function SEO({
   noindex = false,
 }: SEOProps) {
   const router = useRouter();
+  const siteData = useSiteData();
   const { seo, company } = siteData;
 
   const pageTitle = title

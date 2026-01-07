@@ -1,0 +1,45 @@
+{
+  "hero": {
+    "title": "Solar Subsidy & Government Schemes",
+    "subtitle": "Maximize your savings with government incentives for residential and group housing solar installations."
+  },
+  "residential": {
+    "title": "Residential Rooftop Solar Subsidy",
+    "description": "Central Financial Assistance (CFA) by MNRE for residential consumers.",
+    "table": {
+      "headers": ["System Size", "Subsidy Amount"],
+      "rows": [
+        { "size": "1 kW", "amount": "₹30,000" },
+        { "size": "2 kW (up to 2 kW)", "amount": "₹60,000" },
+        { "size": "3 kW & above", "amount": "₹78,000 (Maximum Cap)" }
+      ]
+    }
+  },
+  "capacity": {
+    "title": "How Much Capacity Do You Need?",
+    "description": "Estimated solar capacity based on your monthly electricity consumption.",
+    "note": "Final capacity depends on rooftop space and load pattern.",
+    "table": {
+      "headers": ["Monthly Electricity Units", "Suggested Solar Capacity"],
+      "rows": [
+        { "units": "0 – 150 units", "capacity": "1 – 2 kW" },
+        { "units": "150 – 300 units", "capacity": "2 – 3 kW" },
+        { "units": "Above 300 units", "capacity": "Above 3 kW" }
+      ]
+    }
+  },
+  "ghs": {
+    "title": "Subsidy for Apartments / GHS / RWA",
+    "content": "For Group Housing Societies (GHS) and Resident Welfare Associations (RWA), specific subsidies are available for common facilities.",
+    "highlights": [
+      "₹18,000 subsidy per kW",
+      "Applicable for common facilities (lifts, lighting, EV charging, etc.)",
+      "Maximum capacity: up to 500 kW",
+      "Limit includes individual rooftop systems installed in the same society"
+    ],
+    "example": {
+      "title": "Example",
+      "text": "A 50 kW common solar plant → Subsidy = ₹9,00,000"
+    }
+  }
+}
