@@ -2,7 +2,7 @@ import { GetStaticProps } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { SEO } from '@/components';
+import { SEO, Hero } from '@/components';
 import { fadeUp, staggerContainer, staggerItem, viewportOnce } from '@/lib/motion';
 
 interface SubsidyPageProps {
@@ -18,25 +18,14 @@ export default function SubsidyPage({ subsidy }: SubsidyPageProps) {
       />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-hero">
-        <div className="container-content text-center max-w-4xl">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="heading-1 mb-6 text-white"
-          >
-            {subsidy.hero.title}
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-xl md:text-2xl text-white/80"
-          >
-            {subsidy.hero.subtitle}
-          </motion.p>
-        </div>
-      </section>
+      <Hero
+        title={subsidy.hero.title}
+        subtitle={subsidy.hero.subtitle}
+        cta="View Subsidy Details"
+        ctaHref="#residential"
+        ctaSecondary="Apply Now"
+        ctaSecondaryHref="/contact"
+      />
 
       {/* Residential Section */}
       <section className="section-padding bg-white" id="residential">
