@@ -269,14 +269,10 @@ export default function AboutPage({ about }: AboutPageProps) {
 }
 
 
-export const getStaticProps: GetStaticProps<AboutPageProps> = async ({ locale }) => {
-  const currentLocale = locale || 'en';
-  let aboutData;
-  try {
-    aboutData = (await import(`@/content/locales/${currentLocale}/about.json`)).default;
-  } catch (err) {
-    aboutData = (await import(`@/content/locales/en/about.json`)).default;
-  }
+export const getStaticProps: GetStaticProps<AboutPageProps> = async () => {
+  // Load default locale data at build time for static export
+  // Client-side locale switching will reload data as needed
+  const aboutData = (await import(`@/content/locales/en/about.json`)).default;
 
   return {
     props: {

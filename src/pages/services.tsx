@@ -242,14 +242,10 @@ const ServiceIcon = ({ name, className }: { name: string; className?: string }) 
 };
 
 
-export const getStaticProps: GetStaticProps<ServicesPageProps> = async ({ locale }) => {
-  const currentLocale = locale || 'en';
-  let servicesData;
-  try {
-    servicesData = (await import(`@/content/locales/${currentLocale}/services.json`)).default;
-  } catch (err) {
-    servicesData = (await import(`@/content/locales/en/services.json`)).default;
-  }
+export const getStaticProps: GetStaticProps<ServicesPageProps> = async () => {
+  // Load default locale data at build time for static export
+  // Client-side locale switching will reload data as needed
+  const servicesData = (await import(`@/content/locales/en/services.json`)).default;
 
   return {
     props: {

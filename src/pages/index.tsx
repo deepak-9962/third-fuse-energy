@@ -362,22 +362,15 @@ const IconComponent = ({ name, className }: { name: string; className?: string }
 };
 
 
-export const getStaticProps: GetStaticProps<HomePageProps> = async ({ locale }) => {
-  const currentLocale = locale || 'en';
-  
+export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
   // Import basic project mock data for now - in production this would also be localized or fetched
   const mallProject = (await import(`@/content/projects/mall-rooftop-500kw.json`)).default;
   const residentialProject = (await import(`@/content/projects/residential-estate-50kw.json`)).default;
   const warehouseProject = (await import(`@/content/projects/warehouse-district-1mw.json`)).default;
 
-  // Dynamically import content JSON based on locale
-  // Fallback to 'en' if specific locale file is missing (though we created them all)
-  let homeData;
-  try {
-    homeData = (await import(`@/content/locales/${currentLocale}/home.json`)).default;
-  } catch (err) {
-    homeData = (await import(`@/content/locales/en/home.json`)).default;
-  }
+  // Load all locale data at build time for static export
+  // The component will select the appropriate locale on the client side
+  const homeData = (await import(`@/content/locales/en/home.json`)).default;
 
   return {
     props: {

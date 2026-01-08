@@ -153,14 +153,10 @@ export default function SubsidyPage({ subsidy }: SubsidyPageProps) {
   );
 }
 
-export const getStaticProps: GetStaticProps<SubsidyPageProps> = async ({ locale }) => {
-  const currentLocale = locale || 'en';
-  let subsidyData;
-  try {
-    subsidyData = (await import(`@/content/locales/${currentLocale}/subsidy.json`)).default;
-  } catch (err) {
-    subsidyData = (await import(`@/content/locales/en/subsidy.json`)).default;
-  }
+export const getStaticProps: GetStaticProps<SubsidyPageProps> = async () => {
+  // Load default locale data at build time for static export
+  // Client-side locale switching will reload data as needed
+  const subsidyData = (await import(`@/content/locales/en/subsidy.json`)).default;
 
   return {
     props: {

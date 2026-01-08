@@ -9,6 +9,7 @@ import { useRouter } from 'next/router';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Layout } from '@/components';
 import { SiteProvider } from '@/context/SiteContext';
+import { LocaleProvider, useLocale } from '@/context/LocaleContext';
 import { pageTransition } from '@/lib/motion';
 import '@/styles/globals.css';
 
@@ -29,11 +30,9 @@ const siteDataMap: Record<string, typeof enSiteData> = {
   ml: mlSiteData,
 };
 
-export default function App({ Component, pageProps }: AppProps) {
-  const router = useRouter();
-  const { locale, defaultLocale } = router;
-  const currentLocale = locale || defaultLocale || 'en';
-  const siteData = siteDataMap[currentLocale] || enSiteData;
+function AppContent({ Component, pageProps, router }: AppProps) {
+  const { locale } = useLocale();
+  const siteData = siteDataMap[locale] || enSiteData;
 
   return (
     <SiteProvider value={siteData}>
@@ -51,5 +50,13 @@ export default function App({ Component, pageProps }: AppProps) {
         </AnimatePresence>
       </Layout>
     </SiteProvider>
+  );
+}
+
+export default function App(props: AppProps) {
+  return (
+    <LocaleProvider>
+      <AppContent {...props} />
+    </LocaleProvider>
   );
 }
