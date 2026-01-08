@@ -4,18 +4,34 @@
  * Based on PRD Section 7.3 - Services page specs
  */
 
-import { GetStaticProps } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { SEO, ServiceCard } from '@/components';
 import { fadeUp, staggerContainer, staggerItem, viewportOnce } from '@/lib/motion';
+import { useLocale } from '@/context/LocaleContext';
 
-interface ServicesPageProps {
-  services: any;
-}
+// Import all locale data at build time
+import servicesEn from '@/content/locales/en/services.json';
+import servicesHi from '@/content/locales/hi/services.json';
+import servicesTa from '@/content/locales/ta/services.json';
+import servicesTe from '@/content/locales/te/services.json';
+import servicesKn from '@/content/locales/kn/services.json';
+import servicesMl from '@/content/locales/ml/services.json';
 
-export default function ServicesPage({ services }: ServicesPageProps) {
+const servicesDataMap: Record<string, typeof servicesEn> = {
+  en: servicesEn,
+  hi: servicesHi,
+  ta: servicesTa,
+  te: servicesTe,
+  kn: servicesKn,
+  ml: servicesMl,
+};
+
+export default function ServicesPage() {
+  const { locale } = useLocale();
+  const services = servicesDataMap[locale] || servicesEn;
+
   return (
     <>
       <SEO
@@ -239,17 +255,4 @@ const ServiceIcon = ({ name, className }: { name: string; className?: string }) 
   };
 
   return icons[name] || icons.home;
-};
-
-
-export const getStaticProps: GetStaticProps<ServicesPageProps> = async () => {
-  // Load default locale data at build time for static export
-  // Client-side locale switching will reload data as needed
-  const servicesData = (await import(`@/content/locales/en/services.json`)).default;
-
-  return {
-    props: {
-      services: servicesData,
-    },
-  };
 };

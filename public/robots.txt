@@ -1,0 +1,11 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+
+# Host
+Host: https://thirdfuseenergy.com
+
+# Sitemaps
+Sitemap: https://thirdfuseenergy.com/sitemap.xml

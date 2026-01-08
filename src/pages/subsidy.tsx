@@ -1,15 +1,31 @@
-import { GetStaticProps } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { SEO, Hero } from '@/components';
 import { fadeUp, staggerContainer, staggerItem, viewportOnce } from '@/lib/motion';
+import { useLocale } from '@/context/LocaleContext';
 
-interface SubsidyPageProps {
-  subsidy: any;
-}
+// Import all locale data at build time
+import subsidyEn from '@/content/locales/en/subsidy.json';
+import subsidyHi from '@/content/locales/hi/subsidy.json';
+import subsidyTa from '@/content/locales/ta/subsidy.json';
+import subsidyTe from '@/content/locales/te/subsidy.json';
+import subsidyKn from '@/content/locales/kn/subsidy.json';
+import subsidyMl from '@/content/locales/ml/subsidy.json';
 
-export default function SubsidyPage({ subsidy }: SubsidyPageProps) {
+const subsidyDataMap: Record<string, typeof subsidyEn> = {
+  en: subsidyEn,
+  hi: subsidyHi,
+  ta: subsidyTa,
+  te: subsidyTe,
+  kn: subsidyKn,
+  ml: subsidyMl,
+};
+
+export default function SubsidyPage() {
+  const { locale } = useLocale();
+  const subsidy = subsidyDataMap[locale] || subsidyEn;
+
   return (
     <>
       <SEO
@@ -152,15 +168,3 @@ export default function SubsidyPage({ subsidy }: SubsidyPageProps) {
     </>
   );
 }
-
-export const getStaticProps: GetStaticProps<SubsidyPageProps> = async () => {
-  // Load default locale data at build time for static export
-  // Client-side locale switching will reload data as needed
-  const subsidyData = (await import(`@/content/locales/en/subsidy.json`)).default;
-
-  return {
-    props: {
-      subsidy: subsidyData,
-    },
-  };
-};

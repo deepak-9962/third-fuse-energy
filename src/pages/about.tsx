@@ -4,18 +4,34 @@
  * Based on PRD Section 7.2 - About page specs
  */
 
-import { GetStaticProps } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { SEO } from '@/components';
 import { fadeUp, staggerContainer, staggerItem, viewportOnce } from '@/lib/motion';
+import { useLocale } from '@/context/LocaleContext';
 
-interface AboutPageProps {
-  about: any; // We'll type this properly later or infer
-}
+// Import all locale data at build time
+import aboutEn from '@/content/locales/en/about.json';
+import aboutHi from '@/content/locales/hi/about.json';
+import aboutTa from '@/content/locales/ta/about.json';
+import aboutTe from '@/content/locales/te/about.json';
+import aboutKn from '@/content/locales/kn/about.json';
+import aboutMl from '@/content/locales/ml/about.json';
 
-export default function AboutPage({ about }: AboutPageProps) {
+const aboutDataMap: Record<string, typeof aboutEn> = {
+  en: aboutEn,
+  hi: aboutHi,
+  ta: aboutTa,
+  te: aboutTe,
+  kn: aboutKn,
+  ml: aboutMl,
+};
+
+export default function AboutPage() {
+  const { locale } = useLocale();
+  const about = aboutDataMap[locale] || aboutEn;
+
   return (
     <>
       <SEO
@@ -267,16 +283,3 @@ export default function AboutPage({ about }: AboutPageProps) {
     </>
   );
 }
-
-
-export const getStaticProps: GetStaticProps<AboutPageProps> = async () => {
-  // Load default locale data at build time for static export
-  // Client-side locale switching will reload data as needed
-  const aboutData = (await import(`@/content/locales/en/about.json`)).default;
-
-  return {
-    props: {
-      about: aboutData,
-    },
-  };
-};

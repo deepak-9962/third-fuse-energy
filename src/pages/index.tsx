@@ -10,13 +10,33 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { SEO, Hero, ServiceCard, ProjectCard } from '@/components';
 import { fadeUp, staggerContainer, staggerItem, viewportOnce } from '@/lib/motion';
+import { useLocale } from '@/context/LocaleContext';
+
+// Import all locale data at build time
+import homeEn from '@/content/locales/en/home.json';
+import homeHi from '@/content/locales/hi/home.json';
+import homeTa from '@/content/locales/ta/home.json';
+import homeTe from '@/content/locales/te/home.json';
+import homeKn from '@/content/locales/kn/home.json';
+import homeMl from '@/content/locales/ml/home.json';
+
+const homeDataMap: Record<string, typeof homeEn> = {
+  en: homeEn,
+  hi: homeHi,
+  ta: homeTa,
+  te: homeTe,
+  kn: homeKn,
+  ml: homeMl,
+};
 
 interface HomePageProps {
-  home: any; // We'll type this properly later or infer
   projects: any[];
 }
 
-export default function HomePage({ home, projects }: HomePageProps) {
+export default function HomePage({ projects }: HomePageProps) {
+  const { locale } = useLocale();
+  const home = homeDataMap[locale] || homeEn;
+
   return (
     <>
       <SEO
@@ -368,13 +388,8 @@ export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
   const residentialProject = (await import(`@/content/projects/residential-estate-50kw.json`)).default;
   const warehouseProject = (await import(`@/content/projects/warehouse-district-1mw.json`)).default;
 
-  // Load all locale data at build time for static export
-  // The component will select the appropriate locale on the client side
-  const homeData = (await import(`@/content/locales/en/home.json`)).default;
-
   return {
     props: {
-      home: homeData,
       projects: [mallProject, residentialProject, warehouseProject],
     },
   };
