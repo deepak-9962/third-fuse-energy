@@ -39,7 +39,7 @@ export default function Hero({
     <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-br from-[#0a1628] via-[#0B63D6] to-[#083a7a] pt-32">
       {/* Background Video */}
       {videoSrc && (
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-[1]">
           <video
             autoPlay
             loop
@@ -50,7 +50,7 @@ export default function Hero({
             <source src={videoSrc} type="video/mp4" />
           </video>
           {/* Dark overlay for better text readability */}
-          <div className="absolute inset-0 bg-black/60" aria-hidden="true" />
+          <div className="absolute inset-0 bg-black/50" aria-hidden="true" />
         </div>
       )}
 

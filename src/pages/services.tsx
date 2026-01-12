@@ -100,7 +100,7 @@ export default function ServicesPage() {
                   Service
                 </div>
                 <h2 className="text-h2 heading-accent">{service.title}</h2>
-                <p className="mt-6 text-lg text-text-light">{service.description}</p>
+                <p className="mt-6 text-lg text-gray-600">{service.description}</p>
 
                 {/* Features list */}
                 <ul className="mt-6 space-y-3">
@@ -117,7 +117,7 @@ export default function ServicesPage() {
                           clipRule="evenodd"
                         />
                       </svg>
-                      <span className="text-text-light">{feature}</span>
+                      <span className="text-gray-700">{feature}</span>
                     </li>
                   ))}
                 </ul>
