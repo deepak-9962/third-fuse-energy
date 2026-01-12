@@ -13,7 +13,6 @@ import { useRouter } from 'next/router';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { useSiteData } from '@/context/SiteContext';
-import LanguageSwitcher from './LanguageSwitcher';
 
 interface NavItem {
   title: string;
@@ -70,8 +69,8 @@ export default function Header({ navItems }: HeaderProps) {
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-custom',
         isScrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-nav py-3'
-          : 'bg-transparent py-5'
+          ? 'bg-white/95 backdrop-blur-lg shadow-lg shadow-black/5 border-b border-gray-200 py-3'
+          : 'bg-white/95 backdrop-blur-lg shadow-md py-4'
       )}
     >
       <nav
@@ -92,7 +91,7 @@ export default function Header({ navItems }: HeaderProps) {
             )}
           >
             <Image
-              src="/images/logo-mark.svg"
+              src="/images/logo-mark.png"
               alt=""
               fill
               className="object-contain"
@@ -101,11 +100,11 @@ export default function Header({ navItems }: HeaderProps) {
           </div>
           <span
             className={cn(
-              'font-heading font-bold text-text transition-all duration-300 hidden sm:block',
+              'font-heading font-bold transition-all duration-300 hidden sm:block text-text',
               isScrolled ? 'text-lg' : 'text-xl'
             )}
           >
-            Third Fuse Energy
+            Third Fuse Energy Corp
           </span>
         </Link>
 
@@ -126,11 +125,11 @@ export default function Header({ navItems }: HeaderProps) {
               </Link>
             </li>
           ))}
-          <li>
-            <LanguageSwitcher />
-          </li>
-          <li className="ml-2">
-            <Link href="/contact" className="btn-primary text-sm py-2 px-5">
+          <li className="ml-3">
+            <Link 
+              href="/contact" 
+              className="inline-flex items-center text-sm font-semibold py-2.5 px-6 rounded-full bg-brand text-white shadow-lg shadow-brand/30 hover:bg-brand-dark hover:shadow-xl hover:shadow-brand/40 hover:scale-105 transition-all duration-200"
+            >
               Get a Quote
             </Link>
           </li>
@@ -138,7 +137,6 @@ export default function Header({ navItems }: HeaderProps) {
 
         {/* Mobile Menu Button */}
         <div className="flex items-center gap-2 md:hidden">
-          <LanguageSwitcher />
         <button
           type="button"
           className="relative z-10 p-2 -mr-2"
@@ -150,19 +148,19 @@ export default function Header({ navItems }: HeaderProps) {
           <div className="w-6 h-5 relative flex flex-col justify-between">
             <span
               className={cn(
-                'w-full h-0.5 bg-text rounded-full transition-all duration-300',
+                'w-full h-0.5 rounded-full transition-all duration-300 bg-text',
                 isMobileMenuOpen && 'rotate-45 translate-y-2'
               )}
             />
             <span
               className={cn(
-                'w-full h-0.5 bg-text rounded-full transition-all duration-300',
+                'w-full h-0.5 rounded-full transition-all duration-300 bg-text',
                 isMobileMenuOpen && 'opacity-0'
               )}
             />
             <span
               className={cn(
-                'w-full h-0.5 bg-text rounded-full transition-all duration-300',
+                'w-full h-0.5 rounded-full transition-all duration-300 bg-text',
                 isMobileMenuOpen && '-rotate-45 -translate-y-2'
               )}
             />

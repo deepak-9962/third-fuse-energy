@@ -51,6 +51,7 @@ export default function HomePage({ projects }: HomePageProps) {
         cta={home.hero.cta}
         ctaSecondary={home.hero.ctaSecondary}
         image={home.hero.image}
+        videoSrc="/videos/hero-background.mp4"
       />
 
       {/* Stats Section */}

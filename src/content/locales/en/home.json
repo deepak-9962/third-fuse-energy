@@ -1,7 +1,7 @@
 {
   "hero": {
-    "title": "Powering the Future with Solar Energy",
-    "subtitle": "Leading residential & commercial solar installations across the nation. Save money, reduce your carbon footprint, and embrace clean energy.",
+    "title": "Lighting Homes, Empowering Businesses, Sustaining Nature",
+    "subtitle": "We bring the power of the sun to every space — from homes to industries — with reliable, cost-saving solar solutions. Together, we create a greener tomorrow by making clean energy accessible to all.",
     "cta": "Get a Free Quote",
     "ctaSecondary": "Our Services",
     "image": "/images/hero-bg.svg"
@@ -20,30 +20,30 @@
     {
       "id": "residential",
       "title": "Residential Solar",
-      "summary": "Transform your home with custom solar solutions. Reduce your energy bills by up to 70% and increase your property value.",
+      "summary": "Solar power solutions designed for homes to reduce electricity bills and provide long-term clean energy.",
       "icon": "home",
       "href": "/services#residential"
     },
     {
       "id": "commercial",
       "title": "Commercial Solar",
-      "summary": "Power your business with clean energy. Custom-designed systems for warehouses, offices, and retail spaces.",
+      "summary": "Rooftop and ground-mounted solar systems for offices, retail, and commercial buildings.",
       "icon": "building",
       "href": "/services#commercial"
     },
     {
-      "id": "maintenance",
-      "title": "Maintenance & Support",
-      "summary": "Keep your solar investment performing at its peak with our comprehensive maintenance and monitoring services.",
-      "icon": "wrench",
-      "href": "/services#maintenance"
+      "id": "industrial",
+      "title": "Industrial Solar",
+      "summary": "High-capacity solar installations for factories and large facilities.",
+      "icon": "factory",
+      "href": "/services#industrial"
     },
     {
-      "id": "consulting",
-      "title": "Energy Consulting",
-      "summary": "Expert guidance on energy efficiency, incentives, and the best solar solutions for your unique needs.",
-      "icon": "chart",
-      "href": "/services#consulting"
+      "id": "specialized",
+      "title": "Specialized Solar",
+      "summary": "Custom solar applications for unique energy needs including car sheds and pump systems.",
+      "icon": "zap",
+      "href": "/services#specialized"
     }
   ],
   "whyChooseUs": {
@@ -52,68 +52,71 @@
     "items": [
       {
         "icon": "shield",
-        "title": "25-Year Warranty",
-        "description": "Industry-leading warranty coverage on all installations and equipment"
+        "title": "Premium Quality",
+        "description": "High-efficiency solar products built for durability and long-term performance with minimal maintenance."
       },
       {
         "icon": "users",
-        "title": "Expert Team",
-        "description": "Certified professionals with over 500+ successful installations"
-      },
-      {
-        "icon": "zap",
-        "title": "Fast Installation",
-        "description": "From consultation to power-on in as little as 2-4 weeks"
+        "title": "Expert Support",
+        "description": "Professional installation, precision engineering, and ongoing after-sales service."
       },
       {
         "icon": "dollar",
-        "title": "Best Price Guarantee",
-        "description": "Competitive pricing with flexible financing options available"
+        "title": "Affordable Solutions",
+        "description": "Cost-effective systems with long-term savings and subsidy support."
       },
       {
-        "icon": "leaf",
-        "title": "Eco-Friendly",
-        "description": "Help reduce carbon emissions by switching to clean solar energy"
-      },
-      {
-        "icon": "headphones",
-        "title": "24/7 Support",
-        "description": "Round-the-clock monitoring and customer support for peace of mind"
+        "icon": "check",
+        "title": "Trusted & Reliable",
+        "description": "Hundreds of satisfied customers and a proven track record in solar delivery."
       }
     ]
   },
-  "projectsPreview": ["mall-rooftop-500kw", "residential-estate-50kw", "warehouse-district-1mw"],
+  "features": {
+    "title": "Technology Highlights",
+    "subtitle": "Advanced solar technology for maximum efficiency",
+    "items": [
+      { "icon": "sun", "title": "Solar Powered" },
+      { "icon": "cpu", "title": "High-Efficiency Modules" },
+      { "icon": "settings", "title": "Centralized Lighting System" },
+      { "icon": "clock", "title": "Automatic Dusk-to-Dawn" },
+      { "icon": "shield", "title": "Durable Aluminium Body" },
+      { "icon": "battery", "title": "Maintenance-Free Battery" },
+      { "icon": "zap", "title": "Latest LED Technology" },
+      { "icon": "eye", "title": "White Light Visibility" }
+    ]
+  },
   "testimonials": [
     {
       "id": 1,
-      "quote": "Third Fuse Energy transformed our home with a beautiful solar installation. Our electricity bills dropped by 65% in the first month!",
-      "author": "Sarah Johnson",
-      "role": "Homeowner",
-      "location": "Austin, TX",
-      "image": "/images/testimonials/sarah.jpg"
+      "quote": "Third Fuse Energy transformed our home with an efficient rooftop solar system. Our electricity bills have dropped significantly, and the installation was smooth and hassle-free.",
+      "author": "Ramesh Kumar",
+      "role": "Residential Solar Installation",
+      "location": "Chennai",
+      "image": "/images/testimonials/ramesh.jpg"
     },
     {
       "id": 2,
-      "quote": "Professional team, excellent communication, and outstanding results. They made going solar for our business incredibly easy.",
-      "author": "Michael Chen",
-      "role": "CEO, TechStart Inc.",
-      "location": "San Francisco, CA",
-      "image": "/images/testimonials/michael.jpg"
+      "quote": "Our office building now runs on clean, reliable solar power thanks to Third Fuse Energy. Their team handled everything from design to installation with professionalism.",
+      "author": "Priya",
+      "role": "Commercial Solar Rooftop",
+      "location": "Chennai",
+      "image": "/images/testimonials/priya.jpg"
     },
     {
       "id": 3,
-      "quote": "From the initial consultation to the final installation, the experience was seamless. Highly recommend their services!",
-      "author": "Emily Rodriguez",
-      "role": "Property Manager",
-      "location": "Phoenix, AZ",
-      "image": "/images/testimonials/emily.jpg"
+      "quote": "The solar pump system has made water management on our farm effortless and cost-effective. Third Fuse Energy's support and maintenance services are top-notch.",
+      "author": "Arjun",
+      "role": "Solar Pump System for Farm",
+      "location": "Tamil Nadu",
+      "image": "/images/testimonials/arjun.jpg"
     }
   ],
   "stats": [
-    { "value": "100+", "label": "Happy Customers" },
-    { "value": "100+", "label": "Projects Done" },
+    { "value": "500+", "label": "Happy Clients" },
+    { "value": "1000+", "label": "Projects Completed" },
     { "value": "50MW", "label": "Total Capacity Installed" },
-    { "value": "15+", "label": "Years Experience" }
+    { "value": "5+", "label": "Years Experience" }
   ],
   "cta": {
     "title": "Ready to Go Solar?",

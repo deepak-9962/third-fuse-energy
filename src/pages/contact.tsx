@@ -21,15 +21,15 @@ export default function ContactPage() {
       />
 
       {/* Hero Section */}
-      <section className="pt-12 pb-20 bg-gradient-hero">
+      <section className="pt-32 pb-20 bg-gradient-to-br from-[#0a1628] via-[#0B63D6] to-[#083a7a]">
         <div className="container-content">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <h1 className="text-h1-mobile md:text-h1">Get in Touch</h1>
-            <p className="mt-4 text-xl text-text-light">
+            <h1 className="text-h1-mobile md:text-h1 text-white">Contact Us</h1>
+            <p className="mt-4 text-xl text-white/90">
               Ready to go solar? Contact us for a free consultation and custom quote.
             </p>
           </motion.div>
@@ -81,7 +81,8 @@ export default function ContactPage() {
                       <h3 className="font-semibold text-text">Office Address</h3>
                       <address className="not-italic text-text-light mt-1">
                         {company.address.street}<br />
-                        {company.address.city}, {company.address.state} {company.address.zip}
+                        {company.address.area && <>{company.address.area}<br /></>}
+                        {company.address.city} – {company.address.zip}
                       </address>
                     </div>
                   </div>

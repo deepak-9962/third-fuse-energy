@@ -51,14 +51,14 @@ export default function Footer() {
             <Link href="/" className="inline-flex items-center gap-3">
               <div className="relative h-12 w-12">
                 <Image
-                  src="/images/logo-white.svg"
+                  src="/images/logo.png"
                   alt=""
                   fill
                   className="object-contain"
                 />
               </div>
               <span className="font-heading font-bold text-xl text-white">
-                Third Fuse Energy
+                Third Fuse Energy Corp
               </span>
             </Link>
             <p className="text-white/70 text-sm leading-relaxed max-w-sm">
@@ -118,7 +118,8 @@ export default function Footer() {
                 </svg>
                 <span>
                   {company.address.street}<br />
-                  {company.address.city}, {company.address.state} {company.address.zip}
+                  {company.address.area && <>{company.address.area}<br /></>}
+                  {company.address.city} – {company.address.zip}
                 </span>
               </p>
               <p className="flex items-center gap-3">

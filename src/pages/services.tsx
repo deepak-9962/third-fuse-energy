@@ -40,15 +40,15 @@ export default function ServicesPage() {
       />
 
       {/* Hero Section */}
-      <section className="pt-12 pb-20 bg-gradient-hero">
+      <section className="pt-32 pb-20 bg-gradient-to-br from-[#0a1628] via-[#0B63D6] to-[#083a7a]">
         <div className="container-content">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <h1 className="text-h1-mobile md:text-h1">{services.hero.title}</h1>
-            <p className="mt-4 text-xl text-text-light">{services.hero.subtitle}</p>
+            <h1 className="text-h1-mobile md:text-h1 text-white">{services.hero.title}</h1>
+            <p className="mt-4 text-xl text-white/90">{services.hero.subtitle}</p>
           </motion.div>
         </div>
       </section>

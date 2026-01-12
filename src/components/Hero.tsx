@@ -19,6 +19,7 @@ interface HeroProps {
   ctaSecondary?: string;
   ctaSecondaryHref?: string;
   image?: string;
+  videoSrc?: string;
 }
 
 export default function Hero({
@@ -29,25 +30,39 @@ export default function Hero({
   ctaSecondary,
   ctaSecondaryHref = '/services',
   image,
+  videoSrc,
 }: HeroProps) {
+  // Determine if we have a dark background (video or fallback gradient)
+  const hasDarkBackground = true; // Always use dark background for hero
+  
   return (
-    <section className="relative min-h-[90vh] flex items-center bg-gradient-hero overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-30" aria-hidden="true" />
-      
-      {/* Decorative circles */}
-      <div className="absolute -top-40 -right-40 w-96 h-96 bg-brand/5 rounded-full blur-3xl" aria-hidden="true" />
-      <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-brand-accent/5 rounded-full blur-3xl" aria-hidden="true" />
+    <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-br from-[#0a1628] via-[#0B63D6] to-[#083a7a] pt-32">
+      {/* Background Video */}
+      {videoSrc && (
+        <div className="absolute inset-0 z-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src={videoSrc} type="video/mp4" />
+          </video>
+          {/* Dark overlay for better text readability */}
+          <div className="absolute inset-0 bg-black/60" aria-hidden="true" />
+        </div>
+      )}
 
-      <div className="container-content relative z-10 py-20 md:py-28">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="container-content relative z-10 py-16 md:py-24">
+        <div className="flex flex-col items-center justify-center text-center">
           {/* Content */}
-          <div className="text-center lg:text-left">
+          <div className="max-w-3xl">
             <motion.h1
               variants={heroTitle}
               initial="hidden"
               animate="visible"
-              className="text-h1-mobile md:text-h1 text-text text-balance"
+              className="text-h1-mobile md:text-h1 text-white text-balance"
             >
               {title}
             </motion.h1>
@@ -56,7 +71,7 @@ export default function Hero({
               variants={heroSubtitle}
               initial="hidden"
               animate="visible"
-              className="mt-6 text-body-lg text-text-light max-w-xl mx-auto lg:mx-0"
+              className="mt-6 text-body-lg text-white/90 max-w-xl mx-auto"
             >
               {subtitle}
             </motion.p>
@@ -65,7 +80,7 @@ export default function Hero({
               variants={heroCTA}
               initial="hidden"
               animate="visible"
-              className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+              className="mt-8 flex flex-col sm:flex-row gap-4 justify-center"
             >
               <Link href={ctaHref} className="btn-primary text-lg px-8 py-4">
                 {cta}
@@ -82,64 +97,28 @@ export default function Hero({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8, duration: 0.5 }}
-              className="mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm text-text-light"
+              className="mt-10 flex flex-wrap items-center justify-center gap-6 text-sm text-white/80"
             >
               <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
                 <span>Free Consultation</span>
               </div>
               <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
                 <span>25-Year Warranty</span>
               </div>
               <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
                 <span>NABCEP Certified</span>
               </div>
             </motion.div>
           </div>
-
-          {/* Hero Image/Logo */}
-          <motion.div
-            variants={heroImage}
-            initial="hidden"
-            animate="visible"
-            className="relative"
-          >
-            <div className="relative aspect-square max-w-lg mx-auto">
-              {/* Glow effect behind image */}
-              <div className="absolute inset-0 bg-gradient-to-br from-brand/20 to-brand-accent/20 rounded-full blur-3xl transform scale-90" aria-hidden="true" />
-              
-              {/* Main image or placeholder */}
-              {image ? (
-                <Image
-                  src={image}
-                  alt="Solar installation"
-                  fill
-                  className="object-contain relative z-10"
-                  priority
-                />
-              ) : (
-                <div className="relative z-10 w-full h-full flex items-center justify-center">
-                  <div className="relative w-4/5 h-4/5">
-                    <Image
-                      src="/images/logo.svg"
-                      alt="Third Fuse Energy"
-                      fill
-                      className="object-contain"
-                      priority
-                    />
-                  </div>
-                </div>
-              )}
-            </div>
-          </motion.div>
         </div>
       </div>
 
@@ -150,8 +129,8 @@ export default function Hero({
         transition={{ delay: 1, duration: 0.5, repeat: Infinity, repeatType: 'reverse' }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
       >
-        <div className="w-6 h-10 border-2 border-text/30 rounded-full flex justify-center pt-2">
-          <div className="w-1 h-2 bg-text/50 rounded-full" />
+        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2">
+          <div className="w-1 h-2 bg-white/50 rounded-full" />
         </div>
       </motion.div>
     </section>

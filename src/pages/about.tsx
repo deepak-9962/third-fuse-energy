@@ -40,15 +40,15 @@ export default function AboutPage() {
       />
 
       {/* Hero Section */}
-      <section className="pt-12 pb-20 bg-gradient-hero">
+      <section className="pt-32 pb-20 bg-gradient-to-br from-[#0a1628] via-[#0B63D6] to-[#083a7a]">
         <div className="container-content">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <h1 className="text-h1-mobile md:text-h1">{about.hero.title}</h1>
-            <p className="mt-4 text-xl text-text-light">{about.hero.subtitle}</p>
+            <h1 className="text-h1-mobile md:text-h1 text-white">{about.hero.title}</h1>
+            <p className="mt-4 text-xl text-white/90">{about.hero.subtitle}</p>
           </motion.div>
         </div>
       </section>
@@ -161,6 +161,7 @@ export default function AboutPage() {
       </section>
 
       {/* Certifications Section */}
+      {about.certifications && about.certifications.length > 0 && (
       <section className="section-padding bg-white">
         <div className="container-content">
           <motion.div
@@ -204,8 +205,10 @@ export default function AboutPage() {
           </motion.div>
         </div>
       </section>
+      )}
 
       {/* Team Section */}
+      {about.team && about.team.length > 0 && (
       <section className="section-padding bg-surface">
         <div className="container-content">
           <motion.div
@@ -253,6 +256,7 @@ export default function AboutPage() {
           </motion.div>
         </div>
       </section>
+      )}
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-brand to-brand-accent">
