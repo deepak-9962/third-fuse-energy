@@ -61,16 +61,16 @@ export default function ServicesPage() {
             initial="hidden"
             whileInView="visible"
             viewport={viewportOnce}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr"
           >
             {services.services.map((service: any) => (
-              <motion.div key={service.id} variants={staggerItem}>
+              <motion.div key={service.id} variants={staggerItem} className="h-full">
                 <ServiceCard
                   icon={service.icon}
                   title={service.title}
                   summary={service.summary}
                   href={`#${service.id}`}
-                  subsidyEligible={service.id === 'residential' || service.id === 'commercial'}
+                  subsidyEligible={service.subsidyEligible}
                 />
               </motion.div>
             ))}

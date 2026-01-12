@@ -70,11 +70,11 @@ export default function ServiceCard({
 }: ServiceCardProps) {
   const props = { icon, title, summary, href, variant, subsidyEligible }; // Ensure props usage
   return (
-    <motion.div {...hoverLift}>
+    <motion.div {...hoverLift} className="h-full">
       <Link
         href={href}
         className={cn(
-          'group block card card-hover h-full',
+          'group flex flex-col card card-hover h-full min-h-[280px]',
           variant === 'default' ? 'p-6 md:p-8' : 'p-5'
         )}
       >
@@ -100,7 +100,7 @@ export default function ServiceCard({
 
         <p
           className={cn(
-            'text-text-light mt-2',
+            'text-text-light mt-2 flex-grow',
             variant === 'default' ? 'text-base' : 'text-sm'
           )}
         >
@@ -114,9 +114,14 @@ export default function ServiceCard({
              Eligible for Subsidy
           </div>
         )}
+        
+        {/* Spacer for cards without subsidy badge */}
+        {!props.subsidyEligible && (
+          <div className="mt-4 h-6"></div>
+        )}
 
         {/* Arrow */}
-        <div className="mt-4 flex items-center text-brand font-medium text-sm group-hover:gap-2 transition-all duration-300">
+        <div className="mt-auto pt-4 flex items-center text-brand font-medium text-sm group-hover:gap-2 transition-all duration-300">
           <span>Learn more</span>
           <svg
             className="w-4 h-4 ml-1 transform transition-transform duration-300 group-hover:translate-x-1"
