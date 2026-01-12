@@ -1,105 +1,49 @@
 {
   "hero": {
-    "title": "About Third Fuse Energy",
-    "subtitle": "Pioneering sustainable solar solutions since 2010"
+    "title": "About Third Fuse Energy Corp",
+    "subtitle": "Lighting Homes, Empowering Businesses, Sustaining Nature"
+  },
+  "intro": {
+    "title": "Who We Are",
+    "content": "Third Fuse Energy delivers clean, efficient solar solutions for homes, businesses, and farms. Our expert team ensures reliable, sustainable energy every step of the way."
   },
   "story": {
     "title": "Our Story",
     "content": [
-      "Third Fuse Energy was founded in 2010 with a simple mission: to make clean, renewable solar energy accessible to everyone. What started as a small team of passionate engineers has grown into one of the region's most trusted solar installation companies.",
-      "Over the past 15 years, we've completed more than 500 installations, from small residential rooftops to megawatt-scale commercial projects. Our success is built on a foundation of technical excellence, customer service, and an unwavering commitment to quality.",
-      "Today, Third Fuse Energy continues to lead the way in solar innovation, helping homes and businesses across the nation transition to clean energy and a more sustainable future."
+      "Third Fuse Energy Corp delivers innovative solar energy solutions for homes, offices, industries, and farms. With premium products, expert installation, and end-to-end project management, we are powering a sustainable future — one solar panel at a time.",
+      "We bring the power of the sun to every space — from homes to industries — with reliable, cost-saving solar solutions. Together, we create a greener tomorrow by making clean energy accessible to all.",
+      "Our commitment to quality and customer satisfaction has made us a trusted name in the solar industry, serving hundreds of happy clients across Tamil Nadu and beyond."
     ],
     "image": "/images/about/team-photo.jpg"
   },
   "mission": {
     "title": "Our Mission",
-    "content": "To accelerate the world's transition to sustainable energy by providing exceptional solar solutions that are accessible, affordable, and built to last.",
+    "content": "Empowering homes, businesses, and communities with clean, reliable solar energy. We turn sunlight into sustainable solutions that save costs, protect the planet, and light up lives.",
     "vision": "A world powered entirely by clean, renewable energy.",
     "values": [
       {
-        "title": "Excellence",
-        "description": "We hold ourselves to the highest standards in every installation"
+        "title": "Premium Quality",
+        "description": "High-efficiency solar products built for durability and long-term performance"
       },
       {
-        "title": "Integrity",
-        "description": "Honest pricing, transparent communication, and ethical business practices"
+        "title": "Expert Support",
+        "description": "Professional installation, precision engineering, and ongoing after-sales service"
       },
       {
-        "title": "Innovation",
-        "description": "Continuously improving our methods and embracing new technologies"
+        "title": "Affordable Solutions",
+        "description": "Cost-effective systems with long-term savings and subsidy support"
       },
       {
-        "title": "Sustainability",
-        "description": "Committed to environmental responsibility in everything we do"
+        "title": "Trusted & Reliable",
+        "description": "Hundreds of satisfied customers and a proven track record in solar delivery"
       }
     ]
   },
-  "certifications": [
-    {
-      "name": "NABCEP Certified",
-      "description": "North American Board of Certified Energy Practitioners",
-      "image": "/images/certifications/nabcep.png"
-    },
-    {
-      "name": "Tesla Powerwall Certified",
-      "description": "Authorized installer for Tesla energy products",
-      "image": "/images/certifications/tesla.png"
-    },
-    {
-      "name": "SunPower Elite Dealer",
-      "description": "Top-tier partnership with SunPower solar panels",
-      "image": "/images/certifications/sunpower.png"
-    },
-    {
-      "name": "BBB A+ Rating",
-      "description": "Better Business Bureau accredited with highest rating",
-      "image": "/images/certifications/bbb.png"
-    }
-  ],
-  "team": [
-    {
-      "name": "David Chen",
-      "role": "Founder & CEO",
-      "bio": "With 20+ years in renewable energy, David founded Third Fuse Energy to bring quality solar installations to every community.",
-      "image": "/images/team/david-chen.jpg"
-    },
-    {
-      "name": "Sarah Mitchell",
-      "role": "Chief Operations Officer",
-      "bio": "Sarah oversees all installation operations, ensuring every project meets our exacting quality standards.",
-      "image": "/images/team/sarah-mitchell.jpg"
-    },
-    {
-      "name": "Marcus Johnson",
-      "role": "Lead Engineer",
-      "bio": "Marcus designs custom solar solutions that maximize efficiency and aesthetic integration for each property.",
-      "image": "/images/team/marcus-johnson.jpg"
-    },
-    {
-      "name": "Elena Rodriguez",
-      "role": "Customer Success Director",
-      "bio": "Elena ensures every customer has an exceptional experience from first contact through installation and beyond.",
-      "image": "/images/team/elena-rodriguez.jpg"
-    },
-    {
-      "name": "James Park",
-      "role": "Commercial Sales Director",
-      "bio": "James helps businesses of all sizes find the right solar solution for their unique needs and goals.",
-      "image": "/images/team/james-park.jpg"
-    },
-    {
-      "name": "Lisa Thompson",
-      "role": "Finance & Incentives Specialist",
-      "bio": "Lisa guides customers through financing options, tax credits, and incentive programs to maximize savings.",
-      "image": "/images/team/lisa-thompson.jpg"
-    }
-  ],
   "stats": [
-    { "value": "2010", "label": "Year Founded" },
-    { "value": "500+", "label": "Projects Completed" },
-    { "value": "50+", "label": "Team Members" },
-    { "value": "50 MW", "label": "Total Capacity Installed" }
+    { "value": "500+", "label": "Happy Clients" },
+    { "value": "1000+", "label": "Projects Completed" },
+    { "value": "50 MW", "label": "Total Capacity Installed" },
+    { "value": "5+", "label": "Years Experience" }
   ],
   "cta": {
     "title": "Join the Solar Revolution",

@@ -1,31 +1,37 @@
 {
   "company": {
     "name": "Third Fuse Energy Corp",
-    "tagline": "Powering the Future with Solar Energy",
-    "description": "Leading residential & commercial solar installations across the nation.",
-    "founded": 2010,
-    "email": "info@thirdfuseenergy.com",
-    "phone": "+1 (555) 123-4567",
+    "tagline": "Lighting Homes, Empowering Businesses, Sustaining Nature.",
+    "description": "We bring the power of the sun to every space — from homes to industries — with reliable, cost-saving solar solutions.",
+    "founded": 2020,
+    "email": "bharani@thirdfuseenergycorp.com",
+    "phone": "+91 97518 59316",
     "address": {
-      "street": "123 Solar Way, Suite 100",
-      "city": "Austin",
-      "state": "TX",
-      "zip": "78701",
-      "country": "USA"
+      "street": "New No 3/446, Old No 1/492, Thiruvallur Street, Muthamizh Nagar",
+      "area": "GST Road, Vandalur Gate",
+      "city": "Chennai",
+      "state": "Tamil Nadu",
+      "zip": "600048",
+      "country": "India"
     }
   },
   "navigation": {
     "main": [
       { "title": "Home", "href": "/" },
-      { "title": "About", "href": "/about" },
-      { "title": "Services", "href": "/services" },
-      { "title": "Projects", "href": "/projects" },
-      { "title": "Subsidy", "href": "/subsidy" },
-      { "title": "Contact", "href": "/contact" }
+      { "title": "About Us", "href": "/about" },
+      { "title": "Our Services", "href": "/services" },
+      { "title": "Our Pricing", "href": "/subsidy" },
+      { "title": "Contact Us", "href": "/contact" }
     ],
     "footer": [
       { "title": "Privacy Policy", "href": "/privacy" },
       { "title": "Terms of Service", "href": "/terms" }
+    ],
+    "services": [
+      { "title": "Solar Rooftop for Offices", "href": "/services#commercial-rooftop" },
+      { "title": "Solar Rooftop for Homes", "href": "/services#residential-rooftop" },
+      { "title": "Solar Car Shed", "href": "/services#car-shed" },
+      { "title": "Solar Power Plant for Pumps", "href": "/services#pump-system" }
     ]
   },
   "social": [
@@ -35,16 +41,16 @@
     { "name": "Instagram", "href": "https://instagram.com/thirdfuseenergy", "icon": "instagram" }
   ],
   "seo": {
-    "defaultTitle": "Third Fuse Energy Corp | Solar Installation Experts",
+    "defaultTitle": "Third Fuse Energy Corp | Solar Energy Solutions",
     "titleTemplate": "%s | Third Fuse Energy Corp",
-    "defaultDescription": "Third Fuse Energy provides premium residential and commercial solar installations. Get a free quote today and start saving with clean solar energy.",
-    "siteUrl": "https://thirdfuseenergy.com",
+    "defaultDescription": "Third Fuse Energy Corp delivers innovative solar energy solutions for homes, offices, industries, and farms. Premium products, expert installation, and end-to-end project management.",
+    "siteUrl": "https://thirdfuseenergycorp.com",
     "ogImage": "/images/og-default.jpg"
   },
   "footer": {
-    "description": "Third Fuse Energy is a leading solar installation company providing residential and commercial solar solutions across the nation.",
+    "description": "Third Fuse Energy Corp delivers innovative solar energy solutions for homes, offices, industries, and farms. With premium products, expert installation, and end-to-end project management, we are powering a sustainable future — one solar panel at a time.",
     "trust": "We assist customers with applicable government solar subsidy schemes.",
     "copyright": "© 2024 Third Fuse Energy Corp. All rights reserved.",
-    "certifications": ["NABCEP Certified", "BBB A+ Rating", "Licensed & Insured"]
+    "certifications": ["Premium Quality Products", "Expert Installation", "Trusted & Reliable"]
   }
 }

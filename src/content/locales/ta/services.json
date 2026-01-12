@@ -1,104 +1,144 @@
 {
   "hero": {
     "title": "Our Services",
-    "subtitle": "Comprehensive solar solutions for homes and businesses"
+    "subtitle": "Comprehensive solar solutions for homes, businesses, industries, and farms"
   },
   "services": [
     {
       "id": "residential",
-      "title": "Residential Solar Installation",
-      "summary": "Transform your home into a clean energy powerhouse with our custom residential solar solutions.",
-      "description": "Our residential solar systems are designed to maximize energy production while complementing your home's aesthetics. We handle everything from initial assessment to final installation, including permits and utility connections.",
+      "title": "Residential Solar",
+      "summary": "Solar power solutions designed for homes to reduce electricity bills and provide long-term clean energy.",
+      "description": "Transform your home into a clean energy powerhouse. Our residential solar systems are designed to maximize energy production while complementing your home's aesthetics. We handle everything from initial assessment to final installation.",
       "icon": "home",
       "features": [
         "Custom system design for your roof",
-        "Premium tier-1 solar panels",
-        "Smart inverter technology",
-        "Battery storage options",
-        "Net metering setup",
-        "25-year performance warranty"
+        "High-efficiency solar panels",
+        "Reduce electricity bills significantly",
+        "Long-term clean energy solution",
+        "Government subsidy assistance",
+        "Professional installation"
       ],
-      "image": "/images/services/residential.jpg"
+      "image": "/images/services/residential.jpg",
+      "subsidyEligible": true
     },
     {
       "id": "commercial",
-      "title": "Commercial Solar Solutions",
-      "summary": "Reduce operating costs and demonstrate environmental leadership with commercial-scale solar installations.",
-      "description": "From small businesses to large industrial facilities, we design and install solar systems that meet your energy demands and budget requirements. Take advantage of tax incentives and dramatically reduce your electricity costs.",
+      "title": "Commercial Solar",
+      "summary": "Rooftop and ground-mounted solar systems for offices, retail, and commercial buildings.",
+      "description": "Power your business with clean energy. Our commercial solar solutions help reduce operating costs and demonstrate environmental leadership with professional-grade installations.",
       "icon": "building",
       "features": [
-        "Rooftop and ground-mount options",
-        "Carport solar structures",
-        "Energy storage systems",
-        "Power purchase agreements (PPA)",
-        "LEED certification support",
-        "Ongoing performance monitoring"
+        "Rooftop solar systems",
+        "Ground-mounted options",
+        "Reduce operating costs",
+        "Professional installation",
+        "Ongoing maintenance support",
+        "Subsidy guidance"
       ],
-      "image": "/images/services/commercial.jpg"
+      "image": "/images/services/commercial.jpg",
+      "subsidyEligible": true
     },
     {
-      "id": "maintenance",
-      "title": "Maintenance & Monitoring",
-      "summary": "Keep your solar investment performing at peak efficiency with our comprehensive service plans.",
-      "description": "Our maintenance programs include regular inspections, cleaning, and 24/7 remote monitoring to ensure your system produces maximum energy year after year.",
-      "icon": "wrench",
+      "id": "industrial",
+      "title": "Industrial Solar",
+      "summary": "High-capacity solar installations for factories and large facilities.",
+      "description": "Large-scale solar solutions for industrial facilities. We design and install high-capacity systems that meet the demanding energy requirements of factories and manufacturing units.",
+      "icon": "factory",
       "features": [
-        "Annual system inspections",
-        "Panel cleaning services",
-        "Inverter health checks",
-        "Real-time monitoring",
-        "Performance reporting",
-        "Priority repair service"
+        "High-capacity installations",
+        "Custom engineering solutions",
+        "Factory and facility systems",
+        "Peak load management",
+        "Professional project management",
+        "Long-term performance warranty"
       ],
-      "image": "/images/services/maintenance.jpg"
+      "image": "/images/services/industrial.jpg",
+      "subsidyEligible": false
     },
     {
-      "id": "consulting",
-      "title": "Energy Consulting",
-      "summary": "Expert guidance to help you navigate the solar journey and maximize your return on investment.",
-      "description": "Our energy consultants provide comprehensive assessments, financial analysis, and strategic planning to help you make informed decisions about your energy future.",
-      "icon": "chart",
+      "id": "specialized",
+      "title": "Specialized Solar",
+      "summary": "Custom solar applications for unique energy needs.",
+      "description": "Tailored solar solutions for specialized applications. Whether you need a unique installation or have specific energy requirements, we design custom systems to meet your needs.",
+      "icon": "settings",
       "features": [
-        "Site feasibility studies",
-        "Financial ROI analysis",
-        "Incentive identification",
-        "Utility rate optimization",
-        "Carbon footprint assessment",
-        "Long-term energy planning"
+        "Custom solar applications",
+        "Unique energy solutions",
+        "Specialized installations",
+        "Expert consultation",
+        "Tailored system design",
+        "End-to-end support"
       ],
-      "image": "/images/services/consulting.jpg"
+      "image": "/images/services/specialized.jpg",
+      "subsidyEligible": false
     },
     {
-      "id": "battery",
-      "title": "Battery Storage",
-      "summary": "Store excess solar energy for use during peak hours or power outages with advanced battery systems.",
-      "description": "Achieve true energy independence with our battery storage solutions. Store solar energy during the day and use it at night, during outages, or when utility rates are highest.",
-      "icon": "battery",
+      "id": "commercial-rooftop",
+      "title": "Solar Rooftop for Offices",
+      "summary": "Commercial rooftop solar systems optimized for business energy usage.",
+      "description": "Optimize your office building's energy consumption with our commercial rooftop solar solutions. Designed specifically for business environments to maximize savings and efficiency.",
+      "icon": "building",
       "features": [
-        "Leading battery brands",
-        "Backup power capability",
-        "Time-of-use optimization",
-        "Seamless integration",
-        "Smart energy management",
-        "Expandable capacity"
+        "Office building optimization",
+        "Business energy savings",
+        "Professional installation",
+        "Monitoring systems",
+        "Maintenance packages",
+        "ROI analysis"
       ],
-      "image": "/images/services/battery.jpg"
+      "image": "/images/services/office-rooftop.jpg",
+      "subsidyEligible": true
     },
     {
-      "id": "ev-charging",
-      "title": "EV Charging Stations",
-      "summary": "Power your electric vehicle with clean solar energy through our integrated EV charging solutions.",
-      "description": "Complete your sustainable energy ecosystem with solar-powered EV charging. We install residential and commercial charging stations that integrate seamlessly with your solar system.",
+      "id": "residential-rooftop",
+      "title": "Solar Rooftop for Homes",
+      "summary": "Residential rooftop solar for independent power generation.",
+      "description": "Achieve energy independence with our residential rooftop solar systems. Generate your own clean power and reduce your dependence on the grid.",
+      "icon": "home",
+      "features": [
+        "Independent power generation",
+        "Rooftop optimization",
+        "Net metering setup",
+        "Battery storage options",
+        "Government subsidy support",
+        "25-year panel warranty"
+      ],
+      "image": "/images/services/home-rooftop.jpg",
+      "subsidyEligible": true
+    },
+    {
+      "id": "car-shed",
+      "title": "Solar Car Shed",
+      "summary": "Solar panel–integrated parking structures that generate power while protecting vehicles.",
+      "description": "Dual-purpose solar installations that provide covered parking while generating clean energy. Perfect for homes, offices, and commercial establishments.",
       "icon": "car",
       "features": [
-        "Level 2 home chargers",
-        "Commercial charging stations",
-        "Solar integration",
-        "Smart scheduling",
-        "Usage tracking",
-        "Network connectivity"
+        "Covered parking structure",
+        "Power generation",
+        "Vehicle protection",
+        "Dual-purpose installation",
+        "Custom designs available",
+        "Durable construction"
       ],
-      "image": "/images/services/ev-charging.jpg"
+      "image": "/images/services/car-shed.jpg",
+      "subsidyEligible": false
+    },
+    {
+      "id": "pump-system",
+      "title": "Solar Power Plant for Pumps",
+      "summary": "Solar powered water pump systems for agriculture and farming.",
+      "description": "Reliable solar-powered pumping solutions for agricultural and farming needs. Reduce irrigation costs and ensure consistent water supply with our solar pump systems.",
+      "icon": "droplet",
+      "features": [
+        "Agricultural water pumping",
+        "Farming irrigation systems",
+        "Cost-effective operation",
+        "No electricity bills",
+        "Reliable water supply",
+        "Low maintenance"
+      ],
+      "image": "/images/services/pump-system.jpg",
+      "subsidyEligible": false
     }
   ],
   "process": {
@@ -117,18 +157,18 @@
       },
       {
         "step": 3,
-        "title": "Permitting",
-        "description": "We handle all permits, utility paperwork, and HOA approvals."
+        "title": "Subsidy Assistance",
+        "description": "We help you with government subsidy applications and paperwork."
       },
       {
         "step": 4,
-        "title": "Installation",
-        "description": "Our certified technicians install your system with minimal disruption."
+        "title": "Professional Installation",
+        "description": "Our certified technicians install your system with precision and care."
       },
       {
         "step": 5,
-        "title": "Inspection",
-        "description": "Final inspection and utility approval to connect to the grid."
+        "title": "Quality Inspection",
+        "description": "Final inspection and testing to ensure optimal performance."
       },
       {
         "step": 6,

@@ -19,7 +19,7 @@ import aboutTe from '@/content/locales/te/about.json';
 import aboutKn from '@/content/locales/kn/about.json';
 import aboutMl from '@/content/locales/ml/about.json';
 
-const aboutDataMap: Record<string, typeof aboutEn> = {
+const aboutDataMap: Record<string, any> = {
   en: aboutEn,
   hi: aboutHi,
   ta: aboutTa,
