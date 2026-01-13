@@ -40,7 +40,7 @@ export default function AboutPage() {
       />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-[#0a1628] via-[#0B63D6] to-[#083a7a]">
+      <section className="pt-40 pb-20 bg-gradient-to-br from-[#0a1628] via-[#0B63D6] to-[#083a7a]">
         <div className="container-content">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

@@ -4,11 +4,10 @@
  * Based on PRD Section 7.1 - Home page specs
  */
 
-import { GetStaticProps } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { SEO, Hero, ServiceCard, ProjectCard } from '@/components';
+import { SEO, Hero, ServiceCard } from '@/components';
 import { fadeUp, staggerContainer, staggerItem, viewportOnce } from '@/lib/motion';
 import { useLocale } from '@/context/LocaleContext';
 
@@ -29,11 +28,7 @@ const homeDataMap: Record<string, typeof homeEn> = {
   ml: homeMl,
 };
 
-interface HomePageProps {
-  projects: any[];
-}
-
-export default function HomePage({ projects }: HomePageProps) {
+export default function HomePage() {
   const { locale } = useLocale();
   const home = homeDataMap[locale] || homeEn;
 
@@ -207,56 +202,6 @@ export default function HomePage({ projects }: HomePageProps) {
         </div>
       </section>
 
-      {/* Projects Preview Section */}
-      <section className="section-padding bg-white">
-        <div className="container-content">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={viewportOnce}
-            className="text-center max-w-2xl mx-auto mb-12"
-          >
-            <h2 className="heading-accent">Featured Projects</h2>
-            <p className="mt-4 text-text-light text-lg">
-              See some of our recent solar installations
-            </p>
-          </motion.div>
-
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportOnce}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
-          >
-            {projects.map((project) => (
-              <motion.div key={project.id} variants={staggerItem}>
-                <ProjectCard
-                  id={project.id}
-                  title={project.title}
-                  thumbnail={project.thumbnail}
-                  category={project.categories}
-                  year={project.year}
-                  summary={project.summary}
-                  onClick={() => window.location.href = `/projects#${project.slug}`}
-                />
-              </motion.div>
-            ))}
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={viewportOnce}
-            className="text-center mt-10"
-          >
-            <Link href="/projects" className="btn-secondary">
-              View All Projects
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Testimonials Section */}
       <section className="section-padding bg-surface">
         <div className="container-content">
@@ -381,18 +326,3 @@ const IconComponent = ({ name, className }: { name: string; className?: string }
 
   return icons[name] || icons.shield;
 };
-
-
-export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
-  // Import basic project mock data for now - in production this would also be localized or fetched
-  const mallProject = (await import(`@/content/projects/mall-rooftop-500kw.json`)).default;
-  const residentialProject = (await import(`@/content/projects/residential-estate-50kw.json`)).default;
-  const warehouseProject = (await import(`@/content/projects/warehouse-district-1mw.json`)).default;
-
-  return {
-    props: {
-      projects: [mallProject, residentialProject, warehouseProject],
-    },
-  };
-};
-

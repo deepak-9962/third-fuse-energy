@@ -51,8 +51,8 @@ export default function Footer() {
             <Link href="/" className="inline-flex items-center gap-3">
               <div className="relative h-12 w-12">
                 <Image
-                  src="/images/logo.png"
-                  alt=""
+                  src="/images/logo-mark.png"
+                  alt="Third Fuse Energy Corp logo"
                   fill
                   className="object-contain"
                 />

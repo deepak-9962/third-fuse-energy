@@ -9,5 +9,4 @@ export { default as SEO } from './SEO';
 export { default as Modal } from './Modal';
 export { default as Hero } from './Hero';
 export { default as ServiceCard } from './ServiceCard';
-export { default as ProjectCard } from './ProjectCard';
 export { default as ContactForm } from './ContactForm';
