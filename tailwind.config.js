@@ -28,12 +28,12 @@ module.exports = {
         body: ['var(--font-body)', 'Inter', 'sans-serif'],
       },
       fontSize: {
-        'h1': ['2.625rem', { lineHeight: '1.1', letterSpacing: '-0.02em', fontWeight: '800' }],
-        'h1-mobile': ['2rem', { lineHeight: '1.1', letterSpacing: '-0.02em', fontWeight: '800' }],
-        'h2': ['2rem', { lineHeight: '1.15', letterSpacing: '-0.01em', fontWeight: '700' }],
-        'h3': ['1.5rem', { lineHeight: '1.2', fontWeight: '600' }],
-        'body': ['1rem', { lineHeight: '1.5', fontWeight: '400' }],
-        'body-lg': ['1.125rem', { lineHeight: '1.6', fontWeight: '400' }],
+        'h1': ['2.625rem', { lineHeight: '1.2', letterSpacing: '-0.01em', fontWeight: '800' }],
+        'h1-mobile': ['2rem', { lineHeight: '1.15', letterSpacing: '-0.015em', fontWeight: '800' }],
+        'h2': ['2rem', { lineHeight: '1.2', letterSpacing: '-0.01em', fontWeight: '700' }],
+        'h3': ['1.5rem', { lineHeight: '1.3', fontWeight: '600' }],
+        'body': ['1rem', { lineHeight: '1.6', fontWeight: '400' }],
+        'body-lg': ['1.125rem', { lineHeight: '1.7', fontWeight: '400' }],
       },
       maxWidth: {
         'content': '1200px',

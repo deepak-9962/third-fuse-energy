@@ -62,7 +62,7 @@ export default function Hero({
               variants={heroTitle}
               initial="hidden"
               animate="visible"
-              className="text-h1-mobile md:text-h1 text-white text-balance"
+              className="text-h1-mobile md:text-h1 text-white text-balance leading-tight md:leading-[1.2] md:tracking-[-0.01em] drop-shadow-lg"
             >
               {title}
             </motion.h1>
@@ -71,7 +71,7 @@ export default function Hero({
               variants={heroSubtitle}
               initial="hidden"
               animate="visible"
-              className="mt-6 text-body-lg text-white/90 max-w-xl mx-auto"
+              className="mt-6 text-body-lg md:text-xl leading-relaxed text-white max-w-2xl mx-auto drop-shadow-md"
             >
               {subtitle}
             </motion.p>
@@ -97,7 +97,7 @@ export default function Hero({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8, duration: 0.5 }}
-              className="mt-10 flex flex-wrap items-center justify-center gap-6 text-sm text-white/80"
+              className="mt-10 flex flex-wrap items-center justify-center gap-6 text-sm md:text-base text-white drop-shadow-md font-medium"
             >
               <div className="flex items-center gap-2">
                 <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">

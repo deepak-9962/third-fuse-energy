@@ -1,39 +1,77 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import Header from '@/components/Header';
+import { SiteProvider } from '@/context/SiteContext';
 
-// Mock site data
 const mockSiteData = {
-  name: 'Third Fuse Energy',
-  navigation: [
-    { label: 'Home', href: '/' },
-    { label: 'About', href: '/about' },
-    { label: 'Services', href: '/services' },
-    { label: 'Projects', href: '/projects' },
-    { label: 'Contact', href: '/contact' },
-  ],
-  phone: '(555) 123-4567',
-};
+  company: {
+    name: 'Third Fuse Energy Corp',
+    tagline: 'Test Tagline',
+    description: 'Test description',
+    founded: 2020,
+    email: 'test@example.com',
+    phone: '+1 555-123-4567',
+    address: {
+      street: '1 Test St',
+      area: 'Test Area',
+      city: 'Test City',
+      state: 'TS',
+      zip: '00000',
+      country: 'Testland',
+    },
+  },
+  navigation: {
+    main: [
+      { title: 'Home', href: '/' },
+      { title: 'About Us', href: '/about' },
+      { title: 'Our Services', href: '/services' },
+      { title: 'Contact Us', href: '/contact' },
+    ],
+    footer: [],
+    services: [],
+  },
+  social: [],
+  seo: {
+    defaultTitle: 'Test',
+    titleTemplate: '%s | Test',
+    defaultDescription: 'Test',
+    siteUrl: 'https://example.com',
+    ogImage: '/images/og.jpg',
+  },
+  footer: {
+    description: 'Test',
+    trust: 'Test',
+    copyright: 'Test',
+    certifications: [],
+  },
+} as const;
+
+function renderHeader() {
+  return render(
+    <SiteProvider value={mockSiteData}>
+      <Header />
+    </SiteProvider>
+  );
+}
 
 describe('Header', () => {
   it('renders the company logo/name', () => {
-    render(<Header siteData={mockSiteData} />);
+    renderHeader();
     
     expect(screen.getByText(/third fuse/i)).toBeInTheDocument();
   });
 
   it('renders all navigation links', () => {
-    render(<Header siteData={mockSiteData} />);
+    renderHeader();
 
-    expect(screen.getByRole('link', { name: /home/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Home' })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /about/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /services/i })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /projects/i })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /contact/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /contact us/i })).toBeInTheDocument();
   });
 
   it('renders mobile menu button', () => {
-    render(<Header siteData={mockSiteData} />);
+    renderHeader();
 
     // Find button by its accessibility role
     const menuButtons = screen.getAllByRole('button');
@@ -47,7 +85,7 @@ describe('Header', () => {
   });
 
   it('toggles mobile menu on button click', () => {
-    render(<Header siteData={mockSiteData} />);
+    renderHeader();
 
     const menuButtons = screen.getAllByRole('button');
     const mobileMenuButton = menuButtons[0];
@@ -62,35 +100,20 @@ describe('Header', () => {
   });
 
   it('navigation links have correct hrefs', () => {
-    render(<Header siteData={mockSiteData} />);
+    renderHeader();
 
-    const homeLink = screen.getByRole('link', { name: /home/i });
+    const homeLink = screen.getByRole('link', { name: 'Home' });
     expect(homeLink).toHaveAttribute('href', '/');
 
-    const aboutLink = screen.getByRole('link', { name: /about/i });
+    const aboutLink = screen.getByRole('link', { name: /about us/i });
     expect(aboutLink).toHaveAttribute('href', '/about');
 
-    const servicesLink = screen.getByRole('link', { name: /services/i });
+    const servicesLink = screen.getByRole('link', { name: /our services/i });
     expect(servicesLink).toHaveAttribute('href', '/services');
   });
 
-  it('renders phone number if provided', () => {
-    render(<Header siteData={mockSiteData} />);
-
-    // Phone might be rendered as a link or text
-    const phoneText = screen.queryByText(/555.*123.*4567/i) || 
-                      screen.queryByRole('link', { name: /555.*123.*4567/i });
-    
-    // Phone might not be displayed in header depending on design
-    // This test checks if it's there when expected
-    if (mockSiteData.phone) {
-      // At least the header should render without errors
-      expect(screen.getByRole('banner') || screen.getByRole('navigation')).toBeInTheDocument();
-    }
-  });
-
   it('has proper accessibility attributes', () => {
-    render(<Header siteData={mockSiteData} />);
+    renderHeader();
 
     // Check for navigation landmark
     const nav = screen.getByRole('navigation');
@@ -98,19 +121,20 @@ describe('Header', () => {
   });
 
   it('renders CTA button', () => {
-    render(<Header siteData={mockSiteData} />);
+    renderHeader();
 
     // Look for a call-to-action link/button
-    const ctaButton = screen.queryByRole('link', { name: /quote|contact|get started/i });
+    const ctaButton = screen.queryByRole('link', { name: /get a quote/i });
     
     // CTA is optional, but header should render
     expect(screen.getByRole('navigation')).toBeInTheDocument();
+    expect(ctaButton).toBeInTheDocument();
   });
 });
 
 describe('Header - Scroll Behavior', () => {
   it('renders header element', () => {
-    render(<Header siteData={mockSiteData} />);
+    renderHeader();
     
     // Header should be present
     const headerOrNav = screen.getByRole('navigation').closest('header') || 
@@ -119,7 +143,7 @@ describe('Header - Scroll Behavior', () => {
   });
 
   it('header has sticky/fixed positioning classes', () => {
-    render(<Header siteData={mockSiteData} />);
+    renderHeader();
     
     const header = document.querySelector('header');
     if (header) {
@@ -137,7 +161,7 @@ describe('Header - Scroll Behavior', () => {
 
 describe('Header - Responsive Design', () => {
   it('desktop navigation is hidden on mobile (via CSS classes)', () => {
-    render(<Header siteData={mockSiteData} />);
+    renderHeader();
 
     // Desktop nav typically has 'hidden md:flex' or similar
     const nav = screen.getByRole('navigation');
@@ -148,7 +172,7 @@ describe('Header - Responsive Design', () => {
   });
 
   it('mobile menu button exists for small screens', () => {
-    render(<Header siteData={mockSiteData} />);
+    renderHeader();
 
     const buttons = screen.getAllByRole('button');
     // At least one button should exist (mobile menu toggle)

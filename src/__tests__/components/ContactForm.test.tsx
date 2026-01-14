@@ -17,7 +17,7 @@ describe('ContactForm', () => {
     expect(screen.getByLabelText(/full name/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/email/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/phone/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/service interest/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/project type/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/message/i)).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /send message/i })).toBeInTheDocument();
   });
@@ -29,9 +29,9 @@ describe('ContactForm', () => {
     const submitButton = screen.getByRole('button', { name: /send message/i });
     await user.click(submitButton);
 
-    // HTML5 validation should prevent submission
-    const nameInput = screen.getByLabelText(/full name/i);
-    expect(nameInput).toBeInvalid();
+    expect(screen.getByText(/name must be at least 2 characters/i)).toBeInTheDocument();
+    expect(screen.getByText(/please enter a valid email address/i)).toBeInTheDocument();
+    expect(screen.getByText(/message must be at least 10 characters/i)).toBeInTheDocument();
   });
 
   it('validates email format', async () => {
@@ -48,7 +48,7 @@ describe('ContactForm', () => {
     const user = userEvent.setup();
     (global.fetch as jest.Mock).mockResolvedValueOnce({
       ok: true,
-      json: async () => ({ success: true }),
+      json: async () => ({ ok: true }),
     });
 
     render(<ContactForm />);
@@ -57,7 +57,7 @@ describe('ContactForm', () => {
     await user.type(screen.getByLabelText(/full name/i), 'John Doe');
     await user.type(screen.getByLabelText(/email/i), 'john@example.com');
     await user.type(screen.getByLabelText(/phone/i), '555-123-4567');
-    await user.selectOptions(screen.getByLabelText(/service interest/i), 'residential');
+    await user.selectOptions(screen.getByLabelText(/project type/i), 'residential');
     await user.type(screen.getByLabelText(/message/i), 'I am interested in solar panels for my home.');
 
     // Submit
@@ -72,7 +72,7 @@ describe('ContactForm', () => {
     const user = userEvent.setup();
     (global.fetch as jest.Mock).mockResolvedValueOnce({
       ok: true,
-      json: async () => ({ success: true }),
+      json: async () => ({ ok: true }),
     });
 
     render(<ContactForm />);
@@ -86,7 +86,7 @@ describe('ContactForm', () => {
     await user.click(screen.getByRole('button', { name: /send message/i }));
 
     await waitFor(() => {
-      expect(screen.getByText(/thank you/i)).toBeInTheDocument();
+      expect(screen.getByText(/message sent successfully/i)).toBeInTheDocument();
     });
   });
 
@@ -94,7 +94,7 @@ describe('ContactForm', () => {
     const user = userEvent.setup();
     (global.fetch as jest.Mock).mockResolvedValueOnce({
       ok: false,
-      json: async () => ({ error: 'Server error' }),
+      json: async () => ({ ok: false, message: 'Server error' }),
     });
 
     render(<ContactForm />);
@@ -108,7 +108,7 @@ describe('ContactForm', () => {
     await user.click(screen.getByRole('button', { name: /send message/i }));
 
     await waitFor(() => {
-      expect(screen.getByText(/error|failed|problem/i)).toBeInTheDocument();
+      expect(screen.getByText(/server error|something went wrong|unable to send/i)).toBeInTheDocument();
     });
   });
 
@@ -130,24 +130,25 @@ describe('ContactForm', () => {
     // Submit
     await user.click(screen.getByRole('button', { name: /send message/i }));
 
-    const submitButton = screen.getByRole('button');
-    expect(submitButton).toBeDisabled();
+    await waitFor(() => {
+      expect(screen.getByRole('button')).toBeDisabled();
+    });
 
     // Resolve the promise
     resolvePromise!({
       ok: true,
-      json: async () => ({ success: true }),
+      json: async () => ({ ok: true }),
     });
 
     await waitFor(() => {
-      expect(screen.getByText(/thank you/i)).toBeInTheDocument();
+      expect(screen.getByText(/message sent successfully/i)).toBeInTheDocument();
     });
   });
 
   it('contains honeypot field that is hidden', () => {
     render(<ContactForm />);
 
-    const honeypotField = document.querySelector('input[name="website"]');
+    const honeypotField = document.querySelector('input[name="botField"]');
     expect(honeypotField).toBeInTheDocument();
     
     // Check if parent has screen-reader only class or hidden styling
