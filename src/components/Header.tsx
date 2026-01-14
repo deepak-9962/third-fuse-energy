@@ -177,7 +177,7 @@ export default function Header({ navItems }: HeaderProps) {
           <div
             className={cn(
               'relative transition-all duration-300',
-              isScrolled ? 'h-10 w-10' : 'h-14 w-14'
+              isScrolled ? 'h-14 w-14' : 'h-20 w-20'
             )}
           >
             <Image

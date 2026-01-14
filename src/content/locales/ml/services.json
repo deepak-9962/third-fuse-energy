@@ -18,7 +18,7 @@
         "Government subsidy assistance",
         "Professional installation"
       ],
-      "image": "/images/services/residential.jpg",
+      "image": "/images/services/residential.png",
       "subsidyEligible": true
     },
     {
@@ -35,7 +35,7 @@
         "Ongoing maintenance support",
         "Subsidy guidance"
       ],
-      "image": "/images/services/commercial.jpg",
+      "image": "/images/services/commercial.png",
       "subsidyEligible": true
     },
     {
@@ -52,7 +52,7 @@
         "Professional project management",
         "Long-term performance warranty"
       ],
-      "image": "/images/services/industrial.jpg",
+      "image": "/images/services/industrial.png",
       "subsidyEligible": false
     },
     {
@@ -69,7 +69,7 @@
         "Tailored system design",
         "End-to-end support"
       ],
-      "image": "/images/services/specialized.jpg",
+      "image": "/images/services/specialized.png",
       "subsidyEligible": false
     },
     {
