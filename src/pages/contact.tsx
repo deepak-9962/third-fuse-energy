@@ -173,15 +173,15 @@ export default function ContactPage() {
       </section>
 
       {/* Map Section (placeholder) */}
-      <section className="h-80 bg-muted relative">
+      <section className="h-80 bg-gradient-to-br from-gray-100 to-gray-200 relative">
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center">
-            <svg className="w-16 h-16 text-text-light/30 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="w-16 h-16 text-brand/40 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
-            <p className="text-text-light">Map integration available</p>
-            <p className="text-sm text-text-light/60 mt-1">Add Google Maps or Mapbox embed here</p>
+            <p className="text-gray-800 font-semibold">Map integration available</p>
+            <p className="text-sm text-gray-600 mt-1">Add Google Maps or Mapbox embed here</p>
           </div>
         </div>
       </section>

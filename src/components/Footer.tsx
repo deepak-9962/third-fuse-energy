@@ -88,7 +88,7 @@ export default function Footer() {
 
           {/* Column 2: Quick Links */}
           <div>
-            <h3 className="font-heading font-semibold text-lg mb-4">
+            <h3 className="font-heading font-semibold text-lg mb-4 text-white">
               Quick Links
             </h3>
             <ul className="space-y-3">
@@ -96,7 +96,7 @@ export default function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-white/70 hover:text-white transition-colors text-sm"
+                    className="text-white/90 hover:text-white transition-colors text-sm"
                   >
                     {item.title}
                   </Link>
@@ -107,10 +107,10 @@ export default function Footer() {
 
           {/* Column 3: Contact Info */}
           <div>
-            <h3 className="font-heading font-semibold text-lg mb-4">
+            <h3 className="font-heading font-semibold text-lg mb-4 text-white">
               Contact Us
             </h3>
-            <address className="not-italic space-y-3 text-sm text-white/70">
+            <address className="not-italic space-y-3 text-sm text-white/90">
               <p className="flex items-start gap-3">
                 <svg className="w-5 h-5 mt-0.5 flex-shrink-0 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />

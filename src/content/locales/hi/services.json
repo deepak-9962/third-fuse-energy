@@ -86,7 +86,7 @@
         "Maintenance packages",
         "ROI analysis"
       ],
-      "image": "/images/services/office-rooftop.jpg",
+      "image": "/images/services/office-rooftop.png",
       "subsidyEligible": true
     },
     {
@@ -103,7 +103,7 @@
         "Government subsidy support",
         "25-year panel warranty"
       ],
-      "image": "/images/services/home-rooftop.jpg",
+      "image": "/images/services/home-rooftop.png",
       "subsidyEligible": true
     },
     {
@@ -120,7 +120,7 @@
         "Custom designs available",
         "Durable construction"
       ],
-      "image": "/images/services/car-shed.jpg",
+      "image": "/images/services/car-shed.png",
       "subsidyEligible": false
     },
     {
@@ -137,7 +137,7 @@
         "Reliable water supply",
         "Low maintenance"
       ],
-      "image": "/images/services/pump-system.jpg",
+      "image": "/images/services/pump-system.png",
       "subsidyEligible": false
     }
   ],

@@ -79,43 +79,27 @@ export default function AboutPage() {
       {/* Our Story Section */}
       <section className="section-padding bg-white">
         <div className="container-content">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={viewportOnce}
-            >
-              <h2 className="heading-accent">{about.story.title}</h2>
-              <div className="mt-6 space-y-4">
-                {about.story.content.map((paragraph: string, index: number) => (
-                  <p key={index} className="text-text-light">
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={viewportOnce}
-              className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-muted"
-            >
-              <Image
-                src={about.story.image}
-                alt="Third Fuse Energy team"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-            </motion.div>
-          </div>
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+            className="max-w-4xl mx-auto"
+          >
+            <h2 className="heading-accent text-center">{about.story.title}</h2>
+            <div className="mt-8 space-y-4 text-lg">
+              {about.story.content.map((paragraph: string, index: number) => (
+                <p key={index} className="text-gray-700 leading-relaxed">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Mission & Values Section */}
-      <section className="section-padding bg-muted">
+      <section className="section-padding bg-gradient-to-br from-gray-50 to-white">
         <div className="container-content">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Mission */}
@@ -126,10 +110,10 @@ export default function AboutPage() {
               viewport={viewportOnce}
             >
               <h2 className="heading-accent">{about.mission.title}</h2>
-              <p className="mt-6 text-lg text-text-light">{about.mission.content}</p>
-              <div className="mt-6 p-6 bg-brand/5 rounded-xl border-l-4 border-brand">
-                <p className="font-heading font-semibold text-text">Our Vision</p>
-                <p className="mt-2 text-text-light italic">{about.mission.vision}</p>
+              <p className="mt-6 text-lg text-gray-700">{about.mission.content}</p>
+              <div className="mt-6 p-6 bg-gradient-to-r from-brand/10 to-brand/5 rounded-xl border-l-4 border-brand">
+                <p className="font-heading font-semibold text-gray-900">Our Vision</p>
+                <p className="mt-2 text-gray-700 italic">{about.mission.vision}</p>
               </div>
             </motion.div>
 
@@ -140,18 +124,18 @@ export default function AboutPage() {
               whileInView="visible"
               viewport={viewportOnce}
             >
-              <h3 className="font-heading font-semibold text-xl mb-6">Our Core Values</h3>
+              <h3 className="font-heading font-semibold text-2xl mb-6 text-gray-900">Our Core Values</h3>
               <div className="grid sm:grid-cols-2 gap-4">
                 {about.mission.values.map((value: any) => (
                   <motion.div
                     key={value.title}
                     variants={staggerItem}
-                    className="bg-white rounded-xl p-5 shadow-card"
+                    className="bg-white rounded-xl p-5 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow"
                   >
-                    <h4 className="font-heading font-semibold text-brand">
+                    <h4 className="font-heading font-semibold text-brand text-lg">
                       {value.title}
                     </h4>
-                    <p className="mt-2 text-sm text-text-light">{value.description}</p>
+                    <p className="mt-2 text-sm text-gray-600">{value.description}</p>
                   </motion.div>
                 ))}
               </div>

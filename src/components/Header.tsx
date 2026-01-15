@@ -114,7 +114,7 @@ export default function Header({ navItems }: HeaderProps) {
           <span
             className={cn(
               'font-heading font-bold transition-all duration-300 hidden sm:block',
-              isScrolled ? 'text-lg text-text' : 'text-xl text-white'
+              isScrolled ? 'text-xl text-text' : 'text-2xl text-white'
             )}
           >
             Third Fuse Energy Corp
@@ -128,7 +128,7 @@ export default function Header({ navItems }: HeaderProps) {
               <Link
                 href={item.href}
                 className={cn(
-                  'px-4 py-2 rounded-lg font-medium text-sm transition-all duration-fast',
+                  'px-4 py-2 rounded-lg font-medium text-base transition-all duration-fast',
                   isScrolled
                     ? isActive(item.href)
                       ? 'text-brand bg-brand/10'
@@ -146,7 +146,7 @@ export default function Header({ navItems }: HeaderProps) {
             <Link 
               href="/contact" 
               className={cn(
-                'inline-flex items-center text-sm font-semibold rounded-full bg-brand text-white shadow-lg shadow-brand/30 hover:bg-brand-dark hover:shadow-xl hover:shadow-brand/40 hover:scale-105 transition-all duration-200',
+                'inline-flex items-center text-base font-semibold rounded-full bg-brand text-white shadow-lg shadow-brand/30 hover:bg-brand-dark hover:shadow-xl hover:shadow-brand/40 hover:scale-105 transition-all duration-200',
                 isScrolled ? 'py-2.5 px-6 scale-105' : 'py-2 px-5'
               )}
             >
