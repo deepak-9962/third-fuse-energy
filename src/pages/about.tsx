@@ -8,7 +8,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { SEO } from '@/components';
-import { fadeUp, staggerContainer, staggerItem, viewportOnce } from '@/lib/motion';
+import { fadeUp, staggerContainer, staggerItem, viewportOnce, teamPhotoHover } from '@/lib/motion';
 import { useLocale } from '@/context/LocaleContext';
 
 // Import all locale data at build time
@@ -220,7 +220,13 @@ export default function AboutPage() {
                 variants={staggerItem}
                 className="bg-white rounded-xl overflow-hidden shadow-card"
               >
-                <div className="relative aspect-square bg-muted">
+                <motion.div 
+                  initial="rest"
+                  whileHover="hover"
+                  variants={teamPhotoHover}
+                  className="relative aspect-square bg-muted overflow-hidden"
+                  style={{ willChange: 'transform' }}
+                >
                   <Image
                     src={member.image}
                     alt={member.name}
@@ -229,7 +235,7 @@ export default function AboutPage() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     loading="lazy"
                   />
-                </div>
+                </motion.div>
                 <div className="p-6">
                   <h3 className="font-heading font-semibold text-lg">{member.name}</h3>
                   <p className="text-brand font-medium text-sm">{member.role}</p>

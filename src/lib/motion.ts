@@ -162,6 +162,52 @@ export const hoverGrow = {
 };
 
 // ============================================
+// Micro-Motion Hover Variants
+// Subtle depth-perception effects for images
+// ============================================
+
+export const imageMicroMotion: Variants = {
+  rest: { 
+    scale: 1, 
+    rotateY: 0,
+  },
+  hover: {
+    scale: 1.06,
+    rotateY: 2,
+    transition: {
+      duration: 0.4,
+      ease: customEase,
+    },
+  },
+};
+
+export const teamPhotoHover: Variants = {
+  rest: { 
+    scale: 1,
+    filter: 'brightness(1)',
+  },
+  hover: {
+    scale: 1.08,
+    filter: 'brightness(1.05)',
+    transition: {
+      duration: 0.4,
+      ease: customEase,
+    },
+  },
+};
+
+export const iconMicroRotate = {
+  whileHover: {
+    rotate: 5,
+    scale: 1.05,
+    transition: { 
+      duration: 0.3, 
+      ease: customEase 
+    },
+  },
+};
+
+// ============================================
 // Page Transition Variants
 // ============================================
 

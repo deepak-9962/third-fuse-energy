@@ -8,7 +8,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { SEO, ServiceCard } from '@/components';
-import { fadeUp, staggerContainer, staggerItem, viewportOnce } from '@/lib/motion';
+import { fadeUp, staggerContainer, staggerItem, viewportOnce, imageMicroMotion } from '@/lib/motion';
 import { useLocale } from '@/context/LocaleContext';
 
 // Import all locale data at build time
@@ -131,10 +131,13 @@ export default function ServicesPage() {
 
               {/* Image */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial="rest"
+                whileInView="rest"
+                whileHover="hover"
+                variants={imageMicroMotion}
                 viewport={viewportOnce}
                 className={`relative aspect-[4/3] rounded-2xl overflow-hidden bg-surface ${index % 2 !== 0 ? 'lg:col-start-1' : ''}`}
+                style={{ willChange: 'transform' }}
               >
                 <Image
                   src={service.image}

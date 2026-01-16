@@ -8,7 +8,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { hoverLift } from '@/lib/motion';
+import { hoverLift, iconMicroRotate } from '@/lib/motion';
 import { cn } from '@/lib/utils';
 
 interface ServiceCardProps {
@@ -79,14 +79,15 @@ export default function ServiceCard({
         )}
       >
         {/* Icon */}
-        <div
+        <motion.div
+          {...iconMicroRotate}
           className={cn(
-            'flex items-center justify-center rounded-xl bg-brand/10 text-brand transition-all duration-300 group-hover:bg-brand group-hover:text-white',
+            'flex items-center justify-center rounded-xl bg-brand/10 text-brand transition-colors duration-300 group-hover:bg-brand group-hover:text-white',
             variant === 'default' ? 'w-14 h-14' : 'w-12 h-12'
           )}
         >
           <IconComponent name={icon} className={variant === 'default' ? 'w-7 h-7' : 'w-6 h-6'} />
-        </div>
+        </motion.div>
 
         {/* Content */}
         <h3
