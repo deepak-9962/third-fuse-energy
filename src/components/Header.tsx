@@ -113,11 +113,12 @@ export default function Header({ navItems }: HeaderProps) {
           </div>
           <span
             className={cn(
-              'font-heading font-bold transition-all duration-300 hidden sm:block',
-              isScrolled ? 'text-xl text-text' : 'text-2xl text-white'
+              'font-heading font-bold transition-all duration-300',
+              isScrolled ? 'text-base sm:text-xl text-text' : 'text-lg sm:text-2xl text-white'
             )}
           >
-            Third Fuse Energy Corp
+            <span className="sm:hidden">Third Fuse Energy</span>
+            <span className="hidden sm:inline">Third Fuse Energy Corp</span>
           </span>
         </Link>
 
