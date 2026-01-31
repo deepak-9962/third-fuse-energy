@@ -74,46 +74,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Subsidy Highlights Section */}
-      {home.subsidyHighlights && (
-        <section className="py-12 bg-gray-50 border-b border-gray-100">
-          <div className="container-content">
-            <motion.div 
-               initial={{ opacity: 0, y: 10 }}
-               whileInView={{ opacity: 1, y: 0 }}
-               viewport={viewportOnce}
-               className="flex flex-col md:flex-row items-center justify-between gap-8 mb-8"
-            >
-              <div>
-                <span className="inline-block px-3 py-1 bg-brand/10 text-brand text-xs font-bold uppercase tracking-wider rounded-full mb-2">Government Incentives</span>
-                <h2 className="text-2xl md:text-3xl font-heading font-bold text-gray-900 leading-tight">
-                  {home.subsidyHighlights.title}
-                </h2>
-              </div>
-              <Link href={home.subsidyHighlights.ctaLink} className="btn-secondary whitespace-nowrap">
-                {home.subsidyHighlights.cta}
-              </Link>
-            </motion.div>
-
-            <div className="grid md:grid-cols-3 gap-6">
-              {home.subsidyHighlights.cards.map((card: any, index: number) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={viewportOnce}
-                  transition={{ delay: index * 0.1 }}
-                  className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
-                >
-                  <div className="text-3xl font-bold text-brand mb-2">{card.title}</div>
-                  <p className="text-gray-600 font-medium">{card.description}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* Services Section */}
       <section className="section-padding bg-white">
         <div className="container-content">

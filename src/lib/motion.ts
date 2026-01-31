@@ -349,7 +349,7 @@ export const createStaggerDelay = (index: number, baseDelay = 0.1, stagger = 0.0
 
 export const viewportOnce = {
   once: true,
-  margin: '-50px',
+  amount: 0.1,
 };
 
 export const viewportRepeat = {

@@ -43,11 +43,13 @@ cp .env.example .env.local
 4. Configure your environment variables in `.env.local`:
 ```env
 # Required for contact form
-SMTP_HOST=smtp.your-email-provider.com
-SMTP_PORT=587
-SMTP_USER=your-email@example.com
-SMTP_PASSWORD=your-email-password
-CONTACT_EMAIL=contact@thirdfuseenergy.com
+EMAIL_SMTP_HOST=smtp.your-email-provider.com
+EMAIL_SMTP_PORT=587
+EMAIL_SMTP_USER=your-email@example.com
+EMAIL_SMTP_PASS=your-email-password
+
+# Where contact form submissions should be delivered (owner/admin inbox)
+FORM_RECIPIENT_EMAIL=deepak5122d@gmail.com
 
 # Site URL (for sitemap generation)
 NEXT_PUBLIC_SITE_URL=https://thirdfuseenergy.com
@@ -172,18 +174,20 @@ The contact form uses Nodemailer for email delivery. Configure your SMTP setting
 
 ### Gmail Setup
 ```env
-SMTP_HOST=smtp.gmail.com
-SMTP_PORT=587
-SMTP_USER=your-email@gmail.com
-SMTP_PASSWORD=your-app-password  # Use App Password, not account password
+EMAIL_SMTP_HOST=smtp.gmail.com
+EMAIL_SMTP_PORT=587
+EMAIL_SMTP_USER=your-email@gmail.com
+EMAIL_SMTP_PASS=your-app-password  # Use App Password, not account password
+FORM_RECIPIENT_EMAIL=deepak5122d@gmail.com
 ```
 
 ### SendGrid Setup
 ```env
-SMTP_HOST=smtp.sendgrid.net
-SMTP_PORT=587
-SMTP_USER=apikey
-SMTP_PASSWORD=your-sendgrid-api-key
+EMAIL_SMTP_HOST=smtp.sendgrid.net
+EMAIL_SMTP_PORT=587
+EMAIL_SMTP_USER=apikey
+EMAIL_SMTP_PASS=your-sendgrid-api-key
+FORM_RECIPIENT_EMAIL=deepak5122d@gmail.com
 ```
 
 ### Spam Protection
