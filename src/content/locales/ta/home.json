@@ -6,16 +6,6 @@
     "ctaSecondary": "Our Services",
     "image": "/images/hero-bg.svg"
   },
-  "subsidyHighlights": {
-    "title": "Government Subsidy Available for Rooftop Solar",
-    "cta": "Check Your Eligibility",
-    "ctaLink": "/subsidy",
-    "cards": [
-      { "title": "₹30,000", "description": "subsidy per kW (up to 2 kW)" },
-      { "title": "₹18,000", "description": "per kW for additional capacity (up to 3 kW)" },
-      { "title": "₹78,000", "description": "Maximum subsidy capped amount" }
-    ]
-  },
   "services": [
     {
       "id": "residential",

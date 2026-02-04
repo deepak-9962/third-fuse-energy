@@ -23,14 +23,24 @@ interface EmailConfig {
 }
 
 function getEmailConfig(): EmailConfig {
-  const host = process.env.EMAIL_SMTP_HOST;
-  const port = parseInt(process.env.EMAIL_SMTP_PORT || '587', 10);
-  const user = process.env.EMAIL_SMTP_USER;
-  const pass = process.env.EMAIL_SMTP_PASS;
-  const recipient = process.env.FORM_RECIPIENT_EMAIL;
+  // Support both legacy and README-style env var names
+  const host = process.env.EMAIL_SMTP_HOST || process.env.SMTP_HOST;
+  const portRaw = process.env.EMAIL_SMTP_PORT || process.env.SMTP_PORT || '587';
+  const port = Number.parseInt(portRaw, 10);
+  const user = process.env.EMAIL_SMTP_USER || process.env.SMTP_USER;
+  const pass =
+    process.env.EMAIL_SMTP_PASS ||
+    process.env.SMTP_PASSWORD ||
+    process.env.SMTP_PASS;
+  const recipient =
+    process.env.FORM_RECIPIENT_EMAIL ||
+    process.env.CONTACT_EMAIL ||
+    'deepak5122d@gmail.com';
 
-  if (!host || !user || !pass || !recipient) {
-    throw new Error('Email configuration is incomplete. Check environment variables.');
+  if (!host || !user || !pass || Number.isNaN(port)) {
+    throw new Error(
+      'Email configuration is incomplete. Set EMAIL_SMTP_HOST/SMTP_HOST, EMAIL_SMTP_PORT/SMTP_PORT, EMAIL_SMTP_USER/SMTP_USER, and EMAIL_SMTP_PASS/SMTP_PASSWORD.'
+    );
   }
 
   return { host, port, user, pass, recipient };
