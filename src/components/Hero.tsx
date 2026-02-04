@@ -36,7 +36,7 @@ export default function Hero({
   const hasDarkBackground = true; // Always use dark background for hero
   
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-br from-[#0a1628] via-[#0B63D6] to-[#083a7a] pt-32">
+    <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-br from-[#011d4f] via-[#02399C] to-[#023078] pt-32">
       {/* Background Video */}
       {videoSrc && (
         <div className="absolute inset-0 z-[1]">

@@ -1,0 +1,66 @@
+═══════════════════════════════════════════════════════════════
+  QUICK START: Contact Form Email Setup
+═══════════════════════════════════════════════════════════════
+
+📧 Email System Status: ✅ READY (Built-in, no database needed)
+
+─────────────────────────────────────────────────────────────
+
+🚀 QUICKEST SETUP (5 minutes):
+
+1. Get Gmail App Password:
+   → https://myaccount.google.com/apppasswords
+   → Enable 2-Step Verification first
+   → Generate → Copy 16-character code
+
+2. Edit .env.local file:
+   → Open: .env.local
+   → Replace: EMAIL_SMTP_USER with your Gmail
+   → Replace: EMAIL_SMTP_PASS with app password
+   → Replace: FORM_RECIPIENT_EMAIL with bharani@thirdfuseenergycorp.com
+
+3. Restart server:
+   → Press Ctrl+C
+   → Run: npm run dev
+
+4. Test:
+   → Go to: http://localhost:3000/contact
+   → Fill form → Submit
+   → Check email inbox
+
+─────────────────────────────────────────────────────────────
+
+📋 EXAMPLE .env.local:
+
+EMAIL_SMTP_HOST=smtp.gmail.com
+EMAIL_SMTP_PORT=587
+EMAIL_SMTP_USER=yourname@gmail.com
+EMAIL_SMTP_PASS=abcdefghijklmnop
+FORM_RECIPIENT_EMAIL=bharani@thirdfuseenergycorp.com
+
+─────────────────────────────────────────────────────────────
+
+🌐 FOR VERCEL (Production):
+
+Vercel Dashboard → Project → Settings → Environment Variables
+→ Add each variable from .env.local
+→ Redeploy
+
+─────────────────────────────────────────────────────────────
+
+✅ What's Already Built:
+   • Email sending via Nodemailer
+   • Form validation
+   • Spam protection
+   • Rate limiting
+   • HTML email templates
+   • Error handling
+
+❌ What You Need:
+   • Gmail app password OR company SMTP credentials
+
+─────────────────────────────────────────────────────────────
+
+📖 Full Guide: See EMAIL_SETUP.md
+
+═══════════════════════════════════════════════════════════════

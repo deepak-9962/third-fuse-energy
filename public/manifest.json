@@ -5,7 +5,7 @@
   "start_url": "/",
   "display": "standalone",
   "background_color": "#FFFFFF",
-  "theme_color": "#0B63D6",
+  "theme_color": "#02399C",
   "icons": [
     {
       "src": "/images/logo-mark.svg",
