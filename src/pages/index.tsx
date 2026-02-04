@@ -46,7 +46,12 @@ export default function HomePage() {
         cta={home.hero.cta}
         ctaSecondary={home.hero.ctaSecondary}
         image={home.hero.image}
-        videoSrc="/videos/hero-background.mp4"
+        videoSources={[
+          "/videos/hero-1.mp4",
+          "/videos/hero-2.mp4",
+          "/videos/hero-3.mp4",
+          "/videos/hero-4.mp4",
+        ]}
       />
 
       {/* Stats Section */}
