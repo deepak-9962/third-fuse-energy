@@ -111,15 +111,25 @@ export default function Header({ navItems }: HeaderProps) {
               priority
             />
           </div>
-          <span
-            className={cn(
-              'font-heading font-bold transition-all duration-300',
-              isScrolled ? 'text-base sm:text-xl text-text' : 'text-lg sm:text-2xl text-white'
-            )}
-          >
-            <span className="sm:hidden">Third Fuse Energy</span>
-            <span className="hidden sm:inline">Third Fuse Energy Corp</span>
-          </span>
+          <div className="flex flex-col">
+            <span
+              className={cn(
+                'font-heading font-bold transition-all duration-300',
+                isScrolled ? 'text-base sm:text-xl text-text drop-shadow-none' : 'text-lg sm:text-2xl text-white [text-shadow:_0_2px_8px_rgb(0_0_0_/_80%)]'
+              )}
+            >
+              <span className="sm:hidden">Third Fuse Energy</span>
+              <span className="hidden sm:inline">Third Fuse Energy Corp</span>
+            </span>
+            <span
+              className={cn(
+                'transition-all duration-300 italic',
+                isScrolled ? 'text-xs sm:text-sm text-text/70' : 'text-xs sm:text-sm text-white/80 [text-shadow:_0_2px_6px_rgb(0_0_0_/_70%)]'
+              )}
+            >
+              See the Light, Feel the Savings
+            </span>
+          </div>
         </Link>
 
         {/* Desktop Navigation */}
@@ -135,8 +145,8 @@ export default function Header({ navItems }: HeaderProps) {
                       ? 'text-brand bg-brand/10'
                       : 'text-text hover:text-brand hover:bg-brand/5'
                     : isActive(item.href)
-                      ? 'text-white bg-white/20'
-                      : 'text-white/90 hover:text-white hover:bg-white/10'
+                      ? 'text-white bg-white/20 [text-shadow:_0_2px_6px_rgb(0_0_0_/_70%)]'
+                      : 'text-white hover:text-white hover:bg-white/10 [text-shadow:_0_2px_6px_rgb(0_0_0_/_70%)]'
                 )}
               >
                 {item.title}
