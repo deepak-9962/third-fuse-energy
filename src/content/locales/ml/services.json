@@ -73,40 +73,6 @@
       "subsidyEligible": false
     },
     {
-      "id": "commercial-rooftop",
-      "title": "Solar Rooftop for Offices",
-      "summary": "Commercial rooftop solar systems optimized for business energy usage.",
-      "description": "Optimize your office building's energy consumption with our commercial rooftop solar solutions. Designed specifically for business environments to maximize savings and efficiency.",
-      "icon": "building",
-      "features": [
-        "Office building optimization",
-        "Business energy savings",
-        "Professional installation",
-        "Monitoring systems",
-        "Maintenance packages",
-        "ROI analysis"
-      ],
-      "image": "/images/services/office-rooftop.png",
-      "subsidyEligible": true
-    },
-    {
-      "id": "residential-rooftop",
-      "title": "Solar Rooftop for Homes",
-      "summary": "Residential rooftop solar for independent power generation.",
-      "description": "Achieve energy independence with our residential rooftop solar systems. Generate your own clean power and reduce your dependence on the grid.",
-      "icon": "home",
-      "features": [
-        "Independent power generation",
-        "Rooftop optimization",
-        "Net metering setup",
-        "Battery storage options",
-        "Government subsidy support",
-        "25-year panel warranty"
-      ],
-      "image": "/images/services/home-rooftop.png",
-      "subsidyEligible": true
-    },
-    {
       "id": "car-shed",
       "title": "Solar Car Shed",
       "summary": "Solar panel–integrated parking structures that generate power while protecting vehicles.",

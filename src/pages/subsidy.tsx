@@ -78,46 +78,6 @@ export default function SubsidyPage() {
         </div>
       </section>
 
-      {/* Capacity Section */}
-      <section className="section-padding bg-light">
-        <div className="container-content">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={viewportOnce}
-            className="max-w-4xl mx-auto"
-          >
-            <h2 className="heading-2 mb-4">{subsidy.capacity.title}</h2>
-            <p className="text-text-light mb-8 text-lg">{subsidy.capacity.description}</p>
-            
-            <div className="overflow-x-auto rounded-xl shadow-card bg-white border border-gray-100 mb-6">
-              <table className="w-full text-left border-collapse">
-                <thead>
-                  <tr className="bg-gray-800 text-white">
-                    {subsidy.capacity.table.headers.map((header: string, index: number) => (
-                      <th key={index} className="p-4 font-semibold text-lg">{header}</th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-100">
-                  {subsidy.capacity.table.rows.map((row: any, index: number) => (
-                    <tr key={index} className="hover:bg-gray-50 transition-colors">
-                      <td className="p-4 text-text">{row.units}</td>
-                      <td className="p-4 text-text font-semibold">{row.capacity}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            
-            <p className="text-sm text-text-light italic flex items-center gap-2">
-              <svg className="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-              {subsidy.capacity.note}
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
       {/* GHS / Apartments Section */}
       <section className="section-padding bg-white" id="ghs">
         <div className="container-content">

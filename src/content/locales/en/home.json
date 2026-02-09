@@ -12,28 +12,28 @@
       "title": "Residential Solar",
       "summary": "Solar power solutions designed for homes to reduce electricity bills and provide long-term clean energy.",
       "icon": "home",
-      "href": "/services#residential"
+      "href": "/services/residential"
     },
     {
       "id": "commercial",
       "title": "Commercial Solar",
       "summary": "Rooftop and ground-mounted solar systems for offices, retail, and commercial buildings.",
       "icon": "building",
-      "href": "/services#commercial"
+      "href": "/services/commercial"
     },
     {
       "id": "industrial",
       "title": "Industrial Solar",
       "summary": "High-capacity solar installations for factories and large facilities.",
       "icon": "factory",
-      "href": "/services#industrial"
+      "href": "/services/industrial"
     },
     {
       "id": "specialized",
       "title": "Specialized Solar",
       "summary": "Custom solar applications for unique energy needs including car sheds and pump systems.",
       "icon": "zap",
-      "href": "/services#specialized"
+      "href": "/services/specialized"
     }
   ],
   "whyChooseUs": {
@@ -103,10 +103,10 @@
     }
   ],
   "stats": [
-    { "value": "500+", "label": "Happy Clients" },
-    { "value": "1000+", "label": "Projects Completed" },
+    { "value": "100+", "label": "Happy Clients" },
+    { "value": "100+", "label": "Projects Completed" },
     { "value": "50MW", "label": "Total Capacity Installed" },
-    { "value": "5+", "label": "Years Experience" }
+    { "value": "7+", "label": "Years Experience" }
   ],
   "cta": {
     "title": "Ready to Go Solar?",

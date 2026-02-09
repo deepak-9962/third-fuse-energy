@@ -1,11 +1,9 @@
 /**
  * Footer Component
- * 3-column layout, stacked on mobile
- * Based on PRD Section 8 - Footer specs
+ * Quick Links + Social Media layout
  */
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { useSiteData } from '@/context/SiteContext';
 
 // Icon components for social media
@@ -45,58 +43,18 @@ export default function Footer() {
     <footer role="contentinfo" className="bg-text text-white">
       {/* Main Footer */}
       <div className="container-content py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
-          {/* Column 1: Company Info */}
-          <div className="space-y-6">
-            <Link href="/" className="inline-flex items-center gap-3">
-              <div className="relative h-12 w-12">
-                <Image
-                  src="/images/logo-mark.png"
-                  alt="Third Fuse Energy Corp logo"
-                  fill
-                  className="object-contain"
-                />
-              </div>
-              <span className="font-heading font-bold text-xl text-white">
-                Third Fuse Energy Corp
-              </span>
-            </Link>
-            <p className="text-white/70 text-sm leading-relaxed max-w-sm">
-              {footer.description}
-            </p>
-            {footer.trust && (
-              <p className="text-brand-light text-sm font-medium">
-                {footer.trust}
-              </p>
-            )}
-            {/* Social Links */}
-            <div className="flex items-center gap-4">
-              {social.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white/60 hover:text-white transition-colors"
-                  aria-label={`Follow us on ${item.name}`}
-                >
-                  <SocialIcon name={item.icon} />
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Column 2: Quick Links */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 max-w-3xl mx-auto">
+          {/* Quick Links */}
           <div>
-            <h3 className="font-heading font-semibold text-lg mb-4 text-white">
+            <h3 className="font-heading font-semibold text-lg mb-5 text-white">
               Quick Links
             </h3>
-            <ul className="space-y-3">
+            <ul className="grid grid-cols-2 gap-x-6 gap-y-3">
               {navigation.main.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-white/90 hover:text-white transition-colors text-sm"
+                    className="text-white/70 hover:text-white transition-colors text-sm"
                   >
                     {item.title}
                   </Link>
@@ -105,49 +63,23 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: Contact Info */}
-          <div>
-            <h3 className="font-heading font-semibold text-lg mb-4 text-white">
-              Contact Us
+          {/* Social Media Links */}
+          <div className="md:text-right">
+            <h3 className="font-heading font-semibold text-lg mb-5 text-white">
+              Follow Us
             </h3>
-            <address className="not-italic space-y-3 text-sm text-white/90">
-              <p className="flex items-start gap-3">
-                <svg className="w-5 h-5 mt-0.5 flex-shrink-0 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-                <span>
-                  {company.address.street}<br />
-                  {company.address.area && <>{company.address.area}<br /></>}
-                  {company.address.city} – {company.address.zip}
-                </span>
-              </p>
-              <p className="flex items-center gap-3">
-                <svg className="w-5 h-5 flex-shrink-0 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-                <a href={`tel:${company.phone}`} className="hover:text-white transition-colors">
-                  {company.phone}
-                </a>
-              </p>
-              <p className="flex items-center gap-3">
-                <svg className="w-5 h-5 flex-shrink-0 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-                <a href={`mailto:${company.email}`} className="hover:text-white transition-colors">
-                  {company.email}
-                </a>
-              </p>
-            </address>
-            {/* Certifications */}
-            <div className="mt-6 flex flex-wrap gap-2">
-              {footer.certifications.map((cert) => (
-                <span
-                  key={cert}
-                  className="text-xs bg-white/10 px-3 py-1 rounded-full text-white/80"
+            <div className="flex items-center gap-5 md:justify-end">
+              {social.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white/70 hover:bg-brand hover:text-white transition-all"
+                  aria-label={`Follow us on ${item.name}`}
                 >
-                  {cert}
-                </span>
+                  <SocialIcon name={item.icon} />
+                </a>
               ))}
             </div>
           </div>

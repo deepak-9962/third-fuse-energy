@@ -1,14 +1,12 @@
 /**
  * Services Page
- * Service cards with details and process steps
- * Based on PRD Section 7.3 - Services page specs
+ * Service cards overview
  */
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { SEO, ServiceCard } from '@/components';
-import { fadeUp, staggerContainer, staggerItem, viewportOnce, imageMicroMotion } from '@/lib/motion';
+import { staggerContainer, staggerItem, viewportOnce, fadeUp } from '@/lib/motion';
 import { useLocale } from '@/context/LocaleContext';
 
 // Import all locale data at build time
@@ -69,7 +67,7 @@ export default function ServicesPage() {
                   icon={service.icon}
                   title={service.title}
                   summary={service.summary}
-                  href={`#${service.id}`}
+                  href={`/services/${service.id}`}
                   subsidyEligible={service.subsidyEligible}
                 />
               </motion.div>
@@ -77,81 +75,6 @@ export default function ServicesPage() {
           </motion.div>
         </div>
       </section>
-
-      {/* Detailed Service Sections */}
-      {services.services.map((service: any, index: number) => (
-        <section
-          key={service.id}
-          id={service.id}
-          className="section-padding bg-white"
-        >
-          <div className="container-content">
-            <div className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 !== 0 ? 'lg:grid-flow-dense' : ''}`}>
-              {/* Content */}
-              <motion.div
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={viewportOnce}
-                className={index % 2 !== 0 ? 'lg:col-start-2' : ''}
-              >
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-brand/10 rounded-full text-brand font-medium text-sm mb-4">
-                  <ServiceIcon name={service.icon} className="w-4 h-4" />
-                  Service
-                </div>
-                <h2 className="text-h2 heading-accent">{service.title}</h2>
-                <p className="mt-6 text-lg text-gray-600">{service.description}</p>
-
-                {/* Features list */}
-                <ul className="mt-6 space-y-3">
-                  {service.features.map((feature: string, idx: number) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <svg
-                        className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                      <span className="text-gray-700">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="mt-8">
-                  <Link href="/contact" className="btn-primary">
-                    Get a Quote
-                  </Link>
-                </div>
-              </motion.div>
-
-              {/* Image */}
-              <motion.div
-                initial="rest"
-                whileInView="rest"
-                whileHover="hover"
-                variants={imageMicroMotion}
-                viewport={viewportOnce}
-                className={`relative aspect-[4/3] rounded-2xl overflow-hidden bg-surface ${index % 2 !== 0 ? 'lg:col-start-1' : ''}`}
-                style={{ willChange: 'transform' }}
-              >
-                <Image
-                  src={service.image}
-                  alt={service.title}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  loading="lazy"
-                />
-              </motion.div>
-            </div>
-          </div>
-        </section>
-      ))}
 
       {/* Process Section */}
       <section className="section-padding bg-brand text-white">

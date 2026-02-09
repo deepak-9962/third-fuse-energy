@@ -28,10 +28,8 @@
       { "title": "Terms of Service", "href": "/terms" }
     ],
     "services": [
-      { "title": "Solar Rooftop for Offices", "href": "/services#commercial-rooftop" },
-      { "title": "Solar Rooftop for Homes", "href": "/services#residential-rooftop" },
-      { "title": "Solar Car Shed", "href": "/services#car-shed" },
-      { "title": "Solar Power Plant for Pumps", "href": "/services#pump-system" }
+      { "title": "Solar Car Shed", "href": "/services/car-shed" },
+      { "title": "Solar Power Plant for Pumps", "href": "/services/pump-system" }
     ]
   },
   "social": [
