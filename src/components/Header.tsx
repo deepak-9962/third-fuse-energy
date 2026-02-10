@@ -98,6 +98,7 @@ export default function Header({ navItems }: HeaderProps) {
           aria-label={`${siteData.company.name} - Home`}
         >
           <div
+            id="header-logo"
             className={cn(
               'relative transition-all duration-300',
               isScrolled ? 'h-14 w-14' : 'h-20 w-20'
@@ -161,7 +162,7 @@ export default function Header({ navItems }: HeaderProps) {
                 isScrolled ? 'py-2.5 px-6 scale-105' : 'py-2 px-5'
               )}
             >
-              Get a Quote
+              Book Free Consultation
             </Link>
           </li>
         </ul>

@@ -366,3 +366,166 @@ body {
   display: inline-block !important;
 }
 
+/* ============================================
+   Splash Screen
+   ============================================ */
+.splash-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.splash-screen-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, #042c6e 0%, #011d4f 50%, #010e28 100%);
+}
+
+/* Ambient floating glow orbs */
+.splash-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.splash-glow-1 {
+  width: 400px;
+  height: 400px;
+  background: #3B82F6;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: splash-pulse-1 2.5s ease-in-out infinite;
+}
+
+.splash-glow-2 {
+  width: 300px;
+  height: 300px;
+  background: #02399C;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: splash-pulse-2 3s ease-in-out infinite;
+}
+
+/* Logo wrapper */
+.splash-logo-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+/* Glow halo behind the logo */
+.splash-logo-glow {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(ellipse, rgba(59, 130, 246, 0.5) 0%, rgba(2, 57, 156, 0.3) 40%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(30px);
+  animation: splash-logo-breathe 2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Logo itself */
+.splash-logo {
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.6)) drop-shadow(0 0 40px rgba(2, 57, 156, 0.4));
+}
+
+.splash-logo-no-glow {
+  filter: none !important;
+  transition: filter 0.4s ease;
+}
+
+/* Company name below logo */
+.splash-company-name {
+  position: absolute;
+  top: calc(50% + 90px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  z-index: 2;
+}
+
+.splash-company-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.75rem;
+  color: white;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 12px rgba(59, 130, 246, 0.4);
+}
+
+.splash-company-tagline {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
+  letter-spacing: 0.03em;
+}
+
+/* Keyframe Animations */
+@keyframes splash-pulse-1 {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1.15);
+  }
+}
+
+@keyframes splash-pulse-2 {
+  0%, 100% {
+    opacity: 0.25;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+}
+
+@keyframes splash-logo-breathe {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+/* Header logo hidden during splash, smooth cross-dissolve */
+#header-logo {
+  transition: opacity 0.3s ease;
+}
+
+body.splash-active #header-logo {
+  opacity: 0;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .splash-glow-1,
+  .splash-glow-2,
+  .splash-logo-glow {
+    animation: none;
+  }
+}
+

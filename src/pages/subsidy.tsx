@@ -34,15 +34,71 @@ export default function SubsidyPage() {
       />
 
       {/* Hero Section */}
-      <Hero
-        title={subsidy.hero.title}
-        subtitle={subsidy.hero.subtitle}
-        cta="View Subsidy Details"
-        ctaHref="#residential"
-        ctaSecondary="Apply Now"
-        ctaSecondaryHref="/contact"
-        showContent={true}
-      />
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-br from-[#011d4f] via-[#02399C] to-[#023078] pt-32">
+        <div className="container-content relative z-10 py-16 md:py-24">
+          <div className="flex flex-col items-center justify-center text-center">
+            <div className="max-w-3xl">
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="text-h1-mobile md:text-h1 text-white text-balance leading-tight md:leading-[1.2] md:tracking-[-0.01em] drop-shadow-lg"
+              >
+                {subsidy.hero.title}
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.15 }}
+                className="mt-6 text-body-lg md:text-xl leading-relaxed text-white max-w-2xl mx-auto drop-shadow-md"
+              >
+                {subsidy.hero.subtitle}
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="mt-8 flex flex-col sm:flex-row gap-4 justify-center"
+              >
+                <Link href="#residential" className="btn-primary text-lg px-8 py-4">
+                  View Subsidy Details
+                </Link>
+                <Link href="/contact" className="btn-secondary text-lg px-8 py-4">
+                  Apply Now
+                </Link>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.8, duration: 0.5 }}
+                className="mt-10 flex flex-wrap items-center justify-center gap-6 text-sm md:text-base text-white drop-shadow-md font-medium"
+              >
+                <div className="flex items-center gap-2">
+                  <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>Free Consultation</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>25-Year Warranty</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>NABCEP Certified</span>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Residential Section */}
       <section className="section-padding bg-white" id="residential">
