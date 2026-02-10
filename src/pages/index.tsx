@@ -57,7 +57,7 @@ export default function HomePage() {
       {/* Stats Section */}
       <section className="py-12 bg-brand">
         <div className="container-content">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-3 gap-8">
             {home.stats && home.stats.map((stat: any, index: number) => (
               <motion.div
                 key={stat.label}

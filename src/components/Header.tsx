@@ -94,7 +94,10 @@ export default function Header({ navItems }: HeaderProps) {
         {/* Logo */}
         <Link
           href="/"
-          className="relative z-10 flex items-center gap-2 -ml-6 md:-ml-8"
+          className={cn(
+            "relative z-10 flex items-center gap-2 transition-all duration-300",
+            isScrolled ? '-ml-1' : '-ml-6 md:-ml-8'
+          )}
           aria-label={`${siteData.company.name} - Home`}
         >
           <div
