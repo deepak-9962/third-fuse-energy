@@ -2,7 +2,7 @@
   "hero": {
     "title": "Lighting Homes, Empowering Businesses, Sustaining Nature",
     "subtitle": "We bring the power of the sun to every space — from homes to industries — with reliable, cost-saving solar solutions. Together, we create a greener tomorrow by making clean energy accessible to all.",
-    "cta": "Get a Free Quote",
+    "cta": "Book a Free Consultation",
     "ctaSecondary": "Our Services",
     "image": "/images/hero-bg.svg"
   },
@@ -111,7 +111,7 @@
   "cta": {
     "title": "Ready to Go Solar?",
     "subtitle": "Get a free consultation and custom quote for your property today.",
-    "buttonText": "Get Your Free Quote",
+    "buttonText": "Book a Free Consultation",
     "buttonHref": "/contact"
   }
 }

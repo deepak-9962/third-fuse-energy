@@ -6,6 +6,7 @@
 
 import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
+import Script from 'next/script';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Layout } from '@/components';
 import { SiteProvider } from '@/context/SiteContext';
@@ -57,6 +58,11 @@ export default function App(props: AppProps) {
   return (
     <LocaleProvider>
       <AppContent {...props} />
+      <Script
+        id="google-translate-script"
+        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+        strategy="afterInteractive"
+      />
     </LocaleProvider>
   );
 }

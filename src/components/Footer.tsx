@@ -68,7 +68,7 @@ export default function Footer() {
             <h3 className="font-heading font-semibold text-lg mb-5 text-white">
               Follow Us
             </h3>
-            <div className="flex items-center gap-5 md:justify-end">
+            <div className="flex items-center gap-5 md:justify-end mb-6">
               {social.map((item) => (
                 <a
                   key={item.name}
@@ -81,6 +81,17 @@ export default function Footer() {
                   <SocialIcon name={item.icon} />
                 </a>
               ))}
+            </div>
+
+            {/* Google Translate Widget */}
+            <div className="flex items-center gap-3 md:justify-end">
+              <span className="font-heading font-semibold text-sm text-white/70">
+                Translate
+              </span>
+              <div
+                id="google_translate_element"
+                className="google-translate-widget"
+              />
             </div>
           </div>
         </div>

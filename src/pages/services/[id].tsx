@@ -145,7 +145,7 @@ export default function ServiceDetailPage() {
 
               <div className="mt-10">
                 <Link href="/contact" className="btn-primary text-lg px-8 py-4">
-                  Get a Free Quote
+                  Book a Free Consultation
                 </Link>
               </div>
             </motion.div>

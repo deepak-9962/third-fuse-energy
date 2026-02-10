@@ -195,7 +195,7 @@ export default function ContactForm() {
             value={formData.name}
             onChange={handleChange}
             className={cn('input', errors.name && 'input-error')}
-            placeholder="John Smith"
+            placeholder="Ravi Kumar"
             required
           />
           {errors.name && (
@@ -214,7 +214,7 @@ export default function ContactForm() {
             value={formData.email}
             onChange={handleChange}
             className={cn('input', errors.email && 'input-error')}
-            placeholder="john@example.com"
+            placeholder="ravi@gmail.com"
             required
           />
           {errors.email && (
@@ -236,7 +236,7 @@ export default function ContactForm() {
             value={formData.phone}
             onChange={handleChange}
             className="input"
-            placeholder="(555) 123-4567"
+            placeholder="+91 98765 43210"
           />
         </div>
 

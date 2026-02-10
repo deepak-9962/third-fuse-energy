@@ -243,7 +243,7 @@ export default function Header({ navItems }: HeaderProps) {
                   href="/contact"
                   className="btn-primary w-full text-center"
                 >
-                  Get a Free Quote
+                  Book a Free Consultation
                 </Link>
               </div>
             </nav>

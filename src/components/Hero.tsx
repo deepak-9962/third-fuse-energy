@@ -22,6 +22,7 @@ interface HeroProps {
   image?: string;
   videoSrc?: string;
   videoSources?: string[]; // Array of video URLs for carousel
+  showContent?: boolean; // Whether to render title/subtitle/CTA
 }
 
 export default function Hero({
@@ -34,6 +35,7 @@ export default function Hero({
   image,
   videoSrc,
   videoSources,
+  showContent = false,
 }: HeroProps) {
   // Determine if we have a dark background (video or fallback gradient)
   const hasDarkBackground = true; // Always use dark background for hero
@@ -113,6 +115,46 @@ export default function Hero({
       )}
 
       <div className="container-content relative z-10 py-16 md:py-24">
+        {showContent && (
+          <>
+            <motion.h1
+              variants={heroTitle}
+              initial="hidden"
+              animate="visible"
+              className={`font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-6 max-w-3xl ${hasDarkBackground ? 'text-white' : 'text-text'}`}
+            >
+              {title}
+            </motion.h1>
+
+            <motion.p
+              variants={heroSubtitle}
+              initial="hidden"
+              animate="visible"
+              className={`text-lg md:text-xl mb-10 max-w-2xl ${hasDarkBackground ? 'text-white/80' : 'text-text-light'}`}
+            >
+              {subtitle}
+            </motion.p>
+
+            <motion.div
+              variants={heroCTA}
+              initial="hidden"
+              animate="visible"
+              className="flex flex-wrap gap-4"
+            >
+              <Link href={ctaHref} className="btn-primary text-lg px-8 py-3">
+                {cta}
+              </Link>
+              {ctaSecondary && (
+                <Link
+                  href={ctaSecondaryHref}
+                  className={`btn-secondary text-lg px-8 py-3 ${hasDarkBackground ? 'border-2 border-white text-white bg-white/10 hover:bg-white/20' : ''}`}
+                >
+                  {ctaSecondary}
+                </Link>
+              )}
+            </motion.div>
+          </>
+        )}
       </div>
 
       {/* Scroll indicator */}
