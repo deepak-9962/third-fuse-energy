@@ -1,8 +1,10 @@
 /**
  * Footer Component
- * Quick Links + Social Media layout
+ * Three-column layout: Quick Links | Company | Social + Translate
+ * Clean, professional design with Google Translate integration
  */
 
+import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { useSiteData } from '@/context/SiteContext';
 
@@ -34,28 +36,92 @@ const SocialIcon = ({ name }: { name: string }) => {
   return icons[name] || null;
 };
 
+// Globe icon for translate
+const GlobeIcon = () => (
+  <svg className="w-4 h-4 text-white/60" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" aria-hidden="true">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5a17.92 17.92 0 01-8.716-2.247m0 0A8.966 8.966 0 013 12c0-1.97.633-3.792 1.708-5.27" />
+  </svg>
+);
+
+// Quick links subset
+const QUICK_LINKS = [
+  { title: 'Home', href: '/' },
+  { title: 'Our Services', href: '/services' },
+  { title: 'Contact Us', href: '/contact' },
+];
+
+// Company links subset
+const COMPANY_LINKS = [
+  { title: 'About Us', href: '/about' },
+  { title: 'Our Pricing', href: '/subsidy' },
+];
+
 export default function Footer() {
   const siteData = useSiteData();
-  const { company, navigation, social, footer } = siteData;
+  const { company, navigation, social } = siteData;
   const currentYear = new Date().getFullYear();
+  const translateInitialized = useRef(false);
+
+  // Initialize Google Translate widget once the element is mounted
+  useEffect(() => {
+    if (translateInitialized.current) return;
+
+    const initWidget = () => {
+      const el = document.getElementById('google_translate_element');
+      if (!el) return;
+      // Check if the widget was already created (e.g., by the global callback)
+      if (el.querySelector('.goog-te-gadget')) {
+        translateInitialized.current = true;
+        return;
+      }
+
+      try {
+        if (
+          typeof window !== 'undefined' &&
+          (window as any).google?.translate?.TranslateElement
+        ) {
+          new (window as any).google.translate.TranslateElement(
+            {
+              pageLanguage: 'en',
+              includedLanguages: 'en,hi,ta,te,kn,ml,bn,gu,mr,pa',
+              layout: (window as any).google.translate.TranslateElement
+                .InlineLayout.SIMPLE,
+              autoDisplay: false,
+            },
+            'google_translate_element'
+          );
+          translateInitialized.current = true;
+        }
+      } catch (e) {
+        // Google Translate API not loaded yet, will retry
+      }
+    };
+
+    // Try immediately
+    initWidget();
+
+    // If not initialized yet, poll until the API is available
+    if (!translateInitialized.current) {
+      const interval = setInterval(() => {
+        initWidget();
+        if (translateInitialized.current) clearInterval(interval);
+      }, 500);
+      return () => clearInterval(interval);
+    }
+  }, []);
 
   return (
-    <footer role="contentinfo" className="bg-text text-white">
+    <footer role="contentinfo" className="footer-root">
       {/* Main Footer */}
-      <div className="container-content py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 max-w-3xl mx-auto">
-          {/* Quick Links */}
-          <div>
-            <h3 className="font-heading font-semibold text-lg mb-5 text-white">
-              Quick Links
-            </h3>
-            <ul className="grid grid-cols-2 gap-x-6 gap-y-3">
-              {navigation.main.map((item) => (
+      <div className="container-content footer-main">
+        <div className="footer-grid">
+          {/* Column 1: Quick Links */}
+          <div className="footer-col">
+            <h3 className="footer-heading">Quick Links</h3>
+            <ul className="footer-links">
+              {QUICK_LINKS.map((item) => (
                 <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="text-white/70 hover:text-white transition-colors text-sm"
-                  >
+                  <Link href={item.href} className="footer-link">
                     {item.title}
                   </Link>
                 </li>
@@ -63,19 +129,31 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Social Media Links */}
-          <div className="md:text-right">
-            <h3 className="font-heading font-semibold text-lg mb-5 text-white">
-              Follow Us
-            </h3>
-            <div className="flex items-center gap-5 md:justify-end mb-6">
+          {/* Column 2: Company */}
+          <div className="footer-col">
+            <h3 className="footer-heading">Company</h3>
+            <ul className="footer-links">
+              {COMPANY_LINKS.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href} className="footer-link">
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 3: Social + Translate */}
+          <div className="footer-col footer-col-right">
+            <h3 className="footer-heading">Follow Us</h3>
+            <div className="footer-social-row">
               {social.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white/70 hover:bg-brand hover:text-white transition-all"
+                  className="footer-social-icon"
                   aria-label={`Follow us on ${item.name}`}
                 >
                   <SocialIcon name={item.icon} />
@@ -84,13 +162,12 @@ export default function Footer() {
             </div>
 
             {/* Google Translate Widget */}
-            <div className="flex items-center gap-3 md:justify-end">
-              <span className="font-heading font-semibold text-sm text-white/70">
-                Translate
-              </span>
+            <div className="footer-translate">
+              <GlobeIcon />
+              <span className="footer-translate-label">Translate</span>
               <div
                 id="google_translate_element"
-                className="google-translate-widget"
+                className="footer-translate-widget"
               />
             </div>
           </div>
@@ -98,17 +175,17 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-white/10">
-        <div className="container-content py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-white/50 text-sm text-center md:text-left">
+      <div className="footer-bottom">
+        <div className="container-content footer-bottom-inner">
+          <p className="footer-copyright">
             © {currentYear} {company.name}. All rights reserved.
           </p>
-          <div className="flex items-center gap-6">
+          <div className="footer-legal">
             {navigation.footer.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-white/50 hover:text-white text-sm transition-colors"
+                className="footer-legal-link"
               >
                 {item.title}
               </Link>

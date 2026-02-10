@@ -98,7 +98,7 @@ export default function App(props: AppProps) {
 
       <Script
         id="google-translate-script"
-        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+        src="https://translate.google.com/translate_a/element.js"
         strategy="afterInteractive"
       />
     </LocaleProvider>

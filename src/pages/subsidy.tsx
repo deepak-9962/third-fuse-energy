@@ -135,43 +135,6 @@ export default function SubsidyPage() {
         </div>
       </section>
 
-      {/* Capacity Section */}
-      <section className="section-padding bg-gray-50" id="capacity">
-        <div className="container-content">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={viewportOnce}
-            className="max-w-4xl mx-auto"
-          >
-            <h2 className="heading-2 mb-4">{subsidy.capacity.title}</h2>
-            <p className="text-text-light mb-8 text-lg">{subsidy.capacity.description}</p>
-            
-            <div className="overflow-x-auto rounded-xl shadow-card border border-gray-100">
-              <table className="w-full text-left border-collapse">
-                <thead>
-                  <tr className="bg-brand text-white">
-                    {subsidy.capacity.table.headers.map((header: string, index: number) => (
-                      <th key={index} className="p-4 font-semibold text-lg">{header}</th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-100 bg-white">
-                  {subsidy.capacity.table.rows.map((row: any, index: number) => (
-                    <tr key={index} className="hover:bg-gray-50 transition-colors">
-                      <td className="p-4 font-medium text-text">{row.units}</td>
-                      <td className="p-4 text-text font-bold text-brand">{row.capacity}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            <p className="text-sm text-text-light mt-4 italic">{subsidy.capacity.note}</p>
-          </motion.div>
-        </div>
-      </section>
-
       {/* GHS / Apartments Section */}
       <section className="section-padding bg-white" id="ghs">
         <div className="container-content">

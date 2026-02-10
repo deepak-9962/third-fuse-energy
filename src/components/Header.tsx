@@ -94,14 +94,16 @@ export default function Header({ navItems }: HeaderProps) {
         {/* Logo */}
         <Link
           href="/"
-          className="relative z-10 flex items-center gap-3"
+          className="relative z-10 flex items-center gap-2 -ml-6 md:-ml-8"
           aria-label={`${siteData.company.name} - Home`}
         >
           <div
             id="header-logo"
             className={cn(
-              'relative transition-all duration-300',
-              isScrolled ? 'h-14 w-14' : 'h-20 w-20'
+              'relative transition-all duration-300 flex-shrink-0',
+              isScrolled
+                ? 'h-14 w-14 sm:h-16 sm:w-16 md:h-[4.25rem] md:w-[4.25rem]'
+                : 'h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24'
             )}
           >
             <Image

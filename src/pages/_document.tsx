@@ -22,22 +22,6 @@ export default function Document() {
         <link rel="icon" type="image/svg+xml" href="/images/logo-mark.svg" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
-
-        {/* Google Translate initialization */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              function googleTranslateElementInit() {
-                new google.translate.TranslateElement({
-                  pageLanguage: 'en',
-                  includedLanguages: 'en,hi,ta,te,kn,ml,bn,gu,mr,pa',
-                  layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                  autoDisplay: false
-                }, 'google_translate_element');
-              }
-            `,
-          }}
-        />
       </Head>
       <body>
         <Main />
