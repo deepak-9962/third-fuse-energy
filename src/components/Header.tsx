@@ -124,7 +124,7 @@ export default function Header({ navItems }: HeaderProps) {
                 isScrolled ? 'text-base sm:text-xl text-text drop-shadow-none' : 'text-lg sm:text-2xl text-white [text-shadow:_0_2px_8px_rgb(0_0_0_/_80%)]'
               )}
             >
-              <span className="sm:hidden">Third Fuse Energy</span>
+              <span className="sm:hidden">Third Fuse Energy Corp</span>
               <span className="hidden sm:inline">Third Fuse Energy Corp</span>
             </span>
             <span

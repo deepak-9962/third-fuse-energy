@@ -7,7 +7,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { SEO } from '@/components';
+import { SEO, AnimatedCounter } from '@/components';
 import { fadeUp, staggerContainer, staggerItem, viewportOnce, teamPhotoHover } from '@/lib/motion';
 import { useLocale } from '@/context/LocaleContext';
 
@@ -56,7 +56,7 @@ export default function AboutPage() {
       {/* Stats Bar */}
       <section className="py-10 bg-brand">
         <div className="container-content">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-3 gap-8">
             {about.stats && about.stats.map((stat: any, index: number) => (
               <motion.div
                 key={stat.label}
@@ -67,7 +67,7 @@ export default function AboutPage() {
                 className="text-center"
               >
                 <div className="text-3xl md:text-4xl font-heading font-bold text-white">
-                  {stat.value}
+                  <AnimatedCounter value={stat.value} />
                 </div>
                 <div className="text-white/80 mt-1">{stat.label}</div>
               </motion.div>

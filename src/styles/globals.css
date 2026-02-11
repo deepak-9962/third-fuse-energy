@@ -716,3 +716,25 @@ body.splash-active #header-logo {
   }
 }
 
+/* WhatsApp button pulse animation */
+@keyframes whatsapp-ping {
+  0% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  75%, 100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+.whatsapp-ping {
+  animation: whatsapp-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-ping {
+    animation: none;
+  }
+}
+

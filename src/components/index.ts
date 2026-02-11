@@ -10,3 +10,5 @@ export { default as Modal } from './Modal';
 export { default as Hero } from './Hero';
 export { default as ServiceCard } from './ServiceCard';
 export { default as ContactForm } from './ContactForm';
+export { default as AnimatedCounter } from './AnimatedCounter';
+export { default as WhatsAppButton } from './WhatsAppButton';

@@ -42,7 +42,6 @@
   "stats": [
     { "value": "100+", "label": "Happy Clients" },
     { "value": "100+", "label": "Projects Completed" },
-    { "value": "50 MW", "label": "Total Capacity Installed" },
     { "value": "7+", "label": "Years Experience" }
   ],
   "cta": {

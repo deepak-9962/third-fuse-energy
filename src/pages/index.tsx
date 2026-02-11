@@ -7,7 +7,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { SEO, Hero, ServiceCard } from '@/components';
+import { SEO, Hero, ServiceCard, AnimatedCounter } from '@/components';
 import { fadeUp, staggerContainer, staggerItem, viewportOnce } from '@/lib/motion';
 import { useLocale } from '@/context/LocaleContext';
 
@@ -68,7 +68,7 @@ export default function HomePage() {
                 className="text-center"
               >
                 <div className="text-3xl md:text-4xl font-heading font-bold text-white">
-                  {stat.value}
+                  <AnimatedCounter value={stat.value} />
                 </div>
                 <div className="text-white/80 mt-1 text-sm md:text-base">
                   {stat.label}
