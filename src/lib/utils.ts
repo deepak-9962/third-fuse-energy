@@ -97,7 +97,7 @@ export function isServer(): boolean {
  * Get the base URL for the site
  */
 export function getSiteUrl(): string {
-  return process.env.NEXT_PUBLIC_SITE_URL || 'https://thirdfuseenergy.com';
+  return process.env.NEXT_PUBLIC_SITE_URL || 'https://thirdfuseenergycorp.com';
 }
 
 /**

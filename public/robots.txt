@@ -5,7 +5,7 @@ Disallow: /api/
 Disallow: /_next/
 
 # Host
-Host: https://thirdfuseenergy.com
+Host: https://thirdfuseenergycorp.com
 
 # Sitemaps
-Sitemap: https://thirdfuseenergy.com/sitemap.xml
+Sitemap: https://thirdfuseenergycorp.com/sitemap.xml

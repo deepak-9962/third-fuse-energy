@@ -40,7 +40,7 @@ describe('SEO', () => {
   it('accepts canonical URL', () => {
     const customProps = {
       ...defaultProps,
-      canonical: 'https://thirdfuseenergy.com/about',
+      canonical: 'https://thirdfuseenergycorp.com/about',
     };
     
     render(<SEO {...customProps} />);

@@ -52,7 +52,7 @@ EMAIL_SMTP_PASS=your-email-password
 FORM_RECIPIENT_EMAIL=deepak5122d@gmail.com
 
 # Site URL (for sitemap generation)
-NEXT_PUBLIC_SITE_URL=https://thirdfuseenergy.com
+NEXT_PUBLIC_SITE_URL=https://thirdfuseenergycorp.com
 ```
 
 5. Start the development server:
@@ -324,7 +324,7 @@ This project is proprietary and confidential. © Third Fuse Energy Corp.
 ## 📞 Support
 
 For questions or support:
-- Email: support@thirdfuseenergy.com
+- Email: support@thirdfuseenergycorp.com
 - Phone: (555) 123-4567
 
 ---
