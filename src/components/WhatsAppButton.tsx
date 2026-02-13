@@ -7,8 +7,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-/** TODO: Replace with your WhatsApp Business number (digits only, with country code) */
-const WHATSAPP_NUMBER = 'REPLACE_WITH_NUMBER';
+const WHATSAPP_NUMBER = '919751859316';
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
 const TOOLTIP_STORAGE_KEY = 'whatsapp-tooltip-dismissed';
 const TOOLTIP_DELAY_MS = 5000;
