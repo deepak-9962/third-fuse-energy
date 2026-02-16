@@ -150,7 +150,7 @@ export async function sendContactEmail(data: ContactFormData): Promise<{ success
     const recipient = getRecipientEmail();
 
     const { error } = await resend.emails.send({
-      from: 'Third Fuse Energy <onboarding@resend.dev>',
+      from: 'Third Fuse Energy <noreply@thirdfuseenergycorp.com>',
       to: [recipient],
       replyTo: data.email,
       subject: 'New Solar Consultation Request',
