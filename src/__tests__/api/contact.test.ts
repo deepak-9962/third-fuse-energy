@@ -4,11 +4,12 @@
 import { createMocks } from 'node-mocks-http';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-// Mock nodemailer before importing the handler
-jest.mock('nodemailer', () => ({
-  createTransport: jest.fn().mockReturnValue({
-    sendMail: jest.fn().mockResolvedValue({ messageId: 'test-id' }),
-  }),
+// Mock Resend before importing the handler
+const mockSend = jest.fn().mockResolvedValue({ data: { id: 'test-id' }, error: null });
+jest.mock('resend', () => ({
+  Resend: jest.fn().mockImplementation(() => ({
+    emails: { send: mockSend },
+  })),
 }));
 
 // Import handler after mocking
@@ -25,10 +26,7 @@ const withIp = (ip: string) => ({
 beforeAll(() => {
   process.env = {
     ...ORIGINAL_ENV,
-    EMAIL_SMTP_HOST: 'smtp.test',
-    EMAIL_SMTP_PORT: '587',
-    EMAIL_SMTP_USER: 'user@test',
-    EMAIL_SMTP_PASS: 'pass',
+    RESEND_API_KEY: 're_test_123456789',
     FORM_RECIPIENT_EMAIL: 'recipient@test',
   };
 });
@@ -131,10 +129,7 @@ describe('/api/contact', () => {
   });
 
   it('handles email sending failure gracefully', async () => {
-    const nodemailer = require('nodemailer');
-    nodemailer.createTransport.mockReturnValueOnce({
-      sendMail: jest.fn().mockRejectedValue(new Error('SMTP error')),
-    });
+    mockSend.mockResolvedValueOnce({ data: null, error: { message: 'API error', name: 'api_error' } });
 
     const { req, res } = createMocks<NextApiRequest, NextApiResponse>({
       method: 'POST',

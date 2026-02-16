@@ -1,9 +1,9 @@
 /**
  * Email utility for contact form handling
- * Uses nodemailer for SMTP-based email delivery
+ * Uses Resend API for email delivery
  */
 
-import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
 
 export interface ContactFormData {
   name: string;
@@ -14,48 +14,22 @@ export interface ContactFormData {
   message: string;
 }
 
-interface EmailConfig {
-  host: string;
-  port: number;
-  user: string;
-  pass: string;
-  recipient: string;
-}
-
-function getEmailConfig(): EmailConfig {
-  // Support both legacy and README-style env var names
-  const host = process.env.EMAIL_SMTP_HOST || process.env.SMTP_HOST;
-  const portRaw = process.env.EMAIL_SMTP_PORT || process.env.SMTP_PORT || '587';
-  const port = Number.parseInt(portRaw, 10);
-  const user = process.env.EMAIL_SMTP_USER || process.env.SMTP_USER;
-  const pass =
-    process.env.EMAIL_SMTP_PASS ||
-    process.env.SMTP_PASSWORD ||
-    process.env.SMTP_PASS;
-  const recipient =
-    process.env.FORM_RECIPIENT_EMAIL ||
-    process.env.CONTACT_EMAIL ||
-    'deepak5122d@gmail.com';
-
-  if (!host || !user || !pass || Number.isNaN(port)) {
+function getResendClient(): Resend {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
     throw new Error(
-      'Email configuration is incomplete. Set EMAIL_SMTP_HOST/SMTP_HOST, EMAIL_SMTP_PORT/SMTP_PORT, EMAIL_SMTP_USER/SMTP_USER, and EMAIL_SMTP_PASS/SMTP_PASSWORD.'
+      'RESEND_API_KEY environment variable is not set. Please add it in your Vercel project settings.'
     );
   }
-
-  return { host, port, user, pass, recipient };
+  return new Resend(apiKey);
 }
 
-function createTransporter(config: EmailConfig) {
-  return nodemailer.createTransport({
-    host: config.host,
-    port: config.port,
-    secure: config.port === 465,
-    auth: {
-      user: config.user,
-      pass: config.pass,
-    },
-  });
+function getRecipientEmail(): string {
+  return (
+    process.env.FORM_RECIPIENT_EMAIL ||
+    process.env.CONTACT_EMAIL ||
+    'deepak5122d@gmail.com'
+  );
 }
 
 function formatEmailBody(data: ContactFormData): string {
@@ -172,20 +146,23 @@ function escapeHtml(text: string): string {
 
 export async function sendContactEmail(data: ContactFormData): Promise<{ success: boolean; error?: string }> {
   try {
-    const config = getEmailConfig();
-    const transporter = createTransporter(config);
+    const resend = getResendClient();
+    const recipient = getRecipientEmail();
 
-    const mailOptions = {
-      from: `"Third Fuse Energy Website" <${config.user}>`,
-      to: config.recipient,
+    const { error } = await resend.emails.send({
+      from: 'Third Fuse Energy <onboarding@resend.dev>',
+      to: [recipient],
       replyTo: data.email,
-      subject: `New Contact Form Submission from ${data.name}`,
+      subject: 'New Solar Consultation Request',
       text: formatEmailBody(data),
       html: formatEmailHTML(data),
-    };
+    });
 
-    await transporter.sendMail(mailOptions);
-    
+    if (error) {
+      console.error('Resend API error:', error);
+      return { success: false, error: error.message };
+    }
+
     return { success: true };
   } catch (error) {
     console.error('Failed to send contact email:', error);
