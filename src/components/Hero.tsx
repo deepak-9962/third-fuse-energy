@@ -10,7 +10,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useRef, useEffect } from 'react';
-import { heroTitle, heroSubtitle, heroCTA, heroImage } from '@/lib/motion';
+import { heroTitle, heroTitleAccent, heroSubtitle, heroCTA, heroImage } from '@/lib/motion';
 
 interface HeroProps {
   title: string;
@@ -19,6 +19,7 @@ interface HeroProps {
   ctaHref?: string;
   ctaSecondary?: string;
   ctaSecondaryHref?: string;
+  titleAccent?: string; // Second line of title in accent color
   image?: string;
   videoSrc?: string;
   videoSources?: string[]; // Array of video URLs for carousel
@@ -32,6 +33,7 @@ export default function Hero({
   ctaHref = '/contact',
   ctaSecondary,
   ctaSecondaryHref = '/services',
+  titleAccent,
   image,
   videoSrc,
   videoSources,
@@ -87,7 +89,7 @@ export default function Hero({
   }, [currentVideoIndex, videos]);
   
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-br from-[#011d4f] via-[#02399C] to-[#023078] pt-32">
+    <section className="relative min-h-[90vh] flex items-end overflow-hidden bg-gradient-to-br from-[#011d4f] via-[#02399C] to-[#023078] pt-32">
       {/* Background Video Carousel */}
       {videos.length > 0 && (
         <div className="absolute inset-0 z-[1]">
@@ -114,45 +116,50 @@ export default function Hero({
         </div>
       )}
 
-      <div className="container-content relative z-10 py-16 md:py-24">
+      <div className="container-content relative z-10 pb-20 md:pb-28 pt-16 md:pt-24">
         {showContent && (
           <>
             <motion.h1
               variants={heroTitle}
               initial="hidden"
               animate="visible"
-              className={`font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-6 max-w-3xl ${hasDarkBackground ? 'text-white' : 'text-text'}`}
+              className={`font-heading text-3xl md:text-4xl lg:text-5xl font-black max-w-3xl tracking-tight ${hasDarkBackground ? 'text-white' : 'text-text'}`}
             >
               {title}
             </motion.h1>
 
-            <motion.p
-              variants={heroSubtitle}
-              initial="hidden"
-              animate="visible"
-              className={`text-lg md:text-xl mb-10 max-w-2xl ${hasDarkBackground ? 'text-white/80' : 'text-text-light'}`}
-            >
-              {subtitle}
-            </motion.p>
-
-            <motion.div
-              variants={heroCTA}
-              initial="hidden"
-              animate="visible"
-              className="flex flex-wrap gap-4"
-            >
-              <Link href={ctaHref} className="btn-primary text-lg px-8 py-3">
-                {cta}
-              </Link>
-              {ctaSecondary && (
-                <Link
-                  href={ctaSecondaryHref}
-                  className={`btn-secondary text-lg px-8 py-3 ${hasDarkBackground ? 'border-2 border-white text-white bg-white/10 hover:bg-white/20' : ''}`}
+            {titleAccent && (
+              <>
+                {/* Decorative accent line */}
+                <motion.div
+                  initial={{ scaleX: 0, opacity: 0 }}
+                  animate={{ scaleX: 1, opacity: 1 }}
+                  transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1], delay: 0.3 }}
+                  className="origin-left w-16 h-1 bg-brand-red my-4 md:my-5 rounded-full"
+                />
+                <motion.p
+                  variants={heroTitleAccent}
+                  initial="hidden"
+                  animate="visible"
+                  className="font-heading text-3xl md:text-4xl lg:text-5xl font-black max-w-3xl tracking-tight text-white mb-6"
                 >
-                  {ctaSecondary}
-                </Link>
-              )}
-            </motion.div>
+                  {titleAccent}
+                </motion.p>
+              </>
+            )}
+
+            {subtitle && (
+              <motion.p
+                variants={heroSubtitle}
+                initial="hidden"
+                animate="visible"
+                className={`text-lg md:text-xl mb-10 max-w-2xl ${hasDarkBackground ? 'text-white/80' : 'text-text-light'}`}
+              >
+                {subtitle}
+              </motion.p>
+            )}
+
+
           </>
         )}
       </div>

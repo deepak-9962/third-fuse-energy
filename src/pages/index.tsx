@@ -42,9 +42,11 @@ export default function HomePage() {
       {/* Hero Section */}
       <Hero
         title={home.hero.title}
-        subtitle={home.hero.subtitle}
+        titleAccent={home.hero.titleAccent}
+        subtitle=""
         cta={home.hero.cta}
         ctaSecondary={home.hero.ctaSecondary}
+        showContent={true}
         image={home.hero.image}
         videoSources={[
           "/videos/hero-1.mp4",
