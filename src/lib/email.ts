@@ -147,11 +147,10 @@ function escapeHtml(text: string): string {
 export async function sendContactEmail(data: ContactFormData): Promise<{ success: boolean; error?: string }> {
   try {
     const resend = getResendClient();
-    const recipient = getRecipientEmail();
 
     const { error } = await resend.emails.send({
-      from: 'Third Fuse Energy <noreply@thirdfuseenergycorp.com>',
-      to: [recipient],
+      from: 'Third Fuse Website <noreply@thirdfuseenergycorp.com>',
+      to: ['bharani@thirdfuseenergycorp.com'],
       replyTo: data.email,
       subject: 'New Solar Consultation Request',
       text: formatEmailBody(data),
