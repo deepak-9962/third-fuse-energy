@@ -144,6 +144,58 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Founder Section */}
+      {about.founder && (
+        <section className="section-padding bg-white">
+          <div className="container-content">
+            <div className="flex flex-col md:flex-row gap-12 items-center md:items-start max-w-5xl mx-auto">
+              <motion.div
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={viewportOnce}
+                className="relative w-48 h-48 md:w-64 md:h-64 shrink-0 bg-muted rounded-full overflow-hidden shadow-xl flex items-center justify-center"
+              >
+                <Image
+                  src="/images/founder-avatar.svg"
+                  alt={about.founder.name}
+                  width={120}
+                  height={120}
+                  className="object-contain opacity-50"
+                />
+              </motion.div>
+              <motion.div
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={viewportOnce}
+                className="flex-1 text-center md:text-left"
+              >
+                <motion.h2 variants={staggerItem} className="heading-accent">
+                  {about.founder.title}
+                </motion.h2>
+                <motion.div variants={staggerItem} className="mt-6">
+                  <h3 className="text-2xl font-heading font-bold text-gray-900">
+                    {about.founder.name}
+                  </h3>
+                  <p className="text-brand font-medium text-lg mt-1">
+                    {about.founder.role}
+                  </p>
+                  <p className="text-gray-500 text-sm mt-1">
+                    {about.founder.qualification}
+                  </p>
+                </motion.div>
+                <motion.div variants={staggerItem} className="mt-6">
+                  <p className="text-lg text-gray-700 leading-relaxed">
+                    {about.founder.bio}
+                  </p>
+                </motion.div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Certifications Section */}
       {about.certifications && about.certifications.length > 0 && (
       <section className="section-padding bg-white">

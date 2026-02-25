@@ -13,6 +13,14 @@
       "state": "Tamil Nadu",
       "zip": "600048",
       "country": "India"
+    },
+    "secondAddress": {
+      "street": "107/A Dharga Road, Zamin Pallavaram",
+      "area": "Near Canara Bank",
+      "city": "Pallavaram, Chennai",
+      "state": "Tamil Nadu",
+      "zip": "600043",
+      "country": "India"
     }
   },
   "navigation": {

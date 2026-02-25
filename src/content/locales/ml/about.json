@@ -12,7 +12,8 @@
     "content": [
       "Third Fuse Energy Corp delivers innovative solar energy solutions for homes, offices, industries, and farms. With premium products, expert installation, and end-to-end project management, we are powering a sustainable future — one solar panel at a time.",
       "We bring the power of the sun to every space — from homes to industries — with reliable, cost-saving solar solutions. Together, we create a greener tomorrow by making clean energy accessible to all.",
-      "Our commitment to quality and customer satisfaction has made us a trusted name in the solar industry, serving hundreds of happy clients across Tamil Nadu and beyond."
+      "Our commitment to quality and customer satisfaction has made us a trusted name in the solar industry, serving hundreds of happy clients across Tamil Nadu and beyond.",
+      "Founded by D.BHARANIDHARAN (B.Tech CSC), Third Fuse Energy is driven by a passion for sustainable technology and a commitment to delivering the best solar solutions."
     ],
     "image": "/images/about/team-photo.jpg"
   },
@@ -44,6 +45,14 @@
     { "value": "100+", "label": "Projects Completed" },
     { "value": "7+", "label": "Years Experience" }
   ],
+  "founder": {
+    "title": "Meet Our Founder",
+    "name": "D.BHARANIDHARAN",
+    "role": "Founder & CEO",
+    "qualification": "B.Tech CSC",
+    "bio": "D.BHARANIDHARAN (B.Tech CSC) founded Third Fuse Energy with a passion for sustainable technology and a commitment to delivering the best solar solutions.",
+    "image": "/images/founder.png"
+  },
   "cta": {
     "title": "Join the Solar Revolution",
     "subtitle": "Ready to work with a team that puts quality and service first?",
