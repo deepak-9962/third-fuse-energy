@@ -110,6 +110,7 @@ export default function HomePage() {
                   title={service.title}
                   summary={service.summary}
                   href={service.href}
+                  image={service.image}
                 />
               </motion.div>
             ))}

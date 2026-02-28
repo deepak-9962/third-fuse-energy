@@ -7,6 +7,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { hoverLift, iconMicroRotate } from '@/lib/motion';
 import { cn } from '@/lib/utils';
@@ -18,6 +19,7 @@ interface ServiceCardProps {
   href: string;
   variant?: 'default' | 'compact';
   subsidyEligible?: boolean;
+  image?: string;
 }
 
 // Icon mapping
@@ -66,7 +68,8 @@ export default function ServiceCard({
   summary,
   href,
   variant = 'default',
-  subsidyEligible
+  subsidyEligible,
+  image
 }: ServiceCardProps) {
   const props = { icon, title, summary, href, variant, subsidyEligible }; // Ensure props usage
   return (
@@ -74,10 +77,24 @@ export default function ServiceCard({
       <Link
         href={href}
         className={cn(
-          'group flex flex-col card card-hover h-full min-h-[280px]',
+          'group relative flex flex-col card card-hover h-full min-h-[280px] overflow-hidden',
           variant === 'default' ? 'p-6 md:p-8' : 'p-5'
         )}
       >
+        {/* Blurred background image */}
+        {image && (
+          <div className="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
+            <Image
+              src={image}
+              alt=""
+              fill
+              className="object-cover blur-xl scale-125 opacity-[0.15] transition-opacity duration-300 group-hover:opacity-[0.25]"
+              sizes="(max-width: 768px) 100vw, 33vw"
+            />
+            <div className="absolute inset-0 bg-white/70" />
+          </div>
+        )}
+
         {/* Icon */}
         <motion.div
           {...iconMicroRotate}

@@ -69,6 +69,7 @@ export default function ServicesPage() {
                   summary={service.summary}
                   href={`/services/${service.id}`}
                   subsidyEligible={service.subsidyEligible}
+                  image={service.image}
                 />
               </motion.div>
             ))}

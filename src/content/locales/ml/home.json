@@ -13,28 +13,32 @@
       "title": "Roof Top Residential Solar",
       "summary": "Solar power solutions designed for homes to reduce electricity bills and provide long-term clean energy.",
       "icon": "home",
-      "href": "/services/residential"
+      "href": "/services/residential",
+      "image": "/images/services/residential.png"
     },
     {
       "id": "commercial",
       "title": "Commercial Solar",
       "summary": "Rooftop and ground-mounted solar systems for offices, retail, and commercial buildings.",
       "icon": "building",
-      "href": "/services/commercial"
+      "href": "/services/commercial",
+      "image": "/images/services/commercial.png"
     },
     {
       "id": "industrial",
       "title": "Industrial Solar",
       "summary": "High-capacity solar installations for factories and large facilities.",
       "icon": "factory",
-      "href": "/services/industrial"
+      "href": "/services/industrial",
+      "image": "/images/services/industrial.png"
     },
     {
       "id": "specialized",
       "title": "Specialized Solar",
       "summary": "Custom solar applications for unique energy needs including car sheds and pump systems.",
       "icon": "zap",
-      "href": "/services/specialized"
+      "href": "/services/specialized",
+      "image": "/images/services/specialized.png"
     }
   ],
   "whyChooseUs": {
