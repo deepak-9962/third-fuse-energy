@@ -88,10 +88,10 @@ export default function ServiceCard({
               src={image}
               alt=""
               fill
-              className="object-cover blur-xl scale-125 opacity-[0.15] transition-opacity duration-300 group-hover:opacity-[0.25]"
+              className="object-cover blur-2xl scale-125 opacity-[0.08] transition-opacity duration-300 group-hover:opacity-[0.15]"
               sizes="(max-width: 768px) 100vw, 33vw"
             />
-            <div className="absolute inset-0 bg-white/70" />
+            <div className="absolute inset-0 bg-white/90" />
           </div>
         )}
 
@@ -99,7 +99,7 @@ export default function ServiceCard({
         <motion.div
           {...iconMicroRotate}
           className={cn(
-            'flex items-center justify-center rounded-xl bg-brand/10 text-brand transition-colors duration-300 group-hover:bg-brand group-hover:text-white',
+            'relative z-10 flex items-center justify-center rounded-xl bg-brand/10 text-brand transition-colors duration-300 group-hover:bg-brand group-hover:text-white',
             variant === 'default' ? 'w-14 h-14' : 'w-12 h-12'
           )}
         >
@@ -109,7 +109,7 @@ export default function ServiceCard({
         {/* Content */}
         <h3
           className={cn(
-            'font-heading font-semibold text-text mt-4',
+            'relative z-10 font-heading font-semibold text-text mt-4',
             variant === 'default' ? 'text-xl' : 'text-lg'
           )}
         >
@@ -118,7 +118,7 @@ export default function ServiceCard({
 
         <p
           className={cn(
-            'text-text-light mt-2 flex-grow',
+            'relative z-10 text-text-light mt-2 flex-grow',
             variant === 'default' ? 'text-base' : 'text-sm'
           )}
         >
@@ -127,7 +127,7 @@ export default function ServiceCard({
         
         {/* Subsidy Badge */}
         {props.subsidyEligible && (
-          <div className="mt-4 flex items-center gap-1.5 text-xs font-semibold text-brand-dark bg-brand/10 w-fit px-2.5 py-1 rounded-md">
+          <div className="relative z-10 mt-4 flex items-center gap-1.5 text-xs font-semibold text-brand-dark bg-brand/10 w-fit px-2.5 py-1 rounded-md">
              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>
              Eligible for Subsidy
           </div>
@@ -135,11 +135,11 @@ export default function ServiceCard({
         
         {/* Spacer for cards without subsidy badge */}
         {!props.subsidyEligible && (
-          <div className="mt-4 h-6"></div>
+          <div className="relative z-10 mt-4 h-6"></div>
         )}
 
         {/* Arrow */}
-        <div className="mt-auto pt-4 flex items-center text-brand font-medium text-sm group-hover:gap-2 transition-all duration-300">
+        <div className="relative z-10 mt-auto pt-4 flex items-center text-brand font-medium text-sm group-hover:gap-2 transition-all duration-300">
           <span>Learn more</span>
           <svg
             className="w-4 h-4 ml-1 transform transition-transform duration-300 group-hover:translate-x-1"
