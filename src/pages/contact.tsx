@@ -191,18 +191,32 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Map Section (placeholder) */}
-      <section className="h-80 bg-gradient-to-br from-gray-100 to-gray-200 relative">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center">
-            <svg className="w-16 h-16 text-brand/40 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-            <p className="text-gray-800 font-semibold">Map integration available</p>
-            <p className="text-sm text-gray-600 mt-1">Add Google Maps or Mapbox embed here</p>
-          </div>
-        </div>
+      {/* Map Section */}
+      <section className="h-96 relative">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.123!2d80.1635!3d12.8847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDUzJzA1LjEiTiA4MMKwMDknNDguNiJF!5e0!3m2!1sen!2sin!4v1!5m2!1sen!2sin&q=New+No+3/446+Thiruvallur+Street+Muthamizh+Nagar+GST+Road+Vandalur+Chennai+600048"
+          width="100%"
+          height="100%"
+          style={{ border: 0 }}
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          title="Third Fuse Energy Corp - Office Location"
+          className="absolute inset-0"
+        />
+        <a
+          href="https://www.google.com/maps/search/New+No+3%2F446+Thiruvallur+Street+Muthamizh+Nagar+GST+Road+Vandalur+Chennai+600048"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="absolute bottom-4 right-4 z-10 inline-flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-lg text-brand font-semibold text-sm hover:bg-brand hover:text-white transition-colors"
+          aria-label="Open in Google Maps"
+        >
+          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          Open in Google Maps
+        </a>
       </section>
     </>
   );
