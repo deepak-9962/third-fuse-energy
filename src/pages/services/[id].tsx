@@ -120,99 +120,116 @@ export default function ServiceDetailPage() {
         </div>
       </section>
 
-      {/* Main Content */}
-      <section className="section-padding bg-white">
-        <div className="container-content">
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            {/* Details */}
+      {/* Blurred service background wrapper */}
+      <div className="relative overflow-hidden">
+        {/* Blurred background image layer */}
+        <div className="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
+          <Image
+            src={service.image}
+            alt=""
+            fill
+            className="object-cover blur-3xl scale-110 opacity-[0.12]"
+            sizes="100vw"
+            priority={false}
+          />
+          {/* White overlay for readability */}
+          <div className="absolute inset-0 bg-white/80" />
+        </div>
+
+        {/* Main Content */}
+        <section className="section-padding relative z-10">
+          <div className="container-content">
+            <div className="grid lg:grid-cols-2 gap-12 items-start">
+              {/* Details */}
+              <motion.div
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={viewportOnce}
+              >
+                <h2 className="text-h2 heading-accent mb-6">About This Service</h2>
+                <p className="text-lg text-gray-600 leading-relaxed">{service.description}</p>
+
+                {service.subsidyEligible && (
+                  <div className="mt-6 inline-flex items-center gap-2 px-4 py-2 bg-green-50 border border-green-200 rounded-lg text-green-700 text-sm font-medium">
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    Eligible for Government Subsidy
+                  </div>
+                )}
+
+                <div className="mt-10">
+                  <Link href="/contact" className="btn-primary text-lg px-8 py-4">
+                    Book a Free Consultation
+                  </Link>
+                </div>
+              </motion.div>
+
+              {/* Image */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={viewportOnce}
+                className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-surface"
+              >
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  priority
+                />
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Features */}
+        <section className="section-padding relative z-10">
+          <div className="container-content">
             <motion.div
-              variants={fadeUp}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={viewportOnce}
+              className="text-center mb-12"
+            >
+              <h2 className="text-h2 heading-accent">What&apos;s Included</h2>
+              <p className="mt-3 text-lg text-text-light">Everything you get with our {service.title.toLowerCase()} solution</p>
+            </motion.div>
+
+            <motion.div
+              variants={staggerContainer}
               initial="hidden"
               whileInView="visible"
               viewport={viewportOnce}
+              className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto"
             >
-              <h2 className="text-h2 heading-accent mb-6">About This Service</h2>
-              <p className="text-lg text-gray-600 leading-relaxed">{service.description}</p>
-
-              {service.subsidyEligible && (
-                <div className="mt-6 inline-flex items-center gap-2 px-4 py-2 bg-green-50 border border-green-200 rounded-lg text-green-700 text-sm font-medium">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              {service.features.map((feature: string, idx: number) => (
+                <motion.div
+                  key={idx}
+                  variants={staggerItem}
+                  className="flex items-start gap-3 bg-white/90 backdrop-blur-sm rounded-xl p-5 shadow-sm"
+                >
+                  <svg
+                    className="w-6 h-6 text-green-500 mt-0.5 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clipRule="evenodd"
+                    />
                   </svg>
-                  Eligible for Government Subsidy
-                </div>
-              )}
-
-              <div className="mt-10">
-                <Link href="/contact" className="btn-primary text-lg px-8 py-4">
-                  Book a Free Consultation
-                </Link>
-              </div>
-            </motion.div>
-
-            {/* Image */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={viewportOnce}
-              className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-surface"
-            >
-              <Image
-                src={service.image}
-                alt={service.title}
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                priority
-              />
+                  <span className="text-gray-700 font-medium">{feature}</span>
+                </motion.div>
+              ))}
             </motion.div>
           </div>
-        </div>
-      </section>
-
-      {/* Features */}
-      <section className="section-padding bg-surface">
-        <div className="container-content">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={viewportOnce}
-            className="text-center mb-12"
-          >
-            <h2 className="text-h2 heading-accent">What&apos;s Included</h2>
-            <p className="mt-3 text-lg text-text-light">Everything you get with our {service.title.toLowerCase()} solution</p>
-          </motion.div>
-
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportOnce}
-            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto"
-          >
-            {service.features.map((feature: string, idx: number) => (
-              <motion.div
-                key={idx}
-                variants={staggerItem}
-                className="flex items-start gap-3 bg-white rounded-xl p-5 shadow-sm"
-              >
-                <svg
-                  className="w-6 h-6 text-green-500 mt-0.5 flex-shrink-0"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span className="text-gray-700 font-medium">{feature}</span>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
+        </section>
+      </div>
 
       {/* CTA */}
       <section className="py-20 bg-brand text-white">
