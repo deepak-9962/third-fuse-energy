@@ -88,10 +88,10 @@ export default function ServiceCard({
               src={image}
               alt=""
               fill
-              className="object-cover blur-2xl scale-125 opacity-[0.08] transition-opacity duration-300 group-hover:opacity-[0.15]"
+              className="object-cover blur-md scale-110 opacity-20 transition-opacity duration-300 group-hover:opacity-30"
               sizes="(max-width: 768px) 100vw, 33vw"
             />
-            <div className="absolute inset-0 bg-white/90" />
+            <div className="absolute inset-0 bg-gradient-to-br from-white/60 via-white/50 to-white/40" />
           </div>
         )}
 
