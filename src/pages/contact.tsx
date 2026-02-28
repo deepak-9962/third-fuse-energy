@@ -194,7 +194,7 @@ export default function ContactPage() {
       {/* Map Section */}
       <section className="h-96 relative">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.123!2d80.1635!3d12.8847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDUzJzA1LjEiTiA4MMKwMDknNDguNiJF!5e0!3m2!1sen!2sin!4v1!5m2!1sen!2sin&q=New+No+3/446+Thiruvallur+Street+Muthamizh+Nagar+GST+Road+Vandalur+Chennai+600048"
+          src="https://maps.google.com/maps?q=New+No+3/446+Old+No+1/492+Thiruvallur+Street+Muthamizh+Nagar+GST+Road+Vandalur+Gate+Chennai+600048&t=&z=15&ie=UTF8&iwloc=&output=embed"
           width="100%"
           height="100%"
           style={{ border: 0 }}
@@ -205,7 +205,7 @@ export default function ContactPage() {
           className="absolute inset-0"
         />
         <a
-          href="https://www.google.com/maps/search/New+No+3%2F446+Thiruvallur+Street+Muthamizh+Nagar+GST+Road+Vandalur+Chennai+600048"
+          href="https://www.google.com/maps/search/New+No+3%2F446+Old+No+1%2F492+Thiruvallur+Street+Muthamizh+Nagar+GST+Road+Vandalur+Gate+Chennai+600048"
           target="_blank"
           rel="noopener noreferrer"
           className="absolute bottom-4 right-4 z-10 inline-flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-lg text-brand font-semibold text-sm hover:bg-brand hover:text-white transition-colors"
