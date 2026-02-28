@@ -145,7 +145,7 @@ export default function Header({ navItems }: HeaderProps) {
               <Link
                 href={item.href}
                 className={cn(
-                  'px-4 py-2 rounded-lg font-medium text-base transition-all duration-fast',
+                  'px-4 py-2 rounded-lg font-medium text-base whitespace-nowrap transition-all duration-fast',
                   isScrolled
                     ? isActive(item.href)
                       ? 'text-brand bg-brand/10'
@@ -163,7 +163,7 @@ export default function Header({ navItems }: HeaderProps) {
             <Link 
               href="/contact" 
               className={cn(
-                'inline-flex items-center text-base font-semibold rounded-full bg-brand text-white shadow-lg shadow-brand/30 hover:bg-brand-dark hover:shadow-xl hover:shadow-brand/40 hover:scale-105 transition-all duration-200',
+                'inline-flex items-center text-base font-semibold whitespace-nowrap rounded-full bg-brand text-white shadow-lg shadow-brand/30 hover:bg-brand-dark hover:shadow-xl hover:shadow-brand/40 hover:scale-105 transition-all duration-200',
                 isScrolled ? 'py-2.5 px-6 scale-105' : 'py-2 px-5'
               )}
             >
