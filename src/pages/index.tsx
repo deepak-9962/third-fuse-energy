@@ -51,7 +51,7 @@ export default function HomePage() {
         videoSources={[
           "/videos/hero-1.mp4",
           "/videos/hero-2.mp4",
-          "/videos/hero-3.mp4",
+          "/videos/hero-3v2.mp4",
           "/videos/hero-4.mp4",
         ]}
       />
