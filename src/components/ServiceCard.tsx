@@ -88,10 +88,10 @@ export default function ServiceCard({
               src={image}
               alt=""
               fill
-              className="object-cover blur-xl scale-125 opacity-80 transition-opacity duration-300 group-hover:opacity-90"
+              className="object-cover blur-xl scale-125 opacity-70 transition-opacity duration-300 group-hover:opacity-80"
               sizes="(max-width: 768px) 100vw, 33vw"
             />
-            <div className="absolute inset-0 bg-white/20" />
+            <div className="absolute inset-0 bg-white/50" />
           </div>
         )}
 
@@ -118,7 +118,7 @@ export default function ServiceCard({
 
         <p
           className={cn(
-            'relative z-10 text-text-light mt-2 flex-grow',
+            'relative z-10 text-gray-800 mt-2 flex-grow',
             variant === 'default' ? 'text-base' : 'text-sm'
           )}
         >
