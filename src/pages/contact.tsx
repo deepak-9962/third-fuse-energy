@@ -194,7 +194,7 @@ export default function ContactPage() {
       {/* Map Section */}
       <section className="h-96 relative">
         <iframe
-          src="https://maps.google.com/maps?q=New+No+3/446+Old+No+1/492+Thiruvallur+Street+Muthamizh+Nagar+GST+Road+Vandalur+Gate+Chennai+600048&t=&z=15&ie=UTF8&iwloc=&output=embed"
+          src="https://maps.google.com/maps?q=1/492+Thiruvallur+street+Muthamizh+nagar+gst+road,+Vandalur+Rd,+Vandalur,+Chennai,+Tamil+Nadu+600048&t=&z=15&ie=UTF8&iwloc=&output=embed"
           width="100%"
           height="100%"
           style={{ border: 0 }}
@@ -205,7 +205,7 @@ export default function ContactPage() {
           className="absolute inset-0"
         />
         <a
-          href="https://www.google.com/maps/search/New+No+3%2F446+Old+No+1%2F492+Thiruvallur+Street+Muthamizh+Nagar+GST+Road+Vandalur+Gate+Chennai+600048"
+          href="https://www.google.com/maps/search/1%2F492+Thiruvallur+street+Muthamizh+nagar+gst+road,+Vandalur+Rd,+Vandalur,+Chennai,+Tamil+Nadu+600048"
           target="_blank"
           rel="noopener noreferrer"
           className="absolute bottom-4 right-4 z-10 inline-flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-lg text-brand font-semibold text-sm hover:bg-brand hover:text-white transition-colors"
