@@ -128,12 +128,12 @@ export default function ServiceDetailPage() {
             src={service.image}
             alt=""
             fill
-            className="object-cover blur-3xl scale-110 opacity-[0.12]"
+            className="object-cover blur-2xl scale-125 opacity-60"
             sizes="100vw"
             priority={false}
           />
           {/* White overlay for readability */}
-          <div className="absolute inset-0 bg-white/80" />
+          <div className="absolute inset-0 bg-white/40" />
         </div>
 
         {/* Main Content */}
