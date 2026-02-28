@@ -129,21 +129,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 2: Company */}
-          <div className="footer-col">
-            <h3 className="footer-heading">Company</h3>
-            <ul className="footer-links">
-              {COMPANY_LINKS.map((item) => (
-                <li key={item.href}>
-                  <Link href={item.href} className="footer-link">
-                    {item.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Column 3: Social + Translate */}
+          {/* Column 2: Social + Translate */}
           <div className="footer-col footer-col-right">
             <h3 className="footer-heading">Follow Us</h3>
             <div className="footer-social-row">
