@@ -21,7 +21,7 @@ export default function ContactPage() {
       />
 
       {/* Hero Section */}
-      <section className="pt-40 pb-20 bg-gradient-to-br from-[#0a1628] via-[#0B63D6] to-[#083a7a]">
+      <section data-page-hero className="pt-40 pb-20 bg-gradient-to-br from-[#0a1628] via-[#0B63D6] to-[#083a7a]">
         <div className="container-content">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -95,14 +95,14 @@ export default function ContactPage() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex-shrink-0 w-12 h-12 rounded-lg bg-brand/10 flex items-center justify-center hover:bg-brand/20 transition-colors cursor-pointer"
-                        aria-label="Open Second Office location in Google Maps"
+                        aria-label="Open Branch Office location in Google Maps"
                       >
                         <svg className="w-6 h-6 text-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                         </svg>
                       </a>
                       <div>
-                        <h3 className="font-semibold text-text">Second Office</h3>
+                        <h3 className="font-semibold text-text">Branch Office</h3>
                         <address className="not-italic text-text-light mt-1">
                           {company.secondAddress.street}<br />
                           {company.secondAddress.area && <>{company.secondAddress.area}<br /></>}

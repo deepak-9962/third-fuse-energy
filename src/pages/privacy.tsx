@@ -20,7 +20,7 @@ export default function PrivacyPage() {
         description="Learn about how Third Fuse Energy collects, uses, and protects your personal information."
       />
 
-      <section className="pt-12 pb-20 bg-gradient-hero">
+      <section data-page-hero className="pt-12 pb-20 bg-gradient-hero">
         <div className="container-content">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

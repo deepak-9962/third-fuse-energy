@@ -89,7 +89,7 @@ export default function Hero({
   }, [currentVideoIndex, videos]);
   
   return (
-    <section className="relative min-h-[90vh] flex items-end overflow-hidden bg-gradient-to-br from-[#011d4f] via-[#02399C] to-[#023078] pt-32">
+    <section data-page-hero className="relative min-h-[90vh] flex items-end overflow-hidden bg-gradient-to-br from-[#011d4f] via-[#02399C] to-[#023078] pt-32">
       {/* Background Video Carousel */}
       {videos.length > 0 && (
         <div className="absolute inset-0 z-[1]">

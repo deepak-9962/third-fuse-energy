@@ -34,7 +34,7 @@ export default function SubsidyPage() {
       />
 
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-br from-[#011d4f] via-[#02399C] to-[#023078] pt-32">
+      <section data-page-hero className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-br from-[#011d4f] via-[#02399C] to-[#023078] pt-32">
         <div className="container-content relative z-10 py-16 md:py-24">
           <div className="flex flex-col items-center justify-center text-center">
             <div className="max-w-3xl">

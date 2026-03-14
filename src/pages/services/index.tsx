@@ -38,7 +38,7 @@ export default function ServicesPage() {
       />
 
       {/* Hero Section */}
-      <section className="pt-40 pb-20 bg-gradient-to-br from-[#0a1628] via-[#0B63D6] to-[#083a7a]">
+      <section data-page-hero className="pt-40 pb-20 bg-gradient-to-br from-[#0a1628] via-[#0B63D6] to-[#083a7a]">
         <div className="container-content">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -59,7 +59,7 @@ export default function ServicesPage() {
             initial="hidden"
             whileInView="visible"
             viewport={viewportOnce}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr"
+            className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6 auto-rows-fr"
           >
             {services.services.map((service: any) => (
               <motion.div key={service.id} variants={staggerItem} className="h-full">

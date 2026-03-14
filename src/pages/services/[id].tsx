@@ -83,7 +83,7 @@ export default function ServiceDetailPage() {
     return (
       <>
         <SEO title="Service Not Found" description="The requested service could not be found." />
-        <section className="pt-40 pb-20 text-center">
+        <section data-page-hero className="pt-40 pb-20 text-center">
           <div className="container-content">
             <h1 className="text-h1-mobile md:text-h1 text-text">Service Not Found</h1>
             <p className="mt-4 text-lg text-text-light">The service you&apos;re looking for doesn&apos;t exist.</p>
@@ -103,7 +103,7 @@ export default function ServiceDetailPage() {
       <SEO title={service.title} description={service.description} />
 
       {/* Hero */}
-      <section className="pt-40 pb-16 bg-gradient-to-br from-[#0a1628] via-[#0B63D6] to-[#083a7a]">
+      <section data-page-hero className="pt-40 pb-16 bg-gradient-to-br from-[#0a1628] via-[#0B63D6] to-[#083a7a]">
         <div className="container-content">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

@@ -23,6 +23,24 @@ interface HeaderProps {
   navItems?: NavItem[];
 }
 
+function computeHeaderTransitionThreshold(pathname: string): number {
+  const introSection = document.querySelector<HTMLElement>('[data-page-hero]');
+
+  if (introSection) {
+    const rect = introSection.getBoundingClientRect();
+    const introTop = window.scrollY + rect.top;
+    const introBottom = introTop + rect.height;
+    const headerOffset = window.innerWidth >= 768 ? 120 : 96;
+    return Math.max(0, introBottom - headerOffset);
+  }
+
+  if (pathname === '/') {
+    return Math.max(0, window.innerHeight * 0.9 - 100);
+  }
+
+  return 64;
+}
+
 export default function Header({ navItems }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -32,20 +50,33 @@ export default function Header({ navItems }: HeaderProps) {
   const items = navItems || siteData.navigation.main;
   const { company } = siteData;
 
-  // Handle scroll for floating nav effect - triggers when scrolling past hero
+  // Handle scroll for floating nav effect
   useEffect(() => {
-    const handleScroll = () => {
-      // Hero is 90vh, trigger transition ~100px before leaving hero
-      const heroThreshold = window.innerHeight * 0.9 - 100;
-      setIsScrolled(window.scrollY > heroThreshold);
+    let scrollThreshold = 0;
+
+    const syncScrollState = () => {
+      setIsScrolled(window.scrollY > scrollThreshold);
     };
 
-    // Check initial scroll position
-    handleScroll();
+    const updateThreshold = () => {
+      scrollThreshold = computeHeaderTransitionThreshold(router.pathname);
+      syncScrollState();
+    };
+
+    const handleScroll = () => {
+      syncScrollState();
+    };
+
+    updateThreshold();
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    window.addEventListener('resize', updateThreshold);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', updateThreshold);
+    };
+  }, [router.pathname]);
 
   // Close mobile menu on route change
   useEffect(() => {

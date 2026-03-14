@@ -20,7 +20,7 @@ export default function TermsPage() {
         description="Read the terms and conditions governing the use of Third Fuse Energy's website and services."
       />
 
-      <section className="pt-12 pb-20 bg-gradient-hero">
+      <section data-page-hero className="pt-12 pb-20 bg-gradient-hero">
         <div className="container-content">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
