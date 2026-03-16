@@ -23,24 +23,6 @@ interface HeaderProps {
   navItems?: NavItem[];
 }
 
-function computeHeaderTransitionThreshold(pathname: string): number {
-  const introSection = document.querySelector<HTMLElement>('[data-page-hero]');
-
-  if (introSection) {
-    const rect = introSection.getBoundingClientRect();
-    const introTop = window.scrollY + rect.top;
-    const introBottom = introTop + rect.height;
-    const headerOffset = window.innerWidth >= 768 ? 120 : 96;
-    return Math.max(0, introBottom - headerOffset);
-  }
-
-  if (pathname === '/') {
-    return Math.max(0, window.innerHeight * 0.9 - 100);
-  }
-
-  return 64;
-}
-
 export default function Header({ navItems }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -50,31 +32,18 @@ export default function Header({ navItems }: HeaderProps) {
   const items = navItems || siteData.navigation.main;
   const { company } = siteData;
 
-  // Handle scroll for floating nav effect
+  // Transition to floating header on first scroll to avoid content overlap
   useEffect(() => {
-    let scrollThreshold = 0;
-
-    const syncScrollState = () => {
-      setIsScrolled(window.scrollY > scrollThreshold);
-    };
-
-    const updateThreshold = () => {
-      scrollThreshold = computeHeaderTransitionThreshold(router.pathname);
-      syncScrollState();
-    };
-
     const handleScroll = () => {
-      syncScrollState();
+      setIsScrolled(window.scrollY > 0);
     };
 
-    updateThreshold();
+    handleScroll();
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('resize', updateThreshold);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', updateThreshold);
     };
   }, [router.pathname]);
 

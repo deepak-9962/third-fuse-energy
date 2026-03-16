@@ -35,7 +35,6 @@ export default function HomePage() {
   return (
     <>
       <SEO
-        title="Home"
         description={home.hero.subtitle}
       />
 

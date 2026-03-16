@@ -133,7 +133,7 @@ export default function SplashScreen({ phase, onComplete }: SplashScreenProps) {
             : { duration: 0.6, delay: 0.3, ease: [0.4, 0, 0.2, 1] }
         }
       >
-        <span className="splash-company-title">Third Fuse Energy</span>
+        <span className="splash-company-title">Third Fuse Energy Corp</span>
         <span className="splash-company-tagline">See the Light, Feel the Savings</span>
       </motion.div>
     </div>
